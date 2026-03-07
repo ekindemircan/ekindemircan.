@@ -28,228 +28,262 @@ nav {
   background: rgba(255,255,255,0.92); backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border);
 }
-.nav-logo { font-family: 'Fraunces', serif; font-size: 17px; color: var(--dp); letter-spacing: -0.3px; }
+.nav-logo { font-family: 'Fraunces', serif; font-size: 17px; color: var(--dp); }
 .nav-links { display: flex; gap: 36px; align-items: center; }
 .nav-links a { text-decoration: none; color: var(--muted); font-size: 12px; letter-spacing: 0.8px; text-transform: uppercase; transition: color 0.2s; }
 .nav-links a:hover { color: var(--dp); }
-.nav-cta { background: var(--dp) !important; color: #fff !important; padding: 9px 22px; border-radius: 100px; letter-spacing: 0.3px !important; }
+.nav-cta { background: var(--dp) !important; color: #fff !important; padding: 9px 22px; border-radius: 100px; }
 .nav-cta:hover { background: var(--lp) !important; }
 
-/* HERO */
+/* ── HERO / ABOUT ── */
 .hero {
   min-height: 100vh;
   display: grid; grid-template-columns: 1fr 1fr;
-  align-items: center; padding: 120px 64px 80px; gap: 60px;
+  align-items: center; padding: 140px 64px 100px; gap: 80px;
+  max-width: 1300px; margin: 0 auto;
+}
+.hero-photo-wrap {
+  display: flex; justify-content: center; align-items: center;
+}
+.hero-photo {
+  width: 380px; height: 460px;
+  border-radius: 24px;
+  object-fit: cover; object-position: center top;
+  box-shadow: 0 32px 80px rgba(86,67,118,0.2), 0 8px 24px rgba(0,0,0,0.1);
+  display: block;
 }
 .hero-eyebrow {
   display: inline-flex; align-items: center; gap: 8px;
   background: var(--pale2); border: 1px solid rgba(175,145,223,0.3);
   border-radius: 100px; padding: 6px 16px;
   font-size: 11px; font-weight: 500; letter-spacing: 1px;
-  text-transform: uppercase; color: var(--dp); margin-bottom: 28px;
+  text-transform: uppercase; color: var(--dp); margin-bottom: 20px;
 }
 .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--lp); flex-shrink: 0; }
-.hero h1 { font-family: 'Fraunces', serif; font-size: clamp(42px, 4.8vw, 70px); line-height: 1.05; letter-spacing: -2px; font-weight: 300; margin-bottom: 24px; }
-.hero h1 em { font-style: italic; color: var(--lp); }
-.hero-desc { color: var(--muted); font-size: 16px; line-height: 1.8; max-width: 420px; margin-bottom: 40px; font-weight: 300; }
-.hero-actions { display: flex; align-items: center; gap: 20px; }
-.btn-solid { background: var(--dp); color: #fff; padding: 14px 32px; border-radius: 100px; font-size: 13px; font-weight: 500; text-decoration: none; transition: all 0.25s; display: inline-block; }
-.btn-solid:hover { background: var(--lp); transform: translateY(-2px); }
-.btn-text { color: var(--muted); font-size: 13px; text-decoration: none; transition: color 0.2s; }
-.btn-text:hover { color: var(--dp); }
-
-/* HERO PHONES */
-.hero-phones { display: flex; gap: 14px; align-items: flex-start; justify-content: center; }
-.hphone {
-  width: 155px;
-  border-radius: 36px;
-  overflow: hidden;
-  box-shadow: 0 0 0 2px rgba(255,255,255,0.9), 0 24px 60px rgba(86,67,118,0.28), 0 8px 20px rgba(0,0,0,0.15);
-  flex-shrink: 0;
-  background: #12101a;
+.hero h1 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(38px, 4.2vw, 60px);
+  line-height: 1.1; letter-spacing: -1.5px;
+  font-weight: 300; margin-bottom: 20px;
 }
-.hphone.down { margin-top: 52px; }
-.hnotch { background: #12101a; height: 18px; display: flex; align-items: center; justify-content: center; }
-.hbar { width: 42px; height: 4px; background: #2a1e3a; border-radius: 2px; }
-.hphone img { width: 100%; display: block; }
+.hero h1 em { font-style: italic; color: var(--lp); }
+.hero-bio {
+  color: var(--muted); font-size: 15px; line-height: 1.85;
+  margin-bottom: 32px; font-weight: 300;
+}
+.hero-bio p { margin-bottom: 14px; }
+.hero-bio p:last-child { margin-bottom: 0; }
+.hero-bio strong { color: var(--ink); font-weight: 500; }
 
-/* SECTIONS */
-section { padding: 100px 64px; }
-.eyebrow { font-size: 11px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: var(--lp); margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
-.eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--lp); }
-.sec-title { font-family: 'Fraunces', serif; font-weight: 300; font-size: clamp(32px, 3.8vw, 52px); line-height: 1.1; letter-spacing: -1.5px; margin-bottom: 28px; }
-
-/* PROJECT INTRO */
-.project-intro {
-  max-width: 820px;
-  color: var(--muted);
-  font-size: 16px;
-  line-height: 1.85;
-  font-weight: 300;
-  margin-bottom: 64px;
-  padding: 28px 32px;
+/* Responsibility block */
+.resp-block {
   background: var(--pale2);
   border-left: 3px solid var(--lp);
   border-radius: 0 12px 12px 0;
+  padding: 18px 20px;
+  margin-bottom: 32px;
 }
-.project-intro strong { color: var(--ink); font-weight: 500; }
-
-/* WORK */
-#work { background: var(--pale); }
-
-.cat-label {
-  font-size: 11px; font-weight: 600; letter-spacing: 1.5px;
-  text-transform: uppercase; color: var(--dp);
-  margin: 56px 0 28px; display: flex; align-items: center; gap: 12px;
+.resp-block-label {
+  font-size: 10px; font-weight: 600; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--dp); margin-bottom: 12px;
 }
-.cat-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
-.cat-label:first-of-type { margin-top: 0; }
-
-/* SCREEN GRID */
-.screen-grid { display: grid; gap: 20px; max-width: 1280px; }
-.screen-grid.four { grid-template-columns: repeat(4, 1fr); }
-.screen-grid.three { grid-template-columns: repeat(3, 1fr); max-width: 980px; }
-
-/* SCREEN CARD */
-.scard {
-  background: #fff;
-  border-radius: 20px;
-  border: 1px solid var(--border);
-  overflow: hidden;
-  transition: transform 0.3s cubic-bezier(.25,.46,.45,.94), box-shadow 0.3s;
+.resp-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.resp-list li {
+  font-size: 13px; color: var(--muted); line-height: 1.6;
+  padding-left: 16px; position: relative; font-weight: 300;
 }
-.scard:hover { transform: translateY(-6px); box-shadow: 0 24px 60px rgba(86,67,118,0.13); }
-
-/* PHONE MOCKUP INSIDE CARD */
-.scard-preview {
-  padding: 28px 0 0;
-  display: flex; align-items: flex-end; justify-content: center;
-  min-height: 340px;
-  position: relative; overflow: hidden;
+.resp-list li::before {
+  content: '→'; position: absolute; left: 0;
+  color: var(--lp); font-size: 11px; top: 2px;
 }
-.scard-preview.bg-light { background: linear-gradient(160deg, #f0ebfc, #e4d8f8); }
-.scard-preview.bg-dark { background: linear-gradient(160deg, #1e1530, #2a1e42); }
-.scard-preview.bg-purple { background: linear-gradient(160deg, #c8b4f0, #a07ad8); }
 
-/* The phone frame inside card */
-.phone-frame {
-  width: 72%;
-  max-width: 180px;
-  background: #12101a;
-  border-radius: 28px 28px 0 0;
-  overflow: hidden;
-  box-shadow:
-    0 0 0 2px rgba(255,255,255,0.85),
-    0 -12px 40px rgba(0,0,0,0.3),
-    0 -4px 16px rgba(86,67,118,0.2);
-  position: relative;
-}
-.phone-frame .pf-notch {
-  background: #12101a;
-  height: 14px;
-  display: flex; align-items: center; justify-content: center;
-}
-.phone-frame .pf-bar { width: 36px; height: 3px; background: #2a1e3a; border-radius: 2px; }
-.phone-frame img { width: 100%; display: block; }
-
-/* popup cards: centered, floating */
-.scard-preview.popup-style { align-items: center; padding: 20px; }
-.scard-preview.popup-style .phone-frame {
-  border-radius: 28px;
-  box-shadow: 0 0 0 2px rgba(255,255,255,0.85), 0 16px 48px rgba(0,0,0,0.35);
-  width: 78%;
-}
-.scard-preview.popup-style .pf-notch { display: none; }
-
-.scard-info { padding: 20px 22px 22px; }
-.scard-tag { font-size: 10px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--lp); margin-bottom: 5px; }
-.scard-name { font-family: 'Fraunces', serif; font-size: 17px; font-weight: 300; line-height: 1.2; margin-bottom: 8px; letter-spacing: -0.3px; }
-.scard-desc { font-size: 12px; color: var(--muted); line-height: 1.7; font-weight: 300; }
-.pills { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 10px; }
-.pill { font-size: 10px; background: var(--pale2); color: var(--dp); border-radius: 100px; padding: 3px 11px; font-weight: 500; }
-
-/* ABOUT */
-.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; max-width: 1100px; }
-.about-text p { color: var(--muted); line-height: 1.9; margin-bottom: 18px; font-weight: 300; font-size: 16px; }
-.about-text p strong { color: var(--ink); font-weight: 500; }
-
-/* SKILLS GRID */
-.skills-grid { display: flex; flex-direction: column; gap: 32px; }
-
+/* Skills / Languages */
+.skills-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 32px; }
 .skill-block h4 {
   font-size: 10px; font-weight: 600; letter-spacing: 1.5px;
   text-transform: uppercase; color: var(--lp);
-  margin-bottom: 14px; display: flex; align-items: center; gap: 8px;
+  margin-bottom: 10px;
 }
-.skill-block h4::after { content: ''; flex: 1; height: 1px; background: var(--border); }
-
-.skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
 .skill-tag {
   background: var(--pale2); color: var(--dp);
-  border-radius: 100px; padding: 7px 16px;
-  font-size: 12px; border: 1px solid rgba(175,145,223,0.25);
-  font-weight: 400;
+  border-radius: 100px; padding: 5px 13px;
+  font-size: 12px; border: 1px solid rgba(175,145,223,0.2);
 }
-.skill-tag.highlight {
-  background: var(--dp); color: #fff;
-  border-color: var(--dp);
-}
-
-.lang-row { display: flex; flex-direction: column; gap: 10px; }
+.skill-tag.hi { background: var(--dp); color: #fff; border-color: var(--dp); }
+.lang-list { display: flex; flex-direction: column; gap: 7px; }
 .lang-item { display: flex; align-items: center; justify-content: space-between; }
-.lang-name { font-size: 13px; color: var(--ink); font-weight: 400; }
-.lang-level {
-  font-size: 10px; font-weight: 600; letter-spacing: 0.5px;
-  text-transform: uppercase; color: var(--muted);
-  background: var(--pale); border-radius: 100px; padding: 3px 10px;
+.lang-name { font-size: 13px; color: var(--ink); }
+.lang-lvl { font-size: 10px; font-weight: 600; color: var(--muted); background: var(--pale); border-radius: 100px; padding: 2px 10px; text-transform: uppercase; letter-spacing: 0.5px; }
+
+/* Hero CTA */
+.hero-actions { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.btn-solid { background: var(--dp); color: #fff; padding: 13px 28px; border-radius: 100px; font-size: 13px; font-weight: 500; text-decoration: none; transition: all 0.25s; display: inline-block; }
+.btn-solid:hover { background: var(--lp); transform: translateY(-2px); }
+.btn-outline { border: 1px solid var(--border); color: var(--muted); padding: 13px 28px; border-radius: 100px; font-size: 13px; text-decoration: none; transition: all 0.2s; }
+.btn-outline:hover { border-color: var(--dp); color: var(--dp); }
+
+/* ── SECTIONS ── */
+section { padding: 100px 64px; }
+.sec-inner { max-width: 1280px; margin: 0 auto; }
+.eyebrow { font-size: 11px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: var(--lp); margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
+.eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--lp); }
+.sec-title { font-family: 'Fraunces', serif; font-weight: 300; font-size: clamp(30px, 3.5vw, 48px); line-height: 1.1; letter-spacing: -1.5px; margin-bottom: 16px; }
+.sec-intro { color: var(--muted); font-size: 16px; line-height: 1.85; max-width: 760px; font-weight: 300; margin-bottom: 72px; }
+.sec-intro strong { color: var(--ink); font-weight: 500; }
+
+/* ── WORK ── */
+#work { background: var(--pale); }
+
+/* FEATURED ROW: left text, right image */
+.feat-row {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 64px; align-items: center;
+  padding: 56px 0;
+  border-top: 1px solid var(--border);
 }
+.feat-row:last-of-type { border-bottom: 1px solid var(--border); }
+.feat-row.flip { direction: rtl; }
+.feat-row.flip > * { direction: ltr; }
 
-/* PROCESS */
-#process { background: var(--pale); }
-.proc-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 18px; overflow: hidden; max-width: 1100px; }
-.pstep { background: #fff; padding: 36px 28px; }
-.pnum { font-family: 'Fraunces', serif; font-size: 50px; font-weight: 300; color: var(--pale2); line-height: 1; margin-bottom: 16px; }
-.pstep h3 { font-size: 14px; font-weight: 500; margin-bottom: 8px; }
-.pstep p { font-size: 12px; color: var(--muted); line-height: 1.75; font-weight: 300; }
+.feat-tag { font-size: 10px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--lp); margin-bottom: 10px; }
+.feat-title { font-family: 'Fraunces', serif; font-size: clamp(24px, 2.8vw, 36px); font-weight: 300; line-height: 1.15; letter-spacing: -0.8px; margin-bottom: 16px; }
+.feat-desc { font-size: 14px; color: var(--muted); line-height: 1.8; font-weight: 300; margin-bottom: 20px; }
+.pills { display: flex; flex-wrap: wrap; gap: 6px; }
+.pill { font-size: 10px; background: #fff; color: var(--dp); border-radius: 100px; padding: 4px 12px; font-weight: 500; border: 1px solid var(--border); }
 
-/* CONTACT */
-.contact-inner { max-width: 600px; }
-.contact-email { font-family: 'Fraunces', serif; font-size: clamp(24px, 3.2vw, 44px); color: var(--dp); font-weight: 300; letter-spacing: -1px; margin: 36px 0 52px; text-decoration: none; display: block; border-bottom: 2px solid var(--pale2); padding-bottom: 18px; transition: color 0.2s, border-color 0.2s; }
-.contact-email:hover { color: var(--lp); border-color: var(--lp); }
-.socials { display: flex; gap: 10px; flex-wrap: wrap; }
-.soc { padding: 11px 22px; border: 1px solid var(--border); border-radius: 100px; color: var(--muted); font-size: 13px; text-decoration: none; transition: all 0.2s; }
-.soc:hover { background: var(--dp); color: #fff; border-color: var(--dp); }
+/* Floating image */
+.feat-img-wrap { display: flex; justify-content: center; align-items: center; }
+.feat-img {
+  width: 68%;
+  max-width: 260px;
+  border-radius: 24px;
+  display: block;
+  box-shadow: 0 24px 64px rgba(86,67,118,0.18), 0 6px 20px rgba(0,0,0,0.1);
+  transition: transform 0.4s cubic-bezier(.25,.46,.45,.94), box-shadow 0.4s;
+  cursor: default;
+}
+.feat-img:hover { transform: translateY(-10px) scale(1.03); box-shadow: 0 40px 80px rgba(86,67,118,0.22), 0 10px 28px rgba(0,0,0,0.12); }
 
-footer { padding: 28px 64px; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
+/* POPUP GRID: 4 across, description below */
+.cat-section { margin-top: 80px; }
+.cat-label {
+  font-size: 11px; font-weight: 600; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--dp);
+  margin-bottom: 28px; display: flex; align-items: center; gap: 12px;
+}
+.cat-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+.popup-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.popup-grid.three { grid-template-columns: repeat(3, 1fr); max-width: 860px; }
+
+.pgcard { display: flex; flex-direction: column; gap: 0; }
+
+.pgcard-img {
+  border-radius: 20px;
+  overflow: hidden;
+  background: #fff;
+  display: flex; align-items: flex-end; justify-content: center;
+  padding: 24px 16px 0;
+  min-height: 300px;
+  box-shadow: 0 12px 40px rgba(86,67,118,0.12), 0 3px 12px rgba(0,0,0,0.06);
+  transition: transform 0.4s cubic-bezier(.25,.46,.45,.94), box-shadow 0.4s;
+  cursor: default;
+}
+.pgcard-img:hover { transform: translateY(-8px) scale(1.02); box-shadow: 0 28px 60px rgba(86,67,118,0.18), 0 8px 20px rgba(0,0,0,0.1); }
+.pgcard-img img {
+  width: 78%;
+  max-width: 200px;
+  border-radius: 16px 16px 0 0;
+  display: block;
+}
+/* for popup-style (full rounded) */
+.pgcard-img.float { align-items: center; padding: 20px; min-height: 300px; }
+.pgcard-img.float img { border-radius: 16px; width: 84%; }
+
+.pgcard-info { padding: 18px 4px 0; }
+.pgcard-tag { font-size: 10px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--lp); margin-bottom: 5px; }
+.pgcard-name { font-family: 'Fraunces', serif; font-size: 16px; font-weight: 300; line-height: 1.2; margin-bottom: 6px; letter-spacing: -0.3px; }
+.pgcard-desc { font-size: 12px; color: var(--muted); line-height: 1.65; font-weight: 300; }
+
+/* two-card special row */
+.two-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 700px; }
+
+/* ── CONTACT ── */
+#contact { background: var(--pale); }
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; max-width: 900px; }
+.contact-left .sec-title { margin-bottom: 8px; }
+.contact-desc { color: var(--muted); font-size: 15px; line-height: 1.8; font-weight: 300; margin-bottom: 40px; }
+.contact-links { display: flex; flex-direction: column; gap: 12px; }
+.clink {
+  display: flex; align-items: center; gap: 14px;
+  text-decoration: none; color: var(--ink);
+  font-size: 15px; padding: 16px 20px;
+  background: #fff; border-radius: 14px;
+  border: 1px solid var(--border);
+  transition: all 0.2s; font-weight: 400;
+}
+.clink:hover { border-color: var(--dp); background: var(--dp); color: #fff; }
+.clink:hover .clink-icon { background: rgba(255,255,255,0.15); color: #fff; }
+.clink-icon {
+  width: 36px; height: 36px; border-radius: 10px;
+  background: var(--pale2); display: flex; align-items: center; justify-content: center;
+  font-size: 16px; flex-shrink: 0; transition: all 0.2s;
+}
+.clink-text { flex: 1; }
+.clink-label { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.8px; font-weight: 500; display: block; margin-bottom: 2px; }
+.clink:hover .clink-label { color: rgba(255,255,255,0.7); }
+.clink-val { font-size: 14px; }
+.clink-arrow { color: var(--muted); font-size: 14px; }
+.clink:hover .clink-arrow { color: rgba(255,255,255,0.7); }
+
+/* availability badge */
+.avail {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: #f0fdf4; border: 1px solid #bbf7d0;
+  border-radius: 100px; padding: 8px 16px;
+  font-size: 12px; color: #166534; font-weight: 500;
+  margin-bottom: 32px;
+}
+.avail-dot { width: 7px; height: 7px; border-radius: 50%; background: #22c55e; animation: pulse 2s infinite; }
+@keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.4;} }
+
+footer { padding: 28px 64px; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; max-width: 100%; }
 .fl { font-family: 'Fraunces', serif; font-size: 15px; color: var(--dp); }
 .fc { font-size: 12px; color: var(--muted); }
 
 /* ANIMATIONS */
-@keyframes fadeUp { from { opacity:0; transform:translateY(22px); } to { opacity:1; transform:translateY(0); } }
-.hero-left > * { opacity:0; animation: fadeUp 0.7s ease forwards; }
-.hero-eyebrow { animation-delay:0s !important; }
-.hero h1 { animation-delay:.1s !important; }
-.hero-desc { animation-delay:.2s !important; }
-.hero-actions { animation-delay:.3s !important; }
-.hero-phones { opacity:0; animation: fadeUp 0.8s .15s ease forwards; }
+@keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+.hero > * { opacity:0; animation: fadeUp 0.7s ease forwards; }
+.hero > *:nth-child(1) { animation-delay: 0s; }
+.hero > *:nth-child(2) { animation-delay: 0.15s; }
 
 /* RESPONSIVE */
-@media(max-width:1100px){
-  .screen-grid.four { grid-template-columns: repeat(2,1fr); }
-  .screen-grid.three { grid-template-columns: repeat(2,1fr); max-width: none; }
+@media(max-width:1050px){
+  .hero { grid-template-columns:1fr; padding:100px 24px 60px; gap:40px; }
+  .hero-photo { width:100%; max-width:340px; height:380px; }
+  .hero-photo-wrap { order:-1; }
+  .feat-row { grid-template-columns:1fr; gap:32px; }
+  .feat-row.flip { direction:ltr; }
+  .popup-grid { grid-template-columns:repeat(2,1fr); }
+  .popup-grid.three { grid-template-columns:repeat(2,1fr); max-width:none; }
+  .contact-grid { grid-template-columns:1fr; gap:40px; }
+  .skills-row { grid-template-columns:1fr; }
 }
-@media(max-width:960px){
+@media(max-width:768px){
   nav { padding:18px 24px; }
   .nav-links a:not(.nav-cta) { display:none; }
-  .hero { grid-template-columns:1fr; padding:100px 24px 60px; gap:40px; }
-  .hero-phones { justify-content:center; }
   section { padding:64px 24px; }
-  .about-grid { grid-template-columns:1fr; gap:48px; }
-  .proc-grid { grid-template-columns:1fr 1fr; }
+  .popup-grid { grid-template-columns:1fr 1fr; }
+  .two-grid { grid-template-columns:1fr 1fr; }
   footer { flex-direction:column; gap:8px; text-align:center; padding:24px; }
 }
-@media(max-width:600px){
-  .screen-grid.four, .screen-grid.three { grid-template-columns: 1fr; }
+@media(max-width:480px){
+  .popup-grid, .two-grid { grid-template-columns:1fr; }
 }
 </style>
 </head>
@@ -261,326 +295,281 @@ footer { padding: 28px 64px; border-top: 1px solid var(--border); display: flex;
   <div class="nav-links">
     <a href="#work">Work</a>
     <a href="#about">About</a>
-    <a href="#process">Process</a>
     <a href="#contact" class="nav-cta">Contact</a>
   </div>
 </nav>
 
 <!-- HERO -->
 <div class="hero">
+  <!-- LEFT: text -->
   <div class="hero-left">
     <div class="hero-eyebrow"><div class="dot"></div>UI/UX Designer · Mobile Games</div>
-    <h1>Crafting <em>intuitive</em><br>game interfaces</h1>
-    <p class="hero-desc">I design screens, flows, and systems for mobile games — where every tap feels deliberate, familiar, and delightful.</p>
+    <h1>Hi, I'm <em>Ekin!</em></h1>
+
+    <div class="hero-bio">
+      <p>I started my journey in <strong>architecture</strong>, where I learned how people move through spaces and how design shapes experience. Along the way, I discovered a love for games — how they engage, challenge, and connect us. That curiosity eventually led me to <strong>UX design</strong>, where I found the perfect blend of my interests.</p>
+      <p>Now, I focus on designing user experiences for mobile games. I enjoy creating interfaces that feel <strong>intuitive, playful, and meaningful</strong>. My background helps me see design from both a creative and structured lens — and I love turning complex ideas into simple, fun interactions.</p>
+    </div>
+
+    <div class="resp-block">
+      <div class="resp-block-label">Responsibilities</div>
+      <ul class="resp-list">
+        <li>Designing intuitive and visually compatible UI screens and game elements for mobile games.</li>
+        <li>Integrating UI elements directly into Unity.</li>
+        <li>Establishing and maintaining a consistent visual language and UI style guide.</li>
+        <li>Optimizing UI assets and layouts for various screen sizes and device performance requirements.</li>
+      </ul>
+    </div>
+
+    <div class="skills-row">
+      <div class="skill-block">
+        <h4>Core Skills</h4>
+        <div class="skill-tags">
+          <span class="skill-tag hi">Creative Thinking</span>
+          <span class="skill-tag hi">Game Design</span>
+          <span class="skill-tag hi">Agile</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <h4>Tools</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">Figma</span>
+          <span class="skill-tag">Unity</span>
+          <span class="skill-tag">Photoshop</span>
+          <span class="skill-tag">Maya</span>
+          <span class="skill-tag">Trello</span>
+          <span class="skill-tag">ClickUp</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <h4>Languages</h4>
+        <div class="lang-list">
+          <div class="lang-item"><span class="lang-name">English</span><span class="lang-lvl">Fluent</span></div>
+          <div class="lang-item"><span class="lang-name">German</span><span class="lang-lvl">Intermediate</span></div>
+          <div class="lang-item"><span class="lang-name">Italian</span><span class="lang-lvl">Basic</span></div>
+        </div>
+      </div>
+      <div class="skill-block">
+        <h4>Interests</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">🧘 Yoga</span>
+          <span class="skill-tag">🎲 Board Games</span>
+        </div>
+      </div>
+    </div>
+
     <div class="hero-actions">
       <a href="#work" class="btn-solid">See My Work</a>
-      <a href="#contact" class="btn-text">Get in touch ↓</a>
+      <a href="#contact" class="btn-outline">Get in touch</a>
     </div>
   </div>
-  <div class="hero-phones">
-    <div class="hphone">
-      <div class="hnotch"><div class="hbar"></div></div>
-      <img src="home.png" alt="Home Screen">
-    </div>
-    <div class="hphone down">
-      <div class="hnotch"><div class="hbar"></div></div>
-      <img src="achievements.png" alt="Achievements">
-    </div>
+
+  <!-- RIGHT: photo -->
+  <div class="hero-photo-wrap">
+    <img src="ekin.jpg" alt="Ekin Demircan" class="hero-photo">
   </div>
 </div>
 
 <!-- WORK -->
 <section id="work">
-  <div class="eyebrow">Selected Work</div>
-  <div class="sec-title">Find Hidden Objects</div>
+  <div class="sec-inner">
+    <div class="eyebrow">Selected Work</div>
+    <div class="sec-title">Find Hidden Objects</div>
+    <p class="sec-intro">
+      As a UI/UX designer on this project, I work across the full spectrum of the game's interface — from core navigation to in-game popups. Below is a selection of screens from one game, showcasing how I approach <strong>visual consistency, player experience, and monetization UX</strong> within a single product. Each screen is part of a cohesive design system built to feel familiar, fast, and fun.
+    </p>
 
-  <div class="project-intro">
-    The visual design of an existing mobile game was fully reworked to encompass newly added features while staying faithful to the game's <strong>core theme and color palette</strong>. Shop, Leaderboard, Achievements, and Gallery tabs were introduced as dedicated pages accessible via a persistent navigation bar — replacing a single main menu with a <strong>multi-tab structure</strong> for smoother, more intuitive navigation between sections. The redesign also targets a <strong>cleaner, more legible experience</strong> overall. Since this pattern closely mirrors how players already interact with similar games, long-time users are expected to adapt quickly and naturally.
-  </div>
-
-  <!-- CORE SCREENS -->
-  <div class="cat-label">Core Screens</div>
-  <div class="screen-grid four">
-
-    <div class="scard">
-      <div class="scard-preview bg-light">
-        <div class="phone-frame">
-          <div class="pf-notch"><div class="pf-bar"></div></div>
-          <img src="home.png" alt="Home Screen">
+    <!-- 1. HOME -->
+    <div class="feat-row">
+      <div class="feat-text">
+        <div class="feat-tag">01 — Home Screen</div>
+        <div class="feat-title">Main Gameplay Hub</div>
+        <div class="feat-desc">The central hub showing level progress, daily boosters, and coin balance. Events are surfaced as a dedicated button directly on the home screen for quick access — replacing buried menu navigation with a single, visible entry point.</div>
+        <div class="pills">
+          <span class="pill">Core Loop</span>
+          <span class="pill">Navigation</span>
+          <span class="pill">Events</span>
+          <span class="pill">Booster UI</span>
         </div>
       </div>
-      <div class="scard-info">
-        <div class="scard-tag">Home Screen</div>
-        <div class="scard-name">Main Gameplay Hub</div>
-        <div class="scard-desc">The central hub showing level progress, daily boosters, and coin balance. Events are surfaced as a dedicated button directly on the home screen for quick access.</div>
-        <div class="pills"><span class="pill">Core Loop</span><span class="pill">Navigation</span><span class="pill">Events</span></div>
+      <div class="feat-img-wrap">
+        <img src="home.png" alt="Home Screen" class="feat-img">
       </div>
     </div>
 
-    <div class="scard">
-      <div class="scard-preview bg-light">
-        <div class="phone-frame">
-          <div class="pf-notch"><div class="pf-bar"></div></div>
-          <img src="settings.png" alt="Settings">
+    <!-- 2. SHOP -->
+    <div class="feat-row flip">
+      <div class="feat-text">
+        <div class="feat-tag">02 — Shop</div>
+        <div class="feat-title">In-Game Store</div>
+        <div class="feat-desc">Each package uses a distinct color to draw the eye individually, while packages are grouped logically within the layout. This visual hierarchy makes it easy to browse, compare, and act — without overwhelming the player.</div>
+        <div class="pills">
+          <span class="pill">Color Grouping</span>
+          <span class="pill">IAP</span>
+          <span class="pill">Visual Hierarchy</span>
+          <span class="pill">Monetization</span>
         </div>
       </div>
-      <div class="scard-info">
-        <div class="scard-tag">Settings</div>
-        <div class="scard-name">Preferences & Accessibility</div>
-        <div class="scard-desc">A monochrome, familiar interface format — no visual distractions. Users can quickly scan and find what they need, with Color Blind Assist included for accessibility.</div>
-        <div class="pills"><span class="pill">Accessibility</span><span class="pill">Monochrome UI</span><span class="pill">Scanability</span></div>
+      <div class="feat-img-wrap">
+        <img src="shop.png" alt="Shop" class="feat-img">
       </div>
     </div>
 
-    <div class="scard">
-      <div class="scard-preview bg-light">
-        <div class="phone-frame">
-          <div class="pf-notch"><div class="pf-bar"></div></div>
-          <img src="achievements.png" alt="Achievements">
+    <!-- 3. ACHIEVEMENTS -->
+    <div class="feat-row">
+      <div class="feat-text">
+        <div class="feat-tag">03 — Achievements</div>
+        <div class="feat-title">Progress & Badge System</div>
+        <div class="feat-desc">A scrollable list layout that prioritises readability over decoration. Each achievement is easy to scan at a glance — progress bars, reward indicators, and badge tiers are all clearly visible. Claimable rewards use a high-contrast green CTA to stand out immediately.</div>
+        <div class="pills">
+          <span class="pill">List Layout</span>
+          <span class="pill">Readability</span>
+          <span class="pill">Gamification</span>
+          <span class="pill">Retention</span>
         </div>
       </div>
-      <div class="scard-info">
-        <div class="scard-tag">Achievements</div>
-        <div class="scard-name">Progress & Badge System</div>
-        <div class="scard-desc">A scrollable list layout prioritising readability. Each achievement is easy to scan at a glance, with clear progress bars and reward indicators for each tier.</div>
-        <div class="pills"><span class="pill">List Layout</span><span class="pill">Readability</span><span class="pill">Gamification</span></div>
+      <div class="feat-img-wrap">
+        <img src="achievements.png" alt="Achievements" class="feat-img">
       </div>
     </div>
 
-    <div class="scard">
-      <div class="scard-preview bg-light">
-        <div class="phone-frame">
-          <div class="pf-notch"><div class="pf-bar"></div></div>
-          <img src="shop.png" alt="Shop">
+    <!-- 4. SETTINGS -->
+    <div class="feat-row flip">
+      <div class="feat-text">
+        <div class="feat-tag">04 — Settings</div>
+        <div class="feat-title">Preferences & Accessibility</div>
+        <div class="feat-desc">A monochrome, familiar interface format — no visual noise. Users can quickly scan and find what they need. Color Blind Assist is included as a first-class toggle, and the grouped sections keep related actions together without clutter.</div>
+        <div class="pills">
+          <span class="pill">Accessibility</span>
+          <span class="pill">Monochrome UI</span>
+          <span class="pill">Scanability</span>
+          <span class="pill">Toggle Design</span>
         </div>
       </div>
-      <div class="scard-info">
-        <div class="scard-tag">Shop</div>
-        <div class="scard-name">In-Game Store</div>
-        <div class="scard-desc">Each package uses distinct colors to draw attention individually, while packages are grouped logically within the layout — making it easy to browse and compare options.</div>
-        <div class="pills"><span class="pill">Color Grouping</span><span class="pill">IAP</span><span class="pill">Visual Hierarchy</span></div>
+      <div class="feat-img-wrap">
+        <img src="settings.png" alt="Settings" class="feat-img">
       </div>
     </div>
 
-  </div>
+    <!-- POPUP SYSTEM -->
+    <div class="cat-section">
+      <div class="cat-label">Popup System</div>
+      <p style="color:var(--muted);font-size:14px;line-height:1.8;max-width:720px;margin-bottom:36px;font-weight:300;">
+        These four screens share the same base popup design language — consistent components, layout structure, and visual tone. Each adapts slightly for its function, but the underlying system ensures players always feel at home, no matter which popup they encounter.
+      </p>
+      <div class="popup-grid">
 
-  <!-- POPUPS & MODALS -->
-  <div class="cat-label">Popups & Modals</div>
-  <div class="screen-grid four">
-
-    <div class="scard">
-      <div class="scard-preview bg-dark popup-style">
-        <div class="phone-frame">
-          <img src="popup.png" alt="Remove Ads Popup">
-        </div>
-      </div>
-      <div class="scard-info">
-        <div class="scard-tag">Popup</div>
-        <div class="scard-name">Remove Ads</div>
-        <div class="scard-desc">Conversion-focused IAP popup with bold visual, clear value proposition, and a single green CTA. Minimal friction, maximum clarity.</div>
-        <div class="pills"><span class="pill">IAP</span><span class="pill">Monetization</span><span class="pill">Popup</span></div>
-      </div>
-    </div>
-
-    <div class="scard">
-      <div class="scard-preview bg-dark popup-style">
-        <div class="phone-frame">
-          <img src="end.png" alt="Lose State Popup">
-        </div>
-      </div>
-      <div class="scard-info">
-        <div class="scard-tag">Popup</div>
-        <div class="scard-name">Lose State & Recovery</div>
-        <div class="scard-desc">Shows at-risk milestone rewards on a progress track. "Get 3 Lives" rewarded ad CTA with a restart fallback — balancing monetization with player fairness.</div>
-        <div class="pills"><span class="pill">Game Over</span><span class="pill">Rewarded Ad</span><span class="pill">Retention</span></div>
-      </div>
-    </div>
-
-    <div class="scard">
-      <div class="scard-preview bg-dark popup-style">
-        <div class="phone-frame">
-          <img src="like_share.png" alt="Congrats Popup">
-        </div>
-      </div>
-      <div class="scard-info">
-        <div class="scard-tag">Popup</div>
-        <div class="scard-name">Level Complete</div>
-        <div class="scard-desc">Reveals the completed hidden object scene with like/dislike rating and a share button — driving both player feedback and organic sharing.</div>
-        <div class="pills"><span class="pill">Win State</span><span class="pill">Sharing</span><span class="pill">Feedback</span></div>
-      </div>
-    </div>
-
-    <div class="scard">
-      <div class="scard-preview bg-dark popup-style">
-        <div class="phone-frame">
-          <img src="events.png" alt="Event Popup">
-        </div>
-      </div>
-      <div class="scard-info">
-        <div class="scard-tag">Popup</div>
-        <div class="scard-name">Combo Craze Event</div>
-        <div class="scard-desc">Weekend event intro with countdown timer and a punchy description. The banner ribbon reinforces the event name and creates visual urgency.</div>
-        <div class="pills"><span class="pill">Events</span><span class="pill">Limited Time</span><span class="pill">Engagement</span></div>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- PROFILE & SOCIAL -->
-  <div class="cat-label">Profile & Social</div>
-  <div class="screen-grid three">
-
-    <div class="scard">
-      <div class="scard-preview bg-light popup-style">
-        <div class="phone-frame">
-          <img src="userprofile.png" alt="Edit Profile">
-        </div>
-      </div>
-      <div class="scard-info">
-        <div class="scard-tag">Profile</div>
-        <div class="scard-name">Edit Profile & Avatar</div>
-        <div class="scard-desc">Both username and profile picture are editable from a single, simple popup — reducing steps and keeping the experience straightforward. Clear active selection state in the avatar grid.</div>
-        <div class="pills"><span class="pill">Simplicity</span><span class="pill">Customization</span><span class="pill">Single Entry Point</span></div>
-      </div>
-    </div>
-
-    <div class="scard">
-      <div class="scard-preview bg-purple">
-        <div class="phone-frame">
-          <div class="pf-notch"><div class="pf-bar"></div></div>
-          <img src="leaderboard.png" alt="Leaderboard">
-        </div>
-      </div>
-      <div class="scard-info">
-        <div class="scard-tag">Leaderboard</div>
-        <div class="scard-name">Combo Craze Rankings</div>
-        <div class="scard-desc">Podium layout for top 3 with a scrollable ranked list below. The player's own position is pinned at the bottom in green for immediate self-reference.</div>
-        <div class="pills"><span class="pill">Competition</span><span class="pill">Social</span><span class="pill">Events</span></div>
-      </div>
-    </div>
-
-    <div class="scard">
-      <div class="scard-preview bg-dark">
-        <div class="phone-frame">
-          <div class="pf-notch"><div class="pf-bar"></div></div>
-          <img src="tut.png" alt="Tutorial">
-        </div>
-      </div>
-      <div class="scard-info">
-        <div class="scard-tag">Tutorial</div>
-        <div class="scard-name">Streak Master Onboarding</div>
-        <div class="scard-desc">Feature introduction overlay with branded mascot illustration, step progress bar, and a contextual reward preview — giving players a reason to engage before they begin.</div>
-        <div class="pills"><span class="pill">Onboarding</span><span class="pill">Streaks</span><span class="pill">Feature UI</span></div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section id="about">
-  <div class="eyebrow">About</div>
-  <div class="sec-title">Hi, I'm Ekin!</div>
-  <div class="about-grid">
-    <div>
-      <div class="about-text">
-        <p>I started my journey in <strong>architecture</strong>, where I learned how people move through spaces and how design shapes experience. Along the way, I discovered a love for games — how they engage, challenge, and connect us. That curiosity eventually led me to <strong>UX design</strong>, where I found the perfect blend of my interests.</p>
-        <p>Now, I focus on designing user experiences for mobile games. I enjoy creating interfaces that feel <strong>intuitive, playful, and meaningful</strong>. My background helps me see design from both a creative and structured lens — and I love turning complex ideas into simple, fun interactions.</p>
-      </div>
-
-      <div class="skills-grid" style="margin-top: 40px;">
-
-        <div class="skill-block">
-          <h4>Core Skills</h4>
-          <div class="skill-tags">
-            <span class="skill-tag highlight">Creative Thinking & Ideation</span>
-            <span class="skill-tag highlight">Game Design</span>
-            <span class="skill-tag highlight">Agile Methodologies</span>
+        <div class="pgcard">
+          <div class="pgcard-img float" style="background:#1a1025;">
+            <img src="end.png" alt="Fail Screen">
+          </div>
+          <div class="pgcard-info">
+            <div class="pgcard-tag">End State</div>
+            <div class="pgcard-name">Event Fail Screen</div>
+            <div class="pgcard-desc">Shown at the end of a failed event run. Displays at-risk milestone rewards on a progress track with a rewarded ad recovery CTA and a restart fallback.</div>
           </div>
         </div>
 
-        <div class="skill-block">
-          <h4>Technical Skills</h4>
-          <div class="skill-tags">
-            <span class="skill-tag">Figma</span>
-            <span class="skill-tag">Unity</span>
-            <span class="skill-tag">Photoshop</span>
-            <span class="skill-tag">Maya</span>
-            <span class="skill-tag">Trello</span>
-            <span class="skill-tag">ClickUp</span>
+        <div class="pgcard">
+          <div class="pgcard-img float" style="background:#1a1025;">
+            <img src="events.png" alt="Event Popup">
+          </div>
+          <div class="pgcard-info">
+            <div class="pgcard-tag">Event</div>
+            <div class="pgcard-name">Event Start Popup</div>
+            <div class="pgcard-desc">Shown when a player enters an active event. Features a countdown timer, event icon, and a brief description — giving context before the action begins.</div>
           </div>
         </div>
 
-        <div class="skill-block">
-          <h4>Languages</h4>
-          <div class="lang-row">
-            <div class="lang-item">
-              <span class="lang-name">English</span>
-              <span class="lang-level">Fluent</span>
-            </div>
-            <div class="lang-item">
-              <span class="lang-name">German</span>
-              <span class="lang-level">Intermediate</span>
-            </div>
-            <div class="lang-item">
-              <span class="lang-name">Italian</span>
-              <span class="lang-level">Basic</span>
-            </div>
+        <div class="pgcard">
+          <div class="pgcard-img float" style="background:#1a1025;">
+            <img src="popup.png" alt="No Ads Popup">
+          </div>
+          <div class="pgcard-info">
+            <div class="pgcard-tag">Offer</div>
+            <div class="pgcard-name">No Ads Offer</div>
+            <div class="pgcard-desc">A conversion-focused IAP popup with a bold visual, clear value proposition, and a single green CTA. Minimal friction, maximum clarity.</div>
           </div>
         </div>
 
-        <div class="skill-block">
-          <h4>Interests</h4>
-          <div class="skill-tags">
-            <span class="skill-tag">🧘 Yoga</span>
-            <span class="skill-tag">🎲 Board Games</span>
+        <div class="pgcard">
+          <div class="pgcard-img float" style="background:#e8e0f8;">
+            <img src="userprofile.png" alt="Edit Profile Popup">
+          </div>
+          <div class="pgcard-info">
+            <div class="pgcard-tag">Profile</div>
+            <div class="pgcard-name">Edit Profile Popup</div>
+            <div class="pgcard-desc">Username and avatar are editable from a single popup — both actions in one place, reducing steps. Clear active state in the avatar grid.</div>
           </div>
         </div>
 
       </div>
     </div>
 
-    <!-- Right side: decorative phone -->
-    <div style="display:flex; justify-content:center; align-items:flex-start; padding-top: 8px;">
-      <div style="
-        width: 220px;
-        background: #12101a;
-        border-radius: 40px;
-        overflow: hidden;
-        box-shadow: 0 0 0 2px rgba(255,255,255,0.85), 0 32px 80px rgba(86,67,118,0.25), 0 8px 24px rgba(0,0,0,0.15);
-      ">
-        <div style="background:#12101a; height:20px; display:flex; align-items:center; justify-content:center;">
-          <div style="width:48px; height:4px; background:#2a1e3a; border-radius:2px;"></div>
+    <!-- SPECIAL SCREENS -->
+    <div class="cat-section">
+      <div class="cat-label">Special Screens</div>
+      <p style="color:var(--muted);font-size:14px;line-height:1.8;max-width:720px;margin-bottom:36px;font-weight:300;">
+        These screens draw from familiar mobile patterns to make features feel instantly intuitive.
+      </p>
+      <div class="two-grid">
+
+        <div class="pgcard">
+          <div class="pgcard-img" style="background:#f0ebfc; min-height:340px;">
+            <img src="tut.png" alt="Tutorial">
+          </div>
+          <div class="pgcard-info">
+            <div class="pgcard-tag">Tutorial</div>
+            <div class="pgcard-name">Streak Master Onboarding</div>
+            <div class="pgcard-desc">Designed like an Instagram Story — step-based, swipeable, visual-first. Introduces a new game mechanic with branded illustrations and a reward preview to motivate players before they begin.</div>
+          </div>
         </div>
-        <img src="userprofile.png" alt="Profile" style="width:100%; display:block;">
+
+        <div class="pgcard">
+          <div class="pgcard-img float" style="background:#1a1025; min-height:340px;">
+            <img src="like_share.png" alt="Level Complete">
+          </div>
+          <div class="pgcard-info">
+            <div class="pgcard-tag">Level End</div>
+            <div class="pgcard-name">Like & Share</div>
+            <div class="pgcard-desc">At level completion, players are shown the finished hidden object scene and offered familiar social actions — like, dislike, and share. Borrowed from social media to feel natural and encourage organic sharing.</div>
+          </div>
+        </div>
+
       </div>
     </div>
-  </div>
-</section>
 
-<!-- PROCESS -->
-<section id="process" style="background:var(--pale);">
-  <div class="eyebrow">Process</div>
-  <div class="sec-title">How I design</div>
-  <div class="proc-grid">
-    <div class="pstep"><div class="pnum">01</div><h3>Research & Map</h3><p>Player flow analysis, competitor audits, and identifying friction points before any wireframe is drawn.</p></div>
-    <div class="pstep"><div class="pnum">02</div><h3>Wireframe</h3><p>Lo-fi wireframes to align with product and engineering early — validate logic before investing in visuals.</p></div>
-    <div class="pstep"><div class="pnum">03</div><h3>High-Fidelity UI</h3><p>Full Figma screens with auto-layout, components, and design tokens. Dev-ready in one clean handoff.</p></div>
-    <div class="pstep"><div class="pnum">04</div><h3>Test & Polish</h3><p>Playtesting sessions, A/B reads, and data-driven iteration until the screen feels as good as it looks.</p></div>
   </div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact">
-  <div class="eyebrow">Contact</div>
-  <div class="contact-inner">
-    <div class="sec-title" style="margin-bottom:0;">Let's create<br>something great.</div>
-    <a href="mailto:ekin@example.com" class="contact-email">ekin@example.com</a>
-    <div class="socials">
-      <a href="#" class="soc">LinkedIn ↗</a>
-      <a href="#" class="soc">Behance ↗</a>
-      <a href="#" class="soc">Dribbble ↗</a>
-      <a href="#" class="soc">CV / Resume ↗</a>
+  <div class="sec-inner">
+    <div class="contact-grid">
+      <div class="contact-left">
+        <div class="eyebrow">Contact</div>
+        <div class="sec-title">Let's work<br>together.</div>
+        <p class="contact-desc">I'm open to new opportunities, collaborations, and conversations. Feel free to reach out via email or LinkedIn.</p>
+        <div class="avail"><div class="avail-dot"></div>Available for new roles</div>
+      </div>
+      <div class="contact-links">
+        <a href="mailto:demircan.ekin@gmail.com" class="clink">
+          <div class="clink-icon">✉️</div>
+          <div class="clink-text">
+            <span class="clink-label">Email</span>
+            <span class="clink-val">demircan.ekin@gmail.com</span>
+          </div>
+          <span class="clink-arrow">↗</span>
+        </a>
+        <a href="https://www.linkedin.com/in/ekin-demircan-0003a9188/" target="_blank" class="clink">
+          <div class="clink-icon">💼</div>
+          <div class="clink-text">
+            <span class="clink-label">LinkedIn</span>
+            <span class="clink-val">ekin-demircan</span>
+          </div>
+          <span class="clink-arrow">↗</span>
+        </a>
+      </div>
     </div>
   </div>
 </section>
