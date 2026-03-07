@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ekin Demircan — UI/UX Designer</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Geist:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Geist:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
@@ -28,7 +28,9 @@ nav {
   background: rgba(255,255,255,0.92); backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border);
 }
+.nav-left { display: flex; align-items: baseline; gap: 10px; }
 .nav-logo { font-family: 'DM Serif Display', serif; font-size: 17px; color: var(--dp); }
+.nav-role { font-size: 12px; color: var(--muted); font-weight: 300; letter-spacing: 0.3px; }
 .nav-links { display: flex; gap: 36px; align-items: center; }
 .nav-links a { text-decoration: none; color: var(--muted); font-size: 12px; letter-spacing: 0.8px; text-transform: uppercase; transition: color 0.2s; }
 .nav-links a:hover { color: var(--dp); }
@@ -51,26 +53,17 @@ nav {
   display: block;
   filter: grayscale(100%);
 }
-.hero-eyebrow {
-  display: inline-flex; align-items: center; gap: 8px;
-  background: var(--pale2); border: 1px solid rgba(175,145,223,0.3);
-  border-radius: 100px; padding: 6px 16px;
-  font-size: 11px; font-weight: 500; letter-spacing: 1px;
-  text-transform: uppercase; color: var(--dp); margin-bottom: 20px;
-}
-.dot { width: 6px; height: 6px; border-radius: 50%; background: var(--lp); flex-shrink: 0; }
 .hero h1 {
   font-family: 'DM Serif Display', serif;
   font-size: clamp(38px, 4.2vw, 60px);
   line-height: 1.1; letter-spacing: -1px;
   font-weight: 400; margin-bottom: 20px;
+  color: var(--ink);
 }
-.hero h1 em { font-style: italic; color: var(--lp); }
 .hero-bio { color: var(--muted); font-size: 15px; line-height: 1.85; margin-bottom: 36px; font-weight: 300; }
 .hero-bio p { margin-bottom: 14px; }
 .hero-bio p:last-child { margin-bottom: 0; }
 .hero-bio strong { color: var(--ink); font-weight: 500; }
-
 .hero-actions { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
 .btn-solid { background: var(--dp); color: #fff; padding: 13px 28px; border-radius: 100px; font-size: 13px; font-weight: 500; text-decoration: none; transition: all 0.25s; display: inline-block; }
 .btn-solid:hover { background: var(--lp); transform: translateY(-2px); }
@@ -99,23 +92,19 @@ section { padding: 100px 64px; }
 .feat-row:last-of-type { border-bottom: 1px solid var(--border); }
 .feat-row.flip { direction: rtl; }
 .feat-row.flip > * { direction: ltr; }
-
 .feat-tag { font-size: 10px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--lp); margin-bottom: 10px; }
 .feat-title { font-family: 'DM Serif Display', serif; font-size: clamp(22px, 2.5vw, 32px); font-weight: 400; line-height: 1.2; letter-spacing: -0.3px; margin-bottom: 14px; }
 .feat-desc { font-size: 14px; color: var(--muted); line-height: 1.8; font-weight: 300; }
-
 .feat-img-wrap { display: flex; justify-content: center; align-items: center; }
 .feat-img {
-  width: 62%;
-  max-width: 240px;
-  border-radius: 20px;
-  display: block;
+  width: 62%; max-width: 240px;
+  border-radius: 20px; display: block;
   box-shadow: 0 20px 56px rgba(86,67,118,0.16), 0 4px 16px rgba(0,0,0,0.08);
   transition: transform 0.4s cubic-bezier(.25,.46,.45,.94), box-shadow 0.4s;
 }
 .feat-img:hover { transform: translateY(-10px) scale(1.03); box-shadow: 0 36px 72px rgba(86,67,118,0.2), 0 8px 24px rgba(0,0,0,0.1); }
 
-/* POPUP / GRID SECTIONS */
+/* GRID SECTIONS */
 .cat-section { margin-top: 80px; }
 .cat-label {
   font-size: 11px; font-weight: 600; letter-spacing: 1.5px;
@@ -125,15 +114,15 @@ section { padding: 100px 64px; }
 .cat-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
 .cat-desc { color: var(--muted); font-size: 14px; line-height: 1.8; max-width: 720px; margin-bottom: 48px; font-weight: 300; }
 
-/* OFFSET GRID — 4 images, 1&3 high, 2&4 low */
+/* OFFSET GRID */
 .offset-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 24px;
   align-items: start;
 }
-.offset-grid .og-item { display: flex; flex-direction: column; gap: 0; }
-.offset-grid .og-item.low { margin-top: 60px; }
+.og-item { display: flex; flex-direction: column; }
+.og-item.low { margin-top: 60px; }
 
 .og-img {
   border-radius: 20px;
@@ -150,7 +139,7 @@ section { padding: 100px 64px; }
 .og-name { font-family: 'DM Serif Display', serif; font-size: 15px; font-weight: 400; line-height: 1.2; margin-bottom: 6px; }
 .og-desc { font-size: 12px; color: var(--muted); line-height: 1.65; font-weight: 300; }
 
-/* TWO GRID — offset, centered */
+/* TWO GRID */
 .two-wrap { display: flex; justify-content: center; }
 .two-grid {
   display: grid;
@@ -161,6 +150,26 @@ section { padding: 100px 64px; }
   width: 100%;
 }
 .two-grid .og-item.low { margin-top: 60px; }
+
+/* LEADERBOARD — full width single image centered */
+.lb-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 8px;
+}
+.lb-img {
+  width: 100%;
+  max-width: 320px;
+  border-radius: 20px;
+  display: block;
+  box-shadow: 0 20px 56px rgba(86,67,118,0.15), 0 4px 16px rgba(0,0,0,0.08);
+  transition: transform 0.4s cubic-bezier(.25,.46,.45,.94), box-shadow 0.4s;
+}
+.lb-img:hover { transform: translateY(-8px) scale(1.02); box-shadow: 0 36px 72px rgba(86,67,118,0.2), 0 8px 20px rgba(0,0,0,0.1); }
+.lb-info { text-align: center; max-width: 480px; margin: 24px auto 0; }
+.lb-info .og-tag { justify-content: center; }
+.lb-info .og-name { font-size: 20px; margin-bottom: 8px; }
+.lb-info .og-desc { font-size: 13px; }
 
 /* CONTACT */
 #contact { background: var(--pale); }
@@ -179,11 +188,7 @@ section { padding: 100px 64px; }
 .clink:hover .clink-icon { background: rgba(255,255,255,0.15); }
 .clink:hover .clink-label { color: rgba(255,255,255,0.65); }
 .clink:hover .clink-arrow { color: rgba(255,255,255,0.65); }
-.clink-icon {
-  width: 36px; height: 36px; border-radius: 10px;
-  background: var(--pale2); display: flex; align-items: center; justify-content: center;
-  font-size: 16px; flex-shrink: 0; transition: all 0.2s;
-}
+.clink-icon { width: 36px; height: 36px; border-radius: 10px; background: var(--pale2); display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; transition: all 0.2s; }
 .clink-text { flex: 1; }
 .clink-label { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.8px; font-weight: 500; display: block; margin-bottom: 2px; transition: color 0.2s; }
 .clink-val { font-size: 14px; }
@@ -212,9 +217,9 @@ footer { padding: 28px 64px; border-top: 1px solid var(--border); display: flex;
 }
 @media(max-width:768px){
   nav { padding:18px 24px; }
+  .nav-role { display:none; }
   .nav-links a:not(.nav-cta) { display:none; }
   section { padding:64px 24px; }
-  .offset-grid { grid-template-columns:1fr 1fr; }
   .two-grid { max-width:100%; }
   footer { flex-direction:column; gap:8px; text-align:center; padding:24px; }
 }
@@ -230,7 +235,10 @@ footer { padding: 28px 64px; border-top: 1px solid var(--border); display: flex;
 
 <!-- NAV -->
 <nav>
-  <div class="nav-logo">Ekin Demircan</div>
+  <div class="nav-left">
+    <div class="nav-logo">Ekin Demircan</div>
+    <div class="nav-role">UI/UX Designer</div>
+  </div>
   <div class="nav-links">
     <a href="#about">About</a>
     <a href="#work">Work</a>
@@ -238,11 +246,10 @@ footer { padding: 28px 64px; border-top: 1px solid var(--border); display: flex;
   </div>
 </nav>
 
-<!-- HERO / ABOUT -->
+<!-- ABOUT / HERO -->
 <div id="about">
   <div class="hero-left">
-    <div class="hero-eyebrow"><div class="dot"></div>UI/UX Designer · Mobile Games</div>
-    <h1>Hi, I'm <em>Ekin!</em></h1>
+    <h1>Hi, I'm Ekin!</h1>
     <div class="hero-bio">
       <p>I started my journey in <strong>architecture</strong>, where I learned how people move through spaces and how design shapes experience. Along the way, I discovered a love for games — how they engage, challenge, and connect us. That curiosity eventually led me to <strong>UX design</strong>, where I found the perfect blend of my interests.</p>
       <p>Now, I focus on designing user experiences for mobile games. I enjoy creating interfaces that feel <strong>intuitive, playful, and meaningful</strong>. My background helps me see design from both a creative and structured lens — and I love turning complex ideas into simple, fun interactions.</p>
@@ -380,7 +387,7 @@ footer { padding: 28px 64px; border-top: 1px solid var(--border); display: flex;
           </div>
 
           <div class="og-item low">
-            <img src="like_share.png" alt="Level Complete" class="og-img">
+            <img src="Like_Share.png" alt="Level Complete" class="og-img">
             <div class="og-info">
               <div class="og-tag">Level End</div>
               <div class="og-name">Like & Share</div>
@@ -389,6 +396,22 @@ footer { padding: 28px 64px; border-top: 1px solid var(--border); display: flex;
           </div>
 
         </div>
+      </div>
+    </div>
+
+    <!-- LEADERBOARD -->
+    <div class="cat-section">
+      <div class="cat-label">Leaderboard</div>
+      <p class="cat-desc">
+        The event leaderboard serves three purposes at once: players can track their own ranking, see how they compare against others, and claim their event rewards — all from a single screen at event end.
+      </p>
+      <div class="lb-wrap">
+        <img src="leaderboard.png" alt="Leaderboard" class="lb-img">
+      </div>
+      <div class="lb-info">
+        <div class="og-tag">Event End</div>
+        <div class="og-name">Event Leaderboard & Reward Screen</div>
+        <div class="og-desc">Podium layout for top 3 with a scrollable ranked list below. The player's own position is pinned at the bottom in green for immediate self-reference. Reward chests are shown per rank, making the stakes clear at a glance.</div>
       </div>
     </div>
 
