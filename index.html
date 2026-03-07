@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ekin Demircan — UI/UX Designer</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;1,300;1,400&family=Geist:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #FFFFFF;
+  --ink: #1A1520;
+  --muted: #8B7EA0;
+  --lp: #AF91DF;
+  --dp: #564376;
+  --pale: #F4F0FA;
+  --pale2: #EDE6F7;
+  --border: rgba(86,67,118,0.1);
+}
+html { scroll-behavior: smooth; }
+body { font-family: 'Geist', sans-serif; background: var(--bg); color: var(--ink); font-size: 15px; line-height: 1.6; overflow-x: hidden; }
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 22px 64px;
+  background: rgba(255,255,255,0.92); backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo { font-family: 'Fraunces', serif; font-size: 17px; color: var(--dp); letter-spacing: -0.3px; }
+.nav-links { display: flex; gap: 36px; align-items: center; }
+.nav-links a { text-decoration: none; color: var(--muted); font-size: 12px; letter-spacing: 0.8px; text-transform: uppercase; transition: color 0.2s; }
+.nav-links a:hover { color: var(--dp); }
+.nav-cta { background: var(--dp) !important; color: #fff !important; padding: 9px 22px; border-radius: 100px; letter-spacing: 0.3px !important; }
+.nav-cta:hover { background: var(--lp) !important; }
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: grid; grid-template-columns: 1fr 1fr;
+  align-items: center; padding: 120px 64px 80px; gap: 60px;
+}
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--pale2); border: 1px solid rgba(175,145,223,0.3);
+  border-radius: 100px; padding: 6px 16px;
+  font-size: 11px; font-weight: 500; letter-spacing: 1px;
+  text-transform: uppercase; color: var(--dp); margin-bottom: 28px;
+}
+.dot { width: 6px; height: 6px; border-radius: 50%; background: var(--lp); flex-shrink: 0; }
+.hero h1 { font-family: 'Fraunces', serif; font-size: clamp(42px, 4.8vw, 70px); line-height: 1.05; letter-spacing: -2px; font-weight: 300; margin-bottom: 24px; }
+.hero h1 em { font-style: italic; color: var(--lp); }
+.hero-desc { color: var(--muted); font-size: 16px; line-height: 1.8; max-width: 420px; margin-bottom: 40px; font-weight: 300; }
+.hero-actions { display: flex; align-items: center; gap: 20px; }
+.btn-solid { background: var(--dp); color: #fff; padding: 14px 32px; border-radius: 100px; font-size: 13px; font-weight: 500; text-decoration: none; transition: all 0.25s; display: inline-block; }
+.btn-solid:hover { background: var(--lp); transform: translateY(-2px); }
+.btn-text { color: var(--muted); font-size: 13px; text-decoration: none; transition: color 0.2s; }
+.btn-text:hover { color: var(--dp); }
+
+/* HERO PHONES */
+.hero-phones { display: flex; gap: 14px; align-items: flex-start; justify-content: center; }
+.hphone {
+  width: 160px; background: #12101a;
+  border-radius: 28px; overflow: hidden;
+  box-shadow: 0 28px 72px rgba(86,67,118,0.3), 0 8px 20px rgba(0,0,0,0.18);
+  flex-shrink: 0;
+}
+.hphone.down { margin-top: 52px; }
+.hnotch { background: #12101a; height: 18px; display: flex; align-items: center; justify-content: center; }
+.hbar { width: 42px; height: 4px; background: #2a1e3a; border-radius: 2px; }
+.hphone img { width: 100%; display: block; }
+
+/* SECTIONS */
+section { padding: 100px 64px; }
+.eyebrow { font-size: 11px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: var(--lp); margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
+.eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--lp); }
+.sec-title { font-family: 'Fraunces', serif; font-weight: 300; font-size: clamp(32px, 3.8vw, 52px); line-height: 1.1; letter-spacing: -1.5px; margin-bottom: 64px; }
+
+/* WORK */
+#work { background: var(--pale); }
+
+/* CATEGORY LABEL */
+.cat-label {
+  font-size: 11px; font-weight: 600; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--dp);
+  margin: 56px 0 28px; display: flex; align-items: center; gap: 12px;
+}
+.cat-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.cat-label:first-of-type { margin-top: 0; }
+
+/* SCREEN GRID */
+.screen-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+  max-width: 1280px;
+}
+.screen-grid.two { grid-template-columns: repeat(2, 1fr); max-width: 720px; }
+.screen-grid.three { grid-template-columns: repeat(3, 1fr); max-width: 980px; }
+.screen-grid.four { grid-template-columns: repeat(4, 1fr); }
+
+.scard {
+  background: #fff;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+  transition: transform 0.3s cubic-bezier(.25,.46,.45,.94), box-shadow 0.3s;
+  cursor: default;
+}
+.scard:hover { transform: translateY(-6px); box-shadow: 0 24px 60px rgba(86,67,118,0.14); }
+
+.scard-img {
+  background: var(--pale2);
+  padding: 20px 20px 0;
+  display: flex; align-items: flex-end; justify-content: center;
+  min-height: 320px;
+  position: relative; overflow: hidden;
+}
+.scard-img.dark { background: #1a1025; }
+.scard-img.purple { background: linear-gradient(135deg, #c8b8f0, #a888e0); }
+.scard-img.light { background: #EDE6F7; }
+
+.scard-img img {
+  width: 78%;
+  max-width: 180px;
+  border-radius: 16px 16px 0 0;
+  box-shadow: 0 -8px 40px rgba(0,0,0,0.25);
+  display: block;
+  object-fit: cover;
+}
+
+/* popup cards show image centered */
+.scard-img.popup-style {
+  align-items: center; padding: 20px;
+}
+.scard-img.popup-style img {
+  border-radius: 12px;
+  width: 85%;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.2);
+}
+
+.scard-info { padding: 18px 20px 20px; }
+.scard-tag { font-size: 10px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--lp); margin-bottom: 5px; }
+.scard-name { font-family: 'Fraunces', serif; font-size: 17px; font-weight: 300; line-height: 1.2; margin-bottom: 6px; letter-spacing: -0.3px; }
+.scard-desc { font-size: 11.5px; color: var(--muted); line-height: 1.65; font-weight: 300; }
+.pills { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 10px; }
+.pill { font-size: 10px; background: var(--pale2); color: var(--dp); border-radius: 100px; padding: 3px 11px; font-weight: 500; }
+
+/* FEATURED CARD — wider */
+.scard.featured { grid-column: span 2; }
+.scard.featured .scard-img { min-height: 280px; flex-direction: row; gap: 12px; padding: 20px 20px 0; align-items: flex-end; }
+.scard.featured .scard-img img { width: 46%; max-width: none; }
+
+/* ABOUT */
+.about-grid { display: grid; grid-template-columns: 5fr 4fr; gap: 80px; align-items: start; max-width: 1100px; }
+.about-text p { color: var(--muted); line-height: 1.9; margin-bottom: 18px; font-weight: 300; font-size: 16px; }
+.about-text p strong { color: var(--ink); font-weight: 500; }
+.chips { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 28px; }
+.chip { background: var(--pale2); color: var(--dp); border-radius: 100px; padding: 7px 16px; font-size: 13px; border: 1px solid rgba(175,145,223,0.25); }
+.skills { display: flex; flex-direction: column; gap: 16px; }
+.sk { display: flex; flex-direction: column; gap: 5px; }
+.sk-top { display: flex; justify-content: space-between; font-size: 12px; }
+.sk-name { font-weight: 500; }
+.sk-pct { color: var(--muted); }
+.sk-bar { height: 2px; background: var(--border); border-radius: 1px; }
+.sk-fill { height: 100%; border-radius: 1px; background: linear-gradient(90deg, var(--dp), var(--lp)); }
+
+/* PROCESS */
+#process { background: var(--pale); }
+.proc-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 18px; overflow: hidden; max-width: 1100px; }
+.pstep { background: #fff; padding: 36px 28px; }
+.pnum { font-family: 'Fraunces', serif; font-size: 50px; font-weight: 300; color: var(--pale2); line-height: 1; margin-bottom: 16px; }
+.pstep h3 { font-size: 14px; font-weight: 500; margin-bottom: 8px; }
+.pstep p { font-size: 12px; color: var(--muted); line-height: 1.75; font-weight: 300; }
+
+/* CONTACT */
+.contact-inner { max-width: 600px; }
+.contact-email { font-family: 'Fraunces', serif; font-size: clamp(24px, 3.2vw, 44px); color: var(--dp); font-weight: 300; letter-spacing: -1px; margin: 36px 0 52px; text-decoration: none; display: block; border-bottom: 2px solid var(--pale2); padding-bottom: 18px; transition: color 0.2s, border-color 0.2s; }
+.contact-email:hover { color: var(--lp); border-color: var(--lp); }
+.socials { display: flex; gap: 10px; flex-wrap: wrap; }
+.soc { padding: 11px 22px; border: 1px solid var(--border); border-radius: 100px; color: var(--muted); font-size: 13px; text-decoration: none; transition: all 0.2s; }
+.soc:hover { background: var(--dp); color: #fff; border-color: var(--dp); }
+
+footer { padding: 28px 64px; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
+.fl { font-family: 'Fraunces', serif; font-size: 15px; color: var(--dp); }
+.fc { font-size: 12px; color: var(--muted); }
+
+/* ANIMATIONS */
+@keyframes fadeUp { from { opacity:0; transform:translateY(22px); } to { opacity:1; transform:translateY(0); } }
+.hero-left > * { opacity:0; animation: fadeUp 0.7s ease forwards; }
+.hero-eyebrow { animation-delay:0s !important; }
+.hero h1 { animation-delay:.1s !important; }
+.hero-desc { animation-delay:.2s !important; }
+.hero-actions { animation-delay:.3s !important; }
+.hero-phones { opacity:0; animation: fadeUp 0.8s .15s ease forwards; }
+
+/* RESPONSIVE */
+@media(max-width:960px){
+  nav { padding:18px 24px; }
+  .nav-links a:not(.nav-cta) { display:none; }
+  .hero { grid-template-columns:1fr; padding:100px 24px 60px; gap:40px; }
+  .hero-phones { justify-content:center; }
+  section { padding:64px 24px; }
+  .about-grid { grid-template-columns:1fr; gap:48px; }
+  .proc-grid { grid-template-columns:1fr 1fr; }
+  .screen-grid.four { grid-template-columns:repeat(2,1fr); }
+  .screen-grid.three { grid-template-columns:repeat(2,1fr); max-width:none; }
+  .scard.featured { grid-column:span 1; }
+  .scard.featured .scard-img { flex-direction:column; }
+  .scard.featured .scard-img img { width:78%; }
+  footer { flex-direction:column; gap:8px; text-align:center; padding:24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Ekin Demircan</div>
+  <div class="nav-links">
+    <a href="#work">Work</a>
+    <a href="#about">About</a>
+    <a href="#process">Process</a>
+    <a href="#contact" class="nav-cta">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow"><div class="dot"></div>Mobile Game UI/UX Designer</div>
+    <h1>Crafting <em>intuitive</em><br>game interfaces</h1>
+    <p class="hero-desc">I design screens, flows, and systems for mobile games — from home screens and shops to popups and events — where every tap feels deliberate and delightful.</p>
+    <div class="hero-actions">
+      <a href="#work" class="btn-solid">See My Work</a>
+      <a href="#contact" class="btn-text">Get in touch ↓</a>
+    </div>
+  </div>
+  <div class="hero-phones">
+    <div class="hphone">
+      <div class="hnotch"><div class="hbar"></div></div>
+      <img src="images/home.png" alt="Home Screen">
+    </div>
+    <div class="hphone down">
+      <div class="hnotch"><div class="hbar"></div></div>
+      <img src="images/achievements.png" alt="Achievements">
+    </div>
+  </div>
+</div>
+
+<!-- WORK -->
+<section id="work">
+  <div class="eyebrow">Selected Work</div>
+  <div class="sec-title">Find Hidden Objects —<br>UI/UX Design System</div>
+
+  <!-- CORE SCREENS -->
+  <div class="cat-label">Core Screens</div>
+  <div class="screen-grid four">
+
+    <div class="scard">
+      <div class="scard-img light">
+        <img src="images/home.png" alt="Home Screen">
+      </div>
+      <div class="scard-info">
+        <div class="scard-tag">Home Screen</div>
+        <div class="scard-name">Main Gameplay Hub</div>
+        <div class="scard-desc">Level progress, daily boosters, coin balance, and the central PLAY CTA. Clean lavender palette with playful character avatar.</div>
+        <div class="pills"><span class="pill">Core Loop</span><span class="pill">Progression</span><span class="pill">Navigation</span></div>
+      </div>
+    </div>
+
+    <div class="scard">
+      <div class="scard-img light">
+        <img src="images/settings.png" alt="Settings">
+      </div>
+      <div class="scard-info">
+        <div class="scard-tag">Settings</div>
+        <div class="scard-name">Preferences & Accessibility</div>
+        <div class="scard-desc">Toggle controls for sound, music, vibration, and Color Blind Assist. Grouped sections for support, legal, and store links.</div>
+        <div class="pills"><span class="pill">Accessibility</span><span class="pill">Toggle UI</span><span class="pill">Navigation</span></div>
+      </div>
+    </div>
+
+    <div class="scard">
+      <div class="scard-img light">
+        <img src="images/achievements.png" alt="Achievements">
+      </div>
+      <div class="scard-info">
+        <div class="scard-tag">Achievements</div>
+        <div class="scard-name">Progress & Badge System</div>
+        <div class="scard-desc">Multi-state achievement cards — in-progress, claimable, and completed — with visual badge tiers and coin rewards.</div>
+        <div class="pills"><span class="pill">Gamification</span><span class="pill">Progress UI</span><span class="pill">Retention</span></div>
+      </div>
+    </div>
+
+    <div class="scard">
+      <div class="scard-img light">
+        <img src="images/shop.png" alt="Shop">
+      </div>
+      <div class="scard-info">
+        <div class="scard-tag">Shop</div>
+        <div class="scard-name">In-Game Store</div>
+        <div class="scard-desc">No Ads banner, Master Pass bundle, and a full coin grid. Designed to present IAP options clearly without overwhelming players.</div>
+        <div class="pills"><span class="pill">Monetization</span><span class="pill">IAP</span><span class="pill">Conversion UX</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- POPUPS & MODALS -->
+  <div class="cat-label">Popups & Modals</div>
+  <div class="screen-grid four">
+
+    <div class="scard">
+      <div class="scard-img dark popup-style">
+        <img src="images/popup.png" alt="Remove Ads Popup">
+      </div>
+      <div class="scard-info">
+        <div class="scard-tag">Popup</div>
+        <div class="scard-name">Remove Ads</div>
+        <div class="scard-desc">Conversion-focused IAP popup with bold visual, clear value prop, and a green CTA. Minimal friction, maximum clarity.</div>
+        <div class="pills"><span class="pill">IAP</span><span class="pill">Monetization</span><span class="pill">Popup</span></div>
+      </div>
+    </div>
+
+    <div class="scard">
+      <div class="scard-img dark popup-style">
+        <img src="images/end.png" alt="You Will Lose Popup">
+      </div>
+      <div class="scard-info">
+        <div class="scard-tag">Popup</div>
+        <div class="scard-name">Lose State & Recovery</div>
+        <div class="scard-desc">Shows at-risk rewards on a milestone track. "Get 3 Lives" rewarded ad CTA with restart fallback — balances monetization with fairness.</div>
+        <div class="pills"><span class="pill">Game Over</span><span class="pill">Rewarded Ad</span><span class="pill">Retention</span></div>
+      </div>
+    </div>
+
+    <div class="scard">
+      <div class="scard-img dark popup-style">
+        <img src="images/like_share.png" alt="Congrats Popup">
+      </div>
+      <div class="scard-info">
+        <div class="scard-tag">Popup</div>
+        <div class="scard-name">Level Complete</div>
+        <div class="scard-desc">Shows completed hidden object scene with like/dislike rating and share option. Drives both engagement and organic sharing.</div>
+        <div class="pills"><span class="pill">Win State</span><span class="pill">Sharing</span><span class="pill">Feedback</span></div>
+      </div>
+    </div>
+
+    <div class="scard">
+      <div class="scard-img dark popup-style">
+        <img src="images/events.png" alt="Event Popup">
+      </div>
+      <div class="scard-info">
+        <div class="scard-tag">Popup</div>
+        <div class="scard-name">Combo Craze Event</div>
+        <div class="scard-desc">Weekend event intro with countdown timer, event mascot icon, and a punchy description. Banner ribbon reinforces the event name.</div>
+        <div class="pills"><span class="pill">Events</span><span class="pill">Limited Time</span><span class="pill">Engagement</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- PROFILE & SOCIAL -->
+  <div class="cat-label">Profile & Social</div>
+  <div class="screen-grid three">
+
+    <div class="scard">
+      <div class="scard-img light">
+        <img src="images/userprofile.png" alt="Edit Profile">
+      </div>
+      <div class="scard-info">
+        <div class="scard-tag">Profile</div>
+        <div class="scard-name">Edit Profile & Avatar</div>
+        <div class="scard-desc">Avatar selection grid with colorful animal characters, editable username field, and a save action. Clear active selection state.</div>
+        <div class="pills"><span class="pill">Identity</span><span class="pill">Customization</span><span class="pill">Avatar Grid</span></div>
+      </div>
+    </div>
+
+    <div class="scard">
+      <div class="scard-img purple">
+        <img src="images/leaderboard.png" alt="Leaderboard">
+      </div>
+      <div class="scard-info">
+        <div class="scard-tag">Leaderboard</div>
+        <div class="scard-name">Combo Craze Rankings</div>
+        <div class="scard-desc">Podium layout for top 3, scrollable ranked list below. Player's own position pinned at the bottom in green for easy self-reference.</div>
+        <div class="pills"><span class="pill">Competition</span><span class="pill">Social</span><span class="pill">Events</span></div>
+      </div>
+    </div>
+
+    <div class="scard">
+      <div class="scard-img dark">
+        <img src="images/tut.png" alt="Tutorial">
+      </div>
+      <div class="scard-info">
+        <div class="scard-tag">Tutorial</div>
+        <div class="scard-name">Streak Master Onboarding</div>
+        <div class="scard-desc">Feature introduction overlay with branded mascot illustration, progress bar steps, and a contextual reward preview beneath.</div>
+        <div class="pills"><span class="pill">Onboarding</span><span class="pill">Streaks</span><span class="pill">Feature UI</span></div>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="eyebrow">About</div>
+  <div class="sec-title">Designing for<br>the player's emotion</div>
+  <div class="about-grid">
+    <div>
+      <div class="about-text">
+        <p>I'm a UI/UX designer focused on <strong>mobile game interfaces</strong> — currently at a hidden objects &amp; puzzle studio in Istanbul. I care about the small moments: the animation that rewards a correct tap, the popup that doesn't break immersion, the icon readable at any size.</p>
+        <p>My approach combines <strong>player psychology with systematic design</strong>. Every screen goes through user flow mapping, component design in Figma, and close iteration with the dev team — so what ships actually matches what was designed.</p>
+        <p>Outside work I follow the indie game scene, study behavioral economics, and collect typefaces.</p>
+      </div>
+      <div class="chips">
+        <span class="chip">Figma</span>
+        <span class="chip">UI Design</span>
+        <span class="chip">UX Flows</span>
+        <span class="chip">Design Systems</span>
+        <span class="chip">Prototyping</span>
+        <span class="chip">Mobile Games</span>
+        <span class="chip">Monetization UX</span>
+        <span class="chip">Motion Design</span>
+      </div>
+    </div>
+    <div class="skills">
+      <div class="sk"><div class="sk-top"><span class="sk-name">UI Design</span><span class="sk-pct">95%</span></div><div class="sk-bar"><div class="sk-fill" style="width:95%"></div></div></div>
+      <div class="sk"><div class="sk-top"><span class="sk-name">Figma</span><span class="sk-pct">97%</span></div><div class="sk-bar"><div class="sk-fill" style="width:97%"></div></div></div>
+      <div class="sk"><div class="sk-top"><span class="sk-name">UX Research &amp; Flows</span><span class="sk-pct">85%</span></div><div class="sk-bar"><div class="sk-fill" style="width:85%"></div></div></div>
+      <div class="sk"><div class="sk-top"><span class="sk-name">Design Systems</span><span class="sk-pct">88%</span></div><div class="sk-bar"><div class="sk-fill" style="width:88%"></div></div></div>
+      <div class="sk"><div class="sk-top"><span class="sk-name">Prototyping</span><span class="sk-pct">82%</span></div><div class="sk-bar"><div class="sk-fill" style="width:82%"></div></div></div>
+      <div class="sk"><div class="sk-top"><span class="sk-name">Motion / Micro-interactions</span><span class="sk-pct">72%</span></div><div class="sk-bar"><div class="sk-fill" style="width:72%"></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="eyebrow">Process</div>
+  <div class="sec-title">How I design</div>
+  <div class="proc-grid">
+    <div class="pstep"><div class="pnum">01</div><h3>Research &amp; Map</h3><p>Player flow analysis, competitor audits, and identifying drop-off points before any wireframe is drawn.</p></div>
+    <div class="pstep"><div class="pnum">02</div><h3>Wireframe</h3><p>Lo-fi wireframes to align with product and engineering early. Validate logic before investing in visuals.</p></div>
+    <div class="pstep"><div class="pnum">03</div><h3>High-Fidelity UI</h3><p>Full Figma screens with auto-layout, components, and design tokens. Dev-ready in one clean handoff.</p></div>
+    <div class="pstep"><div class="pnum">04</div><h3>Test &amp; Polish</h3><p>Playtesting, A/B reads, and data-driven iteration until the screen feels as good as it looks.</p></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" style="background:var(--pale);">
+  <div class="eyebrow">Contact</div>
+  <div class="contact-inner">
+    <div class="sec-title" style="margin-bottom:0;">Let's create<br>something great.</div>
+    <a href="mailto:ekin@example.com" class="contact-email">ekin@example.com</a>
+    <div class="socials">
+      <a href="#" class="soc">LinkedIn ↗</a>
+      <a href="#" class="soc">Behance ↗</a>
+      <a href="#" class="soc">Dribbble ↗</a>
+      <a href="#" class="soc">CV / Resume ↗</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="fl">Ekin Demircan</div>
+  <div class="fc">© 2025 · UI/UX Designer · Istanbul</div>
+</footer>
+
+</body>
+</html>
