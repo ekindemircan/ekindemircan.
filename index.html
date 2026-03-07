@@ -101,6 +101,7 @@ section { padding: 100px 64px; }
   border-radius: 20px; display: block;
   box-shadow: 0 20px 56px rgba(86,67,118,0.16), 0 4px 16px rgba(0,0,0,0.08);
   transition: transform 0.4s cubic-bezier(.25,.46,.45,.94), box-shadow 0.4s;
+  mix-blend-mode: multiply;
 }
 .feat-img:hover { transform: translateY(-10px) scale(1.03); box-shadow: 0 36px 72px rgba(86,67,118,0.2), 0 8px 24px rgba(0,0,0,0.1); }
 
@@ -131,6 +132,7 @@ section { padding: 100px 64px; }
   width: 100%;
   box-shadow: 0 16px 48px rgba(86,67,118,0.13), 0 4px 14px rgba(0,0,0,0.07);
   transition: transform 0.4s cubic-bezier(.25,.46,.45,.94), box-shadow 0.4s;
+  mix-blend-mode: multiply;
 }
 .og-img:hover { transform: translateY(-8px) scale(1.02); box-shadow: 0 28px 60px rgba(86,67,118,0.18), 0 8px 20px rgba(0,0,0,0.1); }
 
@@ -164,6 +166,7 @@ section { padding: 100px 64px; }
   display: block;
   box-shadow: 0 20px 56px rgba(86,67,118,0.15), 0 4px 16px rgba(0,0,0,0.08);
   transition: transform 0.4s cubic-bezier(.25,.46,.45,.94), box-shadow 0.4s;
+  mix-blend-mode: multiply;
 }
 .lb-img:hover { transform: translateY(-8px) scale(1.02); box-shadow: 0 36px 72px rgba(86,67,118,0.2), 0 8px 20px rgba(0,0,0,0.1); }
 .lb-info { text-align: center; max-width: 480px; margin: 24px auto 0; }
@@ -251,8 +254,9 @@ footer { padding: 28px 64px; border-top: 1px solid var(--border); display: flex;
   <div class="hero-left">
     <h1>Hi, I'm Ekin!</h1>
     <div class="hero-bio">
-      <p>I started my journey in <strong>architecture</strong>, where I learned how people move through spaces and how design shapes experience. Along the way, I discovered a love for games — how they engage, challenge, and connect us. That curiosity eventually led me to <strong>UX design</strong>, where I found the perfect blend of my interests.</p>
-      <p>Now, I focus on designing user experiences for mobile games. I enjoy creating interfaces that feel <strong>intuitive, playful, and meaningful</strong>. My background helps me see design from both a creative and structured lens — and I love turning complex ideas into simple, fun interactions.</p>
+      <p>I started my journey in <strong>architecture</strong>, where I learned how people move through spaces and how design can shape their experience. This made me curious about user behavior and how thoughtful design can guide people in a natural way.</p>
+      <p>Over time, I became especially interested in digital products and interactive experiences. Games first drew my attention because of how engaging and intuitive they can be, and that curiosity eventually led me to <strong>UX design</strong>.</p>
+      <p>Today, I design user experiences for mobile products. I enjoy creating interfaces that feel simple, clear, and enjoyable to use. My background helps me think about structure and flow while keeping the user's needs in mind. I like turning complex ideas into experiences that feel easy and natural for people.</p>
     </div>
     <div class="hero-actions">
       <a href="#work" class="btn-solid">See My Work</a>
@@ -268,7 +272,7 @@ footer { padding: 28px 64px; border-top: 1px solid var(--border); display: flex;
 <section id="work">
   <div class="sec-inner">
     <div class="eyebrow">Selected Work</div>
-    <div class="sec-title">Find Hidden Objects</div>
+    <div class="sec-title">Mobile Game UI/UX Design</div>
     <p class="sec-intro">
       As a UI/UX designer on this project, I work across the full spectrum of the game's interface — from core navigation to in-game popups. Below is a selection of screens from one game, showcasing how I approach <strong>visual consistency, player experience, and monetization UX</strong> within a single product. Each screen is part of a cohesive design system built to feel familiar, fast, and fun.
     </p>
@@ -314,7 +318,7 @@ footer { padding: 28px 64px; border-top: 1px solid var(--border); display: flex;
       <div class="feat-text">
         <div class="feat-tag">04 — Settings</div>
         <div class="feat-title">Preferences & Accessibility</div>
-        <div class="feat-desc">A monochrome, familiar interface format with no visual noise. Users can quickly scan and find what they need. Color Blind Assist is included as a first-class toggle, and the grouped sections keep related actions together without clutter.</div>
+        <div class="feat-desc">A monochrome, familiar interface format with no visual noise. Users can quickly scan and find what they need.</div>
       </div>
       <div class="feat-img-wrap">
         <img src="settings.png" alt="Settings" class="feat-img">
@@ -387,7 +391,7 @@ footer { padding: 28px 64px; border-top: 1px solid var(--border); display: flex;
           </div>
 
           <div class="og-item low">
-            <img src="Like_Share.png" alt="Level Complete" class="og-img">
+            <img src="Like&amp;Share.png" alt="Level Complete" class="og-img">
             <div class="og-info">
               <div class="og-tag">Level End</div>
               <div class="og-name">Like & Share</div>
@@ -429,11 +433,11 @@ footer { padding: 28px 64px; border-top: 1px solid var(--border); display: flex;
       </div>
       <div style="padding-top: 8px;">
         <div class="contact-links">
-          <a href="mailto:demircan.ekin@gmail.com" class="clink">
+          <a href="/cdn-cgi/l/email-protection#2a4e4f474358494b44044f4143446a4d474b434604494547" class="clink">
             <div class="clink-icon">✉️</div>
             <div class="clink-text">
               <span class="clink-label">Email</span>
-              <span class="clink-val">demircan.ekin@gmail.com</span>
+              <span class="clink-val"><span class="__cf_email__" data-cfemail="6e0a0b03071c0d0f00400b0507002e09030f0702400d0103">[email&#160;protected]</span></span>
             </div>
             <span class="clink-arrow">↗</span>
           </a>
@@ -449,12 +453,4 @@ footer { padding: 28px 64px; border-top: 1px solid var(--border); display: flex;
       </div>
     </div>
   </div>
-</section>
-
-<footer>
-  <div class="fl">Ekin Demircan</div>
-  <div class="fc">© 2025 · UI/UX Designer · Istanbul</div>
-</footer>
-
-</body>
-</html>
+</sec
