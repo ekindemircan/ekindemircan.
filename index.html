@@ -219,12 +219,11 @@ footer { padding: 28px 64px; border-top: 1px solid var(--border); display: flex;
   section { padding:64px 24px; }
   .two-grid { max-width:100%; }
   footer { flex-direction:column; gap:8px; text-align:center; padding:24px; }
-  .offset-grid { gap: 40px; }
-  .og-item { padding-bottom: 12px; border-bottom: 1px solid var(--border); }
-  .og-item:last-child { border-bottom: none; }
+  .offset-grid .og-item,
+  .two-grid .og-item { border-bottom: 1px solid var(--border); padding-bottom: 32px; }
+  .offset-grid .og-item:last-child,
+  .two-grid .og-item:last-child { border-bottom: none; }
   .og-item.low { margin-top: 0; }
-  .og-name { font-size: 16px; }
-  .og-desc { font-size: 13px; line-height: 1.7; }
 }
 @media(max-width:480px){
   .offset-grid { grid-template-columns:1fr; }
