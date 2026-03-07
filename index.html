@@ -57,8 +57,7 @@ nav {
   font-family: 'DM Serif Display', serif;
   font-size: clamp(38px, 4.2vw, 60px);
   line-height: 1.1; letter-spacing: -1px;
-  font-weight: 400; margin-bottom: 20px;
-  color: var(--ink);
+  font-weight: 400; margin-bottom: 20px; color: var(--ink);
 }
 .hero-bio { color: var(--muted); font-size: 15px; line-height: 1.85; margin-bottom: 36px; font-weight: 300; }
 .hero-bio p { margin-bottom: 14px; }
@@ -96,16 +95,73 @@ section { padding: 100px 64px; }
 .feat-title { font-family: 'DM Serif Display', serif; font-size: clamp(22px, 2.5vw, 32px); font-weight: 400; line-height: 1.2; letter-spacing: -0.3px; margin-bottom: 14px; }
 .feat-desc { font-size: 14px; color: var(--muted); line-height: 1.8; font-weight: 300; }
 .feat-img-wrap { display: flex; justify-content: center; align-items: center; }
-.feat-img-pair { gap: 16px; align-items: flex-start; }
+.feat-img-pair { gap: 20px; align-items: flex-start; }
 .feat-img-low { margin-top: 48px; }
-.feat-img {
-  width: 46%; max-width: 180px;
-  border-radius: 20px; display: block;
-  box-shadow: 0 20px 56px rgba(86,67,118,0.16), 0 4px 16px rgba(0,0,0,0.08);
-  transition: transform 0.4s cubic-bezier(.25,.46,.45,.94), box-shadow 0.4s;
-  mix-blend-mode: multiply;
+
+/* 3D TILT WRAPPER */
+.tilt-wrap {
+  display: inline-block;
+  perspective: 800px;
+  cursor: pointer;
 }
-.feat-img:hover { transform: translateY(-10px) scale(1.03); box-shadow: 0 36px 72px rgba(86,67,118,0.2), 0 8px 24px rgba(0,0,0,0.1); }
+.tilt-wrap.pair-item { width: 46%; max-width: 180px; }
+.tilt-wrap.single-item { width: 62%; max-width: 240px; }
+.tilt-wrap.grid-item { width: 100%; }
+.tilt-wrap.lb-item { width: 100%; max-width: 320px; }
+
+.tilt-inner {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.08s linear;
+  border-radius: 22px;
+}
+
+/* Phone edge: pseudo-element simulates device thickness */
+.tilt-inner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 22px;
+  background: transparent;
+  box-shadow:
+    /* bottom edge — darkest */
+    0 8px 0 -1px rgba(20,15,35,0.55),
+    /* right edge */
+    8px 0 0 -1px rgba(20,15,35,0.35),
+    /* top edge — highlight */
+    0 -4px 0 -1px rgba(255,255,255,0.25),
+    /* left edge — mid */
+    -4px 0 0 -1px rgba(20,15,35,0.2);
+  transform: translateZ(-10px);
+  pointer-events: none;
+}
+
+/* Drop shadow that shifts with tilt */
+.tilt-inner::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 23px;
+  background: transparent;
+  box-shadow: 0 24px 60px rgba(86,67,118,0.18), 0 6px 20px rgba(0,0,0,0.1);
+  transform: translateZ(-12px);
+  pointer-events: none;
+  transition: box-shadow 0.3s;
+}
+
+.tilt-wrap:hover .tilt-inner::after {
+  box-shadow: 0 36px 80px rgba(86,67,118,0.26), 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.tilt-img {
+  display: block;
+  width: 100%;
+  border-radius: 20px;
+  transform: translateZ(0);
+  mix-blend-mode: multiply;
+  position: relative;
+  z-index: 1;
+}
 
 /* GRID SECTIONS */
 .cat-section { margin-top: 80px; }
@@ -126,18 +182,6 @@ section { padding: 100px 64px; }
 }
 .og-item { display: flex; flex-direction: column; }
 .og-item.low { margin-top: 60px; }
-
-.og-img {
-  border-radius: 20px;
-  overflow: hidden;
-  display: block;
-  width: 100%;
-  box-shadow: 0 16px 48px rgba(86,67,118,0.13), 0 4px 14px rgba(0,0,0,0.07);
-  transition: transform 0.4s cubic-bezier(.25,.46,.45,.94), box-shadow 0.4s;
-  mix-blend-mode: multiply;
-}
-.og-img:hover { transform: translateY(-8px) scale(1.02); box-shadow: 0 28px 60px rgba(86,67,118,0.18), 0 8px 20px rgba(0,0,0,0.1); }
-
 .og-info { padding: 16px 4px 0; }
 .og-tag { font-size: 10px; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase; color: var(--lp); margin-bottom: 4px; }
 .og-name { font-family: 'DM Serif Display', serif; font-size: 15px; font-weight: 400; line-height: 1.2; margin-bottom: 6px; }
@@ -146,33 +190,15 @@ section { padding: 100px 64px; }
 /* TWO GRID */
 .two-wrap { display: flex; justify-content: center; }
 .two-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 32px;
-  align-items: start;
-  max-width: 600px;
-  width: 100%;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 32px; align-items: start;
+  max-width: 600px; width: 100%;
 }
 .two-grid .og-item.low { margin-top: 60px; }
 
-/* LEADERBOARD — full width single image centered */
-.lb-wrap {
-  display: flex;
-  justify-content: center;
-  margin-top: 8px;
-}
-.lb-img {
-  width: 100%;
-  max-width: 320px;
-  border-radius: 20px;
-  display: block;
-  box-shadow: 0 20px 56px rgba(86,67,118,0.15), 0 4px 16px rgba(0,0,0,0.08);
-  transition: transform 0.4s cubic-bezier(.25,.46,.45,.94), box-shadow 0.4s;
-  mix-blend-mode: multiply;
-}
-.lb-img:hover { transform: translateY(-8px) scale(1.02); box-shadow: 0 36px 72px rgba(86,67,118,0.2), 0 8px 20px rgba(0,0,0,0.1); }
+/* LEADERBOARD */
+.lb-wrap { display: flex; justify-content: center; margin-top: 8px; }
 .lb-info { text-align: center; max-width: 480px; margin: 24px auto 0; }
-.lb-info .og-tag { justify-content: center; }
 .lb-info .og-name { font-size: 20px; margin-bottom: 8px; }
 .lb-info .og-desc { font-size: 13px; }
 
@@ -186,8 +212,7 @@ section { padding: 100px 64px; }
   text-decoration: none; color: var(--ink);
   font-size: 15px; padding: 16px 20px;
   background: #fff; border-radius: 14px;
-  border: 1px solid var(--border);
-  transition: all 0.2s;
+  border: 1px solid var(--border); transition: all 0.2s;
 }
 .clink:hover { border-color: var(--dp); background: var(--dp); color: #fff; }
 .clink:hover .clink-icon { background: rgba(255,255,255,0.15); }
@@ -287,8 +312,16 @@ footer { padding: 28px 64px; border-top: 1px solid var(--border); display: flex;
         <div class="feat-desc">Two navigation flows explored for the main menu of a jigsaw puzzle game. Both designs stay true to the game's calm, focused aesthetic while making core actions immediately accessible.</div>
       </div>
       <div class="feat-img-wrap feat-img-pair">
-        <img src="jg_1.png" alt="Main Menu 01" class="feat-img">
-        <img src="jg_2.png" alt="Main Menu 02" class="feat-img feat-img-low">
+        <div class="tilt-wrap pair-item" data-tilt>
+          <div class="tilt-inner">
+            <img src="jg_1.png" alt="Main Menu 01" class="tilt-img">
+          </div>
+        </div>
+        <div class="tilt-wrap pair-item feat-img-low" data-tilt>
+          <div class="tilt-inner">
+            <img src="jg_2.png" alt="Main Menu 02" class="tilt-img">
+          </div>
+        </div>
       </div>
     </div>
 
@@ -300,8 +333,16 @@ footer { padding: 28px 64px; border-top: 1px solid var(--border); display: flex;
         <div class="feat-desc">A calm, neutral shop design that stays consistent with the game's overall visual tone. The subscription screen intentionally breaks from that restraint — a richer, more royal purple signals exclusivity and makes the VIP Club feel like a premium tier apart from standard purchases.</div>
       </div>
       <div class="feat-img-wrap feat-img-pair">
-        <img src="shop_jigsaw.png" alt="Shop" class="feat-img">
-        <img src="subscription.png" alt="Subscription" class="feat-img feat-img-low">
+        <div class="tilt-wrap pair-item" data-tilt>
+          <div class="tilt-inner">
+            <img src="shop_jigsaw.png" alt="Shop" class="tilt-img">
+          </div>
+        </div>
+        <div class="tilt-wrap pair-item feat-img-low" data-tilt>
+          <div class="tilt-inner">
+            <img src="subscription.png" alt="Subscription" class="tilt-img">
+          </div>
+        </div>
       </div>
     </div>
 
@@ -313,7 +354,11 @@ footer { padding: 28px 64px; border-top: 1px solid var(--border); display: flex;
         <div class="feat-desc">A scrollable list layout that prioritises readability over decoration. Each achievement is easy to scan at a glance — progress bars, reward indicators, and badge tiers are all clearly visible. Claimable rewards use a high-contrast green CTA to stand out immediately.</div>
       </div>
       <div class="feat-img-wrap">
-        <img src="achievements.png" alt="Achievements" class="feat-img">
+        <div class="tilt-wrap single-item" data-tilt>
+          <div class="tilt-inner">
+            <img src="achievements.png" alt="Achievements" class="tilt-img">
+          </div>
+        </div>
       </div>
     </div>
 
@@ -325,7 +370,11 @@ footer { padding: 28px 64px; border-top: 1px solid var(--border); display: flex;
         <div class="feat-desc">A monochrome, familiar interface format with no visual noise. Users can quickly scan and find what they need.</div>
       </div>
       <div class="feat-img-wrap">
-        <img src="settings.png" alt="Settings" class="feat-img">
+        <div class="tilt-wrap single-item" data-tilt>
+          <div class="tilt-inner">
+            <img src="settings.png" alt="Settings" class="tilt-img">
+          </div>
+        </div>
       </div>
     </div>
 
@@ -338,7 +387,11 @@ footer { padding: 28px 64px; border-top: 1px solid var(--border); display: flex;
       <div class="offset-grid">
 
         <div class="og-item">
-          <img src="end.png" alt="Fail Screen" class="og-img">
+          <div class="tilt-wrap grid-item" data-tilt>
+            <div class="tilt-inner">
+              <img src="end.png" alt="Fail Screen" class="tilt-img">
+            </div>
+          </div>
           <div class="og-info">
             <div class="og-tag">End State</div>
             <div class="og-name">Event Fail Screen</div>
@@ -347,7 +400,11 @@ footer { padding: 28px 64px; border-top: 1px solid var(--border); display: flex;
         </div>
 
         <div class="og-item low">
-          <img src="events.png" alt="Event Popup" class="og-img">
+          <div class="tilt-wrap grid-item" data-tilt>
+            <div class="tilt-inner">
+              <img src="events.png" alt="Event Popup" class="tilt-img">
+            </div>
+          </div>
           <div class="og-info">
             <div class="og-tag">Event</div>
             <div class="og-name">Event Start Popup</div>
@@ -356,7 +413,11 @@ footer { padding: 28px 64px; border-top: 1px solid var(--border); display: flex;
         </div>
 
         <div class="og-item">
-          <img src="popup.png" alt="No Ads Popup" class="og-img">
+          <div class="tilt-wrap grid-item" data-tilt>
+            <div class="tilt-inner">
+              <img src="popup.png" alt="No Ads Popup" class="tilt-img">
+            </div>
+          </div>
           <div class="og-info">
             <div class="og-tag">Offer</div>
             <div class="og-name">No Ads Offer</div>
@@ -365,7 +426,11 @@ footer { padding: 28px 64px; border-top: 1px solid var(--border); display: flex;
         </div>
 
         <div class="og-item low">
-          <img src="userprofile.png" alt="Edit Profile" class="og-img">
+          <div class="tilt-wrap grid-item" data-tilt>
+            <div class="tilt-inner">
+              <img src="userprofile.png" alt="Edit Profile" class="tilt-img">
+            </div>
+          </div>
           <div class="og-info">
             <div class="og-tag">Profile</div>
             <div class="og-name">Edit Profile Popup</div>
@@ -379,30 +444,33 @@ footer { padding: 28px 64px; border-top: 1px solid var(--border); display: flex;
     <!-- SPECIAL SCREENS -->
     <div class="cat-section">
       <div class="cat-label">Special Screens</div>
-      <p class="cat-desc">
-        These screens draw from familiar mobile patterns to make features feel instantly intuitive.
-      </p>
+      <p class="cat-desc">These screens draw from familiar mobile patterns to make features feel instantly intuitive.</p>
       <div class="two-wrap">
         <div class="two-grid">
-
           <div class="og-item">
-            <img src="tut.png" alt="Tutorial" class="og-img">
+            <div class="tilt-wrap grid-item" data-tilt>
+              <div class="tilt-inner">
+                <img src="tut.png" alt="Tutorial" class="tilt-img">
+              </div>
+            </div>
             <div class="og-info">
               <div class="og-tag">Tutorial</div>
               <div class="og-name">Streak Master Onboarding</div>
               <div class="og-desc">Designed like an Instagram Story — step-based, visual-first. Introduces a new game mechanic with branded illustrations and a reward preview to motivate players before they begin.</div>
             </div>
           </div>
-
           <div class="og-item low">
-            <img src="Like_Share.png" alt="Level Complete" class="og-img">
+            <div class="tilt-wrap grid-item" data-tilt>
+              <div class="tilt-inner">
+                <img src="Like_Share.png" alt="Level Complete" class="tilt-img">
+              </div>
+            </div>
             <div class="og-info">
               <div class="og-tag">Level End</div>
               <div class="og-name">Like & Share</div>
               <div class="og-desc">At level completion, players see the finished hidden object scene with familiar social actions — like, dislike, and share. Borrowed from social media to feel natural and encourage organic sharing.</div>
             </div>
           </div>
-
         </div>
       </div>
     </div>
@@ -410,11 +478,13 @@ footer { padding: 28px 64px; border-top: 1px solid var(--border); display: flex;
     <!-- LEADERBOARD -->
     <div class="cat-section">
       <div class="cat-label">Leaderboard</div>
-      <p class="cat-desc">
-        The event leaderboard serves three purposes at once: players can track their own ranking, see how they compare against others, and claim their event rewards — all from a single screen at event end.
-      </p>
+      <p class="cat-desc">The event leaderboard serves three purposes at once: players can track their own ranking, see how they compare against others, and claim their event rewards — all from a single screen at event end.</p>
       <div class="lb-wrap">
-        <img src="leaderboard.png" alt="Leaderboard" class="lb-img">
+        <div class="tilt-wrap lb-item" data-tilt>
+          <div class="tilt-inner">
+            <img src="leaderboard.png" alt="Leaderboard" class="tilt-img">
+          </div>
+        </div>
       </div>
       <div class="lb-info">
         <div class="og-tag">Event End</div>
@@ -437,11 +507,11 @@ footer { padding: 28px 64px; border-top: 1px solid var(--border); display: flex;
       </div>
       <div style="padding-top: 8px;">
         <div class="contact-links">
-          <a href="/cdn-cgi/l/email-protection#2a4e4f474358494b44044f4143446a4d474b434604494547" class="clink">
+          <a href="mailto:demircan.ekin@gmail.com" class="clink">
             <div class="clink-icon">✉️</div>
             <div class="clink-text">
               <span class="clink-label">Email</span>
-              <span class="clink-val"><span class="__cf_email__" data-cfemail="6e0a0b03071c0d0f00400b0507002e09030f0702400d0103">[email&#160;protected]</span></span>
+              <span class="clink-val">demircan.ekin@gmail.com</span>
             </div>
             <span class="clink-arrow">↗</span>
           </a>
@@ -457,4 +527,49 @@ footer { padding: 28px 64px; border-top: 1px solid var(--border); display: flex;
       </div>
     </div>
   </div>
-</sec
+</section>
+
+<footer>
+  <div class="fl">Ekin Demircan</div>
+  <div class="fc">© 2025 · UI/UX Designer · Istanbul</div>
+</footer>
+
+<script>
+// 3D Tilt Effect — mouse-tracked per element
+document.querySelectorAll('[data-tilt]').forEach(wrap => {
+  const inner = wrap.querySelector('.tilt-inner');
+  const STRENGTH = 18; // max degrees of tilt
+  const LIFT = 12;     // px lift on hover
+
+  wrap.addEventListener('mousemove', e => {
+    const r = wrap.getBoundingClientRect();
+    // Normalised -1 to +1
+    const x = ((e.clientX - r.left) / r.width)  * 2 - 1;
+    const y = ((e.clientY - r.top)  / r.height) * 2 - 1;
+
+    // rotateX inverted so top of card tilts toward viewer when cursor is high
+    const rotX = -y * STRENGTH;
+    const rotY =  x * STRENGTH;
+
+    // Dynamic shadow shifts opposite to tilt direction
+    const shadowX = -x * 16;
+    const shadowY = -y * 16 + 20;
+
+    inner.style.transform =
+      `perspective(800px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateZ(${LIFT}px)`;
+    inner.style.transition = 'transform 0.08s linear';
+
+    // Update the glow shadow on ::after via filter (workaround for pseudo-elements)
+    wrap.style.filter = `drop-shadow(${shadowX}px ${shadowY + 24}px 28px rgba(86,67,118,0.22))`;
+  });
+
+  wrap.addEventListener('mouseleave', () => {
+    inner.style.transform = 'perspective(800px) rotateX(0deg) rotateY(0deg) translateZ(0px)';
+    inner.style.transition = 'transform 0.55s cubic-bezier(.25,.46,.45,.94)';
+    wrap.style.filter = '';
+  });
+});
+</script>
+
+</body>
+</html>
