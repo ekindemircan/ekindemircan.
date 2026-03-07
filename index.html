@@ -96,8 +96,10 @@ section { padding: 100px 64px; }
 .feat-title { font-family: 'DM Serif Display', serif; font-size: clamp(22px, 2.5vw, 32px); font-weight: 400; line-height: 1.2; letter-spacing: -0.3px; margin-bottom: 14px; }
 .feat-desc { font-size: 14px; color: var(--muted); line-height: 1.8; font-weight: 300; }
 .feat-img-wrap { display: flex; justify-content: center; align-items: center; }
+.feat-img-pair { gap: 16px; align-items: flex-start; }
+.feat-img-low { margin-top: 48px; }
 .feat-img {
-  width: 62%; max-width: 240px;
+  width: 46%; max-width: 180px;
   border-radius: 20px; display: block;
   box-shadow: 0 20px 56px rgba(86,67,118,0.16), 0 4px 16px rgba(0,0,0,0.08);
   transition: transform 0.4s cubic-bezier(.25,.46,.45,.94), box-shadow 0.4s;
@@ -274,18 +276,19 @@ footer { padding: 28px 64px; border-top: 1px solid var(--border); display: flex;
     <div class="eyebrow">Selected Work</div>
     <div class="sec-title">Mobile Game UI/UX Design</div>
     <p class="sec-intro">
-      As a UI/UX designer on this project, I work across the full spectrum of the game's interface — from core navigation to in-game popups. Below is a selection of screens from one game, showcasing how I approach <strong>visual consistency, player experience, and monetization UX</strong> within a single product. Each screen is part of a cohesive design system built to feel familiar, fast, and fun.
+      Below is a selection of UI screens from different mobile games I've worked on. Each project has its own visual language and player expectations — the goal across all of them is the same: interfaces that feel <strong>consistent, intuitive, and tailored to the game's identity</strong>.
     </p>
 
-    <!-- 1. HOME -->
+    <!-- 1. MAIN MENU -->
     <div class="feat-row">
       <div class="feat-text">
-        <div class="feat-tag">01 — Home Screen</div>
-        <div class="feat-title">Main Gameplay Hub</div>
-        <div class="feat-desc">The central hub showing level progress, daily boosters, and coin balance. Events are surfaced as a dedicated button directly on the home screen for quick access, replacing buried menu navigation with a single, visible entry point.</div>
+        <div class="feat-tag">01 — Main Menu</div>
+        <div class="feat-title">Main Menu — Jigsaw Puzzle</div>
+        <div class="feat-desc">Two navigation flows explored for the main menu of a jigsaw puzzle game. Both designs stay true to the game's calm, focused aesthetic while making core actions immediately accessible.</div>
       </div>
-      <div class="feat-img-wrap">
-        <img src="home.png" alt="Home Screen" class="feat-img">
+      <div class="feat-img-wrap feat-img-pair">
+        <img src="Main_Menu_01.png" alt="Main Menu 01" class="feat-img">
+        <img src="Main_Menu_02.png" alt="Main Menu 02" class="feat-img feat-img-low">
       </div>
     </div>
 
@@ -293,11 +296,12 @@ footer { padding: 28px 64px; border-top: 1px solid var(--border); display: flex;
     <div class="feat-row flip">
       <div class="feat-text">
         <div class="feat-tag">02 — Shop</div>
-        <div class="feat-title">In-Game Store</div>
-        <div class="feat-desc">Each package uses a distinct color to draw the eye individually, while packages are grouped logically within the layout. This visual hierarchy makes it easy to browse, compare, and act without overwhelming the player.</div>
+        <div class="feat-title">Shop & Subscription — Jigsaw Puzzle</div>
+        <div class="feat-desc">A calm, neutral shop design that stays consistent with the game's overall visual tone. The subscription screen intentionally breaks from that restraint — a richer, more royal purple signals exclusivity and makes the VIP Club feel like a premium tier apart from standard purchases.</div>
       </div>
-      <div class="feat-img-wrap">
-        <img src="shop.png" alt="Shop" class="feat-img">
+      <div class="feat-img-wrap feat-img-pair">
+        <img src="Shop_jigsaw.png" alt="Shop" class="feat-img">
+        <img src="subscription.png" alt="Subscription" class="feat-img feat-img-low">
       </div>
     </div>
 
@@ -391,7 +395,7 @@ footer { padding: 28px 64px; border-top: 1px solid var(--border); display: flex;
           </div>
 
           <div class="og-item low">
-            <img src="Like_Share.png" alt="Level Complete" class="og-img">
+            <img src="Like&amp;Share.png" alt="Level Complete" class="og-img">
             <div class="og-info">
               <div class="og-tag">Level End</div>
               <div class="og-name">Like & Share</div>
