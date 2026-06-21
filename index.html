@@ -6,7 +6,7 @@
 <title>Ekin Demircan — Product & UI/UX Designer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
@@ -45,12 +45,12 @@ nav {
   border-bottom: 1px solid var(--line);
 }
 .nav-left { display: flex; align-items: baseline; gap: 11px; }
-.nav-logo { font-family: 'Fraunces', serif; font-size: 19px; font-weight: 600; color: var(--dp); letter-spacing: -0.3px; }
+.nav-logo { font-family: 'Archivo', sans-serif; font-size: 19px; font-weight: 600; color: var(--dp); letter-spacing: -0.3px; }
 .nav-role { font-size: 12px; color: var(--faint); font-weight: 400; }
 .nav-links { display: flex; gap: 32px; align-items: center; }
 .nav-links a { text-decoration: none; color: var(--muted); font-size: 12px; letter-spacing: 0.8px; text-transform: uppercase; font-weight: 500; transition: color 0.2s; }
 .nav-links a:hover { color: var(--dp); }
-.nav-cta { background: var(--dp) !important; color: #fff !important; padding: 10px 22px; border-radius: 100px; letter-spacing: 0.5px !important; transition: all 0.25s !important; }
+.nav-cta { background: var(--dp) !important; color: #fff !important; padding: 10px 22px; border-radius: 0; letter-spacing: 0.5px !important; transition: all 0.25s !important; }
 .nav-cta:hover { background: var(--lp) !important; transform: translateY(-1px); }
 
 /* ===== HERO ===== */
@@ -69,23 +69,23 @@ nav {
 .hero-eyebrow {
   display: inline-flex; align-items: center; gap: 9px;
   font-size: 12px; font-weight: 500; letter-spacing: 1.2px; text-transform: uppercase;
-  color: #fff; background: var(--lp); padding: 8px 18px; border-radius: 100px;
+  color: #fff; background: var(--lp); padding: 8px 18px; border-radius: 0;
   margin-bottom: 26px;
 }
 .hero-eyebrow .dot { width: 6px; height: 6px; border-radius: 50%; background: #fff; animation: pulse 2.2s ease-in-out infinite; }
 @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(0.7)} }
 .hero h1 {
-  font-family: 'Fraunces', serif; font-weight: 500;
-  font-size: clamp(40px, 5.4vw, 76px); line-height: 1.04; letter-spacing: -1.5px;
+  font-family: 'Archivo', sans-serif; font-weight: 800; text-transform: uppercase;
+  font-size: clamp(38px, 5.2vw, 70px); line-height: 1.0; letter-spacing: -2px;
   margin-bottom: 24px; color: var(--ink);
 }
-.hero h1 em { font-style: italic; color: var(--vp); }
-.hero-bio { color: var(--muted); font-size: 16px; line-height: 1.85; margin-bottom: 36px; font-weight: 300; max-width: 520px; }
+.hero h1 em { font-style: normal; color: var(--vp); }
+.hero-bio { color: var(--muted); font-size: 17px; line-height: 1.85; margin-bottom: 36px; font-weight: 300; max-width: 520px; }
 .hero-bio strong { color: var(--ink); font-weight: 500; }
 .hero-actions { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
-.btn-solid { background: var(--dp); color: #fff; padding: 14px 30px; border-radius: 100px; font-size: 14px; font-weight: 500; text-decoration: none; transition: all 0.25s; display: inline-block; box-shadow: 0 8px 24px rgba(74,46,134,0.25); }
+.btn-solid { background: var(--dp); color: #fff; padding: 14px 30px; border-radius: 0; font-size: 14px; font-weight: 500; text-decoration: none; transition: all 0.25s; display: inline-block; box-shadow: 0 8px 24px rgba(74,46,134,0.25); }
 .btn-solid:hover { background: var(--lp); transform: translateY(-2px); box-shadow: 0 12px 32px rgba(74,46,134,0.32); }
-.btn-ghost { color: var(--muted); padding: 14px 26px; border-radius: 100px; font-size: 14px; text-decoration: none; border: 1px solid var(--line); transition: all 0.2s; }
+.btn-ghost { color: var(--muted); padding: 14px 26px; border-radius: 0; font-size: 14px; text-decoration: none; border: 1px solid var(--line); transition: all 0.2s; }
 .btn-ghost:hover { border-color: var(--vp); color: var(--vp); }
 
 .hero-visual { position: relative; z-index: 2; display: flex; justify-content: center; align-items: center; }
@@ -112,8 +112,8 @@ section { padding: clamp(64px, 9vw, 120px) clamp(20px, 5vw, 64px); }
 .sec-inner { max-width: 1280px; margin: 0 auto; }
 .eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 1.6px; text-transform: uppercase; color: var(--lp); margin-bottom: 16px; display: flex; align-items: center; gap: 11px; }
 .eyebrow::before { content: ''; width: 28px; height: 1.5px; background: var(--lp); }
-.sec-title { font-family: 'Fraunces', serif; font-weight: 500; font-size: clamp(32px, 4.2vw, 56px); line-height: 1.06; letter-spacing: -1px; margin-bottom: 18px; }
-.sec-intro { color: var(--muted); font-size: 16px; line-height: 1.85; max-width: 720px; font-weight: 300; }
+.sec-title { font-family: 'Archivo', sans-serif; font-weight: 800; text-transform: uppercase; font-size: clamp(30px, 4vw, 52px); line-height: 1.02; letter-spacing: -1.5px; margin-bottom: 18px; }
+.sec-intro { color: var(--muted); font-size: 17px; line-height: 1.85; max-width: 720px; font-weight: 300; }
 .sec-intro strong { color: var(--ink); font-weight: 500; }
 
 /* ===== WORK INDEX ===== */
@@ -126,12 +126,12 @@ section { padding: clamp(64px, 9vw, 120px) clamp(20px, 5vw, 64px); }
   transition: all 0.3s cubic-bezier(.25,.46,.45,.94);
 }
 .proj-card:hover { transform: translateY(-4px); box-shadow: 0 24px 56px rgba(74,46,134,0.14); border-color: rgba(155,109,212,0.4); }
-.proj-num { font-family: 'Fraunces', serif; font-size: 40px; font-weight: 500; color: var(--pale2); line-height: 1; transition: color 0.3s; }
+.proj-num { font-family: 'Archivo', sans-serif; font-size: 40px; font-weight: 500; color: var(--pale2); line-height: 1; transition: color 0.3s; }
 .proj-card:hover .proj-num { color: var(--lp); }
-.proj-body .ptitle { font-family: 'Fraunces', serif; font-size: clamp(22px, 2.6vw, 30px); font-weight: 500; letter-spacing: -0.4px; margin-bottom: 7px; }
+.proj-body .ptitle { font-family: 'Archivo', sans-serif; font-size: clamp(22px, 2.6vw, 30px); font-weight: 500; letter-spacing: -0.4px; margin-bottom: 7px; }
 .proj-body .pmeta { font-size: 13px; color: var(--muted); font-weight: 300; }
 .proj-tags { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
-.ptag { font-size: 11px; color: var(--vp); background: var(--pale); padding: 4px 12px; border-radius: 100px; font-weight: 500; }
+.ptag { font-size: 11px; color: var(--vp); background: var(--pale); padding: 4px 12px; border-radius: 0; font-weight: 500; }
 .proj-arrow { font-size: 22px; color: var(--faint); transition: all 0.3s; }
 .proj-card:hover .proj-arrow { color: var(--vp); transform: translateX(5px); }
 
@@ -139,7 +139,7 @@ section { padding: clamp(64px, 9vw, 120px) clamp(20px, 5vw, 64px); }
 .case { border-top: 1px solid var(--line); }
 .case-head { max-width: 1280px; margin: 0 auto; }
 .case-kicker { display: flex; align-items: center; gap: 14px; margin-bottom: 22px; }
-.case-index { font-family: 'Fraunces', serif; font-size: 15px; color: var(--lp); font-weight: 600; }
+.case-index { font-family: 'Archivo', sans-serif; font-size: 15px; color: var(--lp); font-weight: 600; }
 .case-index::after { content: ''; display: inline-block; width: 40px; height: 1.5px; background: var(--line); margin-left: 14px; vertical-align: middle; }
 .case-meta-row { display: flex; gap: 32px; flex-wrap: wrap; margin-top: 32px; padding-top: 28px; border-top: 1px solid var(--line); }
 .cmeta { display: flex; flex-direction: column; gap: 3px; }
@@ -153,10 +153,10 @@ section { padding: clamp(64px, 9vw, 120px) clamp(20px, 5vw, 64px); }
 }
 .phase-chip {
   font-size: 11px; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase;
-  padding: 6px 14px; border-radius: 100px; color: #fff; white-space: nowrap;
+  padding: 6px 14px; border-radius: 0; color: #fff; white-space: nowrap;
 }
-.phase-name { font-family: 'Fraunces', serif; font-size: clamp(24px, 3vw, 36px); font-weight: 500; letter-spacing: -0.5px; }
-.phase-desc { color: var(--muted); font-size: 15px; line-height: 1.85; max-width: 740px; font-weight: 300; margin-bottom: 40px; }
+.phase-name { font-family: 'Archivo', sans-serif; font-size: clamp(22px, 2.8vw, 34px); font-weight: 800; text-transform: uppercase; letter-spacing: -0.8px; }
+.phase-desc { color: var(--muted); font-size: 17px; line-height: 1.85; max-width: 740px; font-weight: 300; margin-bottom: 40px; }
 .phase-desc strong { color: var(--ink); font-weight: 500; }
 
 /* before/after pair */
@@ -164,32 +164,33 @@ section { padding: clamp(64px, 9vw, 120px) clamp(20px, 5vw, 64px); }
   display: grid; grid-template-columns: 1fr auto 1fr; gap: clamp(16px, 3vw, 40px);
   align-items: start; justify-items: center;
 }
-.ba-col { display: flex; flex-direction: column; align-items: center; gap: 14px; width: 100%; max-width: 270px; }
-.ba-tag { font-size: 10px; font-weight: 600; letter-spacing: 1.4px; text-transform: uppercase; padding: 5px 15px; border-radius: 100px; }
+.ba-col { display: flex; flex-direction: column; align-items: center; gap: 14px; width: 100%; max-width: 220px; }
+.ba-tag { font-size: 10px; font-weight: 600; letter-spacing: 1.4px; text-transform: uppercase; padding: 5px 15px; border-radius: 0; }
 .ba-tag.before { color: var(--muted); background: var(--pale2); }
 .ba-tag.after { color: #fff; background: var(--dp); }
 .shot {
-  width: 100%; border-radius: 22px; display: block;
+  width: 100%; max-width: 220px; border-radius: 12px; display: block;
   box-shadow: 0 22px 60px rgba(74,46,134,0.16), 0 5px 16px rgba(0,0,0,0.05);
   transition: transform 0.45s cubic-bezier(.25,.46,.45,.94), box-shadow 0.45s;
   background: #fff;
 }
 .shot:hover { transform: translateY(-10px) scale(1.02); box-shadow: 0 38px 80px rgba(74,46,134,0.22), 0 10px 28px rgba(0,0,0,0.08); }
-.ba-arrow { align-self: center; padding-top: 60px; color: var(--lp); font-size: 26px; flex-shrink: 0; }
+.ba-arrow { align-self: center; padding-top: 60px; color: var(--lp); font-size: 36px; flex-shrink: 0; }
 
 /* minimal phase numbering (no chip) */
-.phase-num { font-family: 'Fraunces', serif; font-size: 14px; font-weight: 600; color: var(--lp); margin-bottom: 8px; letter-spacing: 0.5px; }
+.phase-num { font-family: 'Archivo', sans-serif; font-size: 14px; font-weight: 600; color: var(--lp); margin-bottom: 8px; letter-spacing: 0.5px; }
 
 /* old-vs-two-new layout */
 .evo {
-  display: grid; grid-template-columns: 1fr auto 1.6fr; gap: clamp(20px, 3.5vw, 48px);
-  align-items: start;
+  display: grid; grid-template-columns: 0.7fr auto 2fr; gap: clamp(20px, 3.5vw, 48px);
+  align-items: center;
 }
-.evo-old { display: flex; flex-direction: column; align-items: center; gap: 14px; }
-.evo-arrow { align-self: center; padding-top: 80px; color: var(--lp); font-size: 26px; }
-.evo-new { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(14px, 2vw, 24px); }
-.evo-col { display: flex; flex-direction: column; align-items: center; gap: 14px; }
-.evo-tag { font-size: 10px; font-weight: 600; letter-spacing: 1.4px; text-transform: uppercase; padding: 5px 15px; border-radius: 100px; }
+.evo-old { display: flex; flex-direction: column; align-items: center; gap: 14px; opacity: 0.92; }
+.evo-old .shot { max-width: 180px; }
+.evo-arrow { align-self: center; padding-top: 40px; color: var(--lp); font-size: 36px; }
+.evo-new { display: flex; justify-content: center; gap: 10px; }
+.evo-col { display: flex; flex-direction: column; align-items: center; gap: 14px; width: 220px; flex-shrink: 0; }
+.evo-tag { font-size: 10px; font-weight: 600; letter-spacing: 1.4px; text-transform: uppercase; padding: 5px 15px; border-radius: 0; }
 .evo-tag.old { color: var(--muted); background: var(--pale2); }
 .evo-tag.new { color: #fff; background: var(--dp); }
 .evo-tag.new.focus { background: var(--focus); }
@@ -210,31 +211,38 @@ section { padding: clamp(64px, 9vw, 120px) clamp(20px, 5vw, 64px); }
 .gitem .shot { max-width: 100%; }
 .gitem .ginfo { padding: 18px 4px 0; }
 .gitem .gtag { font-size: 10px; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 5px; }
-.gitem .gname { font-family: 'Fraunces', serif; font-size: 17px; font-weight: 500; line-height: 1.25; margin-bottom: 7px; }
+.gitem .gname { font-family: 'Archivo', sans-serif; font-size: 17px; font-weight: 500; line-height: 1.25; margin-bottom: 7px; }
 .gitem .gdesc { font-size: 13px; color: var(--muted); line-height: 1.7; font-weight: 300; }
 
-/* event color-coded row */
-.events-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(16px, 2.4vw, 28px); margin-top: 8px; }
-.ev-card { background: var(--card); border: 1px solid var(--line); border-radius: 22px; overflow: hidden; transition: all 0.3s; }
-.ev-card:hover { transform: translateY(-6px); box-shadow: 0 24px 56px rgba(74,46,134,0.15); }
-.ev-band { height: 6px; }
-.ev-shots { display: flex; gap: 10px; padding: 18px 18px 0; }
-.ev-shots .shot { border-radius: 14px; box-shadow: 0 10px 26px rgba(74,46,134,0.12); }
-.ev-shots .shot:hover { transform: translateY(-5px) scale(1.02); }
-.ev-info { padding: 16px 20px 22px; }
-.ev-dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 8px; vertical-align: middle; }
-.ev-name { font-family: 'Fraunces', serif; font-size: 18px; font-weight: 500; display: inline; vertical-align: middle; }
-.ev-sub { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: var(--faint); margin: 8px 0 6px; font-weight: 500; }
+/* event section */
+.ev-meta-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(16px, 2.4vw, 32px); margin-top: 8px; margin-bottom: 40px; }
+.ev-band { height: 3px; width: 32px; border-radius: 0; margin-bottom: 12px; }
+.ev-name { font-family: 'Archivo', sans-serif; font-size: 17px; font-weight: 500; margin-bottom: 6px; }
+.ev-sub { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: var(--faint); margin-bottom: 6px; font-weight: 500; }
 .ev-desc { font-size: 13px; color: var(--muted); line-height: 1.7; font-weight: 300; }
+.ev-gallery { display: flex; gap: clamp(10px, 1.8vw, 20px); align-items: flex-start; }
+.ev-gcol { flex: 1; min-width: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; align-items: start; }
+.ev-gcol:nth-child(2) { margin-top: 52px; }
+.ev-gcol:nth-child(3) { margin-top: 104px; }
+.ev-gcol .shot { max-width: none; width: 100%; box-shadow: 0 10px 26px rgba(74,46,134,0.12); }
 
 /* full tall screen showcase */
 .tall-wrap { display: flex; justify-content: center; gap: clamp(20px, 3vw, 40px); margin-top: 8px; flex-wrap: wrap; align-items: flex-start; }
-.tall-col { display: flex; flex-direction: column; align-items: center; gap: 16px; max-width: 300px; }
-.tall-shot { width: 100%; border-radius: 22px; display: block; box-shadow: 0 22px 60px rgba(74,46,134,0.16); transition: transform 0.45s; background:#fff; }
+.tall-col { display: flex; flex-direction: column; align-items: center; gap: 16px; max-width: 200px; }
+.tall-shot { width: 100%; max-width: 200px; border-radius: 12px; display: block; box-shadow: 0 22px 60px rgba(74,46,134,0.16); transition: transform 0.45s; background:#fff; }
 .tall-shot:hover { transform: translateY(-8px); }
 
 /* season feature - light gradient */
-.season-feature { background: linear-gradient(150deg, var(--pale) 0%, rgba(233,224,248,0.5) 50%, rgba(255,255,255,0.3) 100%); border: 1px solid var(--line); border-radius: 28px; padding: clamp(32px, 5vw, 56px); margin-top: 8px; }
+/* season feature - full width, no outline, horizontal light gradient */
+.season-feature {
+  background: linear-gradient(90deg, var(--pale) 0%, rgba(233,224,248,0.55) 45%, rgba(247,240,255,0.35) 100%);
+  border: none; border-radius: 0;
+  padding: clamp(40px, 6vw, 72px) clamp(20px, 5vw, 64px);
+  margin-top: 40px;
+  width: 100vw; position: relative; left: 50%; right: 50%;
+  margin-left: -50vw; margin-right: -50vw;
+}
+.season-feature .season-inner { max-width: 1280px; margin: 0 auto; }
 .season-feature .phase-num { color: var(--lp); }
 .season-feature .phase-name { color: var(--ink); }
 .season-feature .phase-desc { color: var(--muted); }
@@ -247,32 +255,89 @@ section { padding: clamp(64px, 9vw, 120px) clamp(20px, 5vw, 64px); }
   margin-top: 64px; border: 1.5px dashed rgba(155,109,212,0.4); border-radius: 28px;
   padding: clamp(40px, 7vw, 80px); text-align: center; background: var(--pale);
 }
-.coming .ctitle { font-family: 'Fraunces', serif; font-size: clamp(24px, 3.4vw, 38px); font-weight: 500; margin-bottom: 14px; letter-spacing: -0.5px; }
+.coming .ctitle { font-family: 'Archivo', sans-serif; font-size: clamp(24px, 3.4vw, 38px); font-weight: 500; margin-bottom: 14px; letter-spacing: -0.5px; }
 .coming .cdesc { color: var(--muted); max-width: 540px; margin: 0 auto; font-weight: 300; font-size: 15px; line-height: 1.8; }
-.coming .cbadge { display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 1.4px; text-transform: uppercase; color: var(--vp); background: #fff; padding: 7px 18px; border-radius: 100px; margin-bottom: 22px; border: 1px solid var(--line); }
+.coming .cbadge { display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 1.4px; text-transform: uppercase; color: var(--vp); background: #fff; padding: 7px 18px; border-radius: 0; margin-bottom: 22px; border: 1px solid var(--line); }
 
-/* JIGSAW version cards */
-.ver-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(18px, 2.6vw, 30px); margin-top: 8px; }
-.ver-card { background: var(--card); border: 1px solid var(--line); border-radius: 24px; overflow: hidden; transition: all 0.3s; display: flex; flex-direction: column; }
-.ver-card:hover { transform: translateY(-6px); box-shadow: 0 26px 58px rgba(74,46,134,0.15); }
-.ver-shot-wrap { padding: 22px 22px 0; }
-.ver-shot { width: 100%; border-radius: 16px; display: block; box-shadow: 0 14px 36px rgba(74,46,134,0.14); transition: transform 0.4s; background:#fff; }
-.ver-card:hover .ver-shot { transform: scale(1.02); }
-.ver-info { padding: 20px 24px 26px; }
-.ver-no { font-family: 'Fraunces', serif; font-size: 13px; color: var(--lp); font-weight: 600; margin-bottom: 6px; }
-.ver-name { font-family: 'Fraunces', serif; font-size: 20px; font-weight: 500; margin-bottom: 9px; letter-spacing: -0.3px; }
-.ver-desc { font-size: 13px; color: var(--muted); line-height: 1.7; font-weight: 300; }
+/* popup before → after layout */
+.popup-layout { display: flex; gap: clamp(20px, 3.5vw, 44px); align-items: flex-start; }
+.popup-before { flex: 0 0 auto; width: 180px; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.popup-before .shot { max-width: none; width: 100%; }
+.popup-arrow-lg { font-size: 44px; color: var(--lp); flex-shrink: 0; align-self: center; line-height: 1; }
+.popup-after { flex: 1; min-width: 0; }
+.popup-after-grid { display: flex; gap: 10px; margin-top: 14px; align-items: flex-start; }
+.popup-after-grid .popup-img { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 7px; align-items: center; }
+.popup-after-grid .shot { max-width: none; width: 100%; }
+
+/* level-end staircase */
+.ba-step { display: flex; gap: clamp(8px, 1.5vw, 16px); align-items: flex-start; }
+.ba-step .ba-col { width: auto; }
+.ba-step .ba-col.step-before { max-width: 180px; }
+.ba-step .ba-col.step-after  { max-width: 220px; margin-top: 0; }
+.ba-step .ba-col .shot { max-width: none; width: 100%; }
+
+/* generic staircase row */
+.staircase-row { display: flex; gap: clamp(10px, 1.8vw, 20px); align-items: flex-start; justify-content: center; }
+.staircase-col { flex: 0 0 auto; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.staircase-col:nth-child(2) { margin-top: 52px; }
+.staircase-col:nth-child(3) { margin-top: 104px; }
+.staircase-col .shot { max-width: 220px; width: 100%; }
+
+/* phase pair — two phases side by side */
+.phase-pair { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 5vw, 64px); align-items: start; margin-top: clamp(56px, 8vw, 96px); }
+.phase-pair > .phase { margin-top: 0; }
+
+/* shop background feature */
+.shop-feature { position: relative; border-radius: 20px; overflow: hidden; padding: clamp(28px, 4vw, 52px); margin-top: clamp(56px, 8vw, 96px); }
+.shop-feature::before { content: ''; position: absolute; inset: 0; background: url('img/background.png') center/cover no-repeat; filter: blur(10px); transform: scale(1.08); z-index: 0; }
+.shop-feature::after { content: ''; position: absolute; inset: 0; background: rgba(255,255,255,0.55); z-index: 1; }
+.shop-feature > * { position: relative; z-index: 2; }
+.shop-feature .phase { margin-top: 0; }
+
+/* shop layout */
+.shop-layout { display: flex; gap: clamp(24px, 4vw, 48px); align-items: flex-start; }
+.shop-left { flex: 1; min-width: 0; }
+.shop-right { flex: 0 0 220px; margin-top: calc(-1 * clamp(28px, 4vw, 52px) + 4px); }
+.shop-right img { width: 100%; border-radius: 12px; display: block; box-shadow: 0 22px 60px rgba(74,46,134,0.16), 0 5px 16px rgba(0,0,0,0.05); }
+.shop-row { display: flex; align-items: flex-start; margin-top: 32px; justify-content: flex-end; gap: 0; }
+.shop-col { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.shop-row .shop-col:first-child { flex: 0 0 180px; margin-right: clamp(28px, 5vw, 56px); }
+.shop-row .ba-arrow { margin-right: 10px; }
+.shop-row .shop-col:last-child  { flex: 0 0 220px; }
+.shop-col .shot { max-width: 220px; width: 100%; }
+
+/* jigsaw menu background feature */
+.jig-menu-feature { position: relative; border-radius: 20px; overflow: hidden; padding: clamp(28px, 4vw, 52px); margin-top: clamp(56px, 8vw, 96px); }
+.jig-menu-feature::before { content: ''; position: absolute; inset: 0; background: url('img/jigsaw_bg.png') center/cover no-repeat; filter: blur(10px); transform: scale(1.08); z-index: 0; }
+.jig-menu-feature::after { content: ''; position: absolute; inset: 0; background: rgba(255,255,255,0.55); z-index: 1; }
+.jig-menu-feature > * { position: relative; z-index: 2; }
+.jig-menu-feature .phase { margin-top: 0; }
+
+/* JIGSAW version gallery */
+.jig-intro { font-size: 17px; line-height: 1.85; color: var(--muted); max-width: 780px; font-weight: 300; margin-bottom: 36px; }
+.jig-intro strong { color: var(--ink); font-weight: 500; }
+.jig-ver-gallery { display: flex; gap: clamp(20px, 3vw, 40px); align-items: flex-start; justify-content: center; }
+.jig-vg-col { display: flex; flex-direction: column; align-items: center; }
+.jig-vg-col--linear { flex: 0 0 auto; }
+.jig-vg-col--collection { flex: 0 0 auto; margin-top: 52px; }
+.jig-vg-col--mixed { flex: 0 0 auto; margin-top: 104px; }
+.jig-vg-label { font-size: 11px; font-weight: 600; color: var(--lp); letter-spacing: 0.8px; text-transform: uppercase; margin-bottom: 10px; align-self: flex-start; }
+.jig-vg-pair { display: flex; gap: 10px; justify-content: center; align-items: flex-start; }
+.jig-vg-pair .shot { width: 220px; flex-shrink: 0; max-width: 220px; }
+.jig-vg-pair .shot:last-child { margin-top: 52px; }
+.jig-vg-col .shot { width: 220px; max-width: 220px; }
 
 /* theme toggle showcase */
-.theme-show { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(16px, 3vw, 36px); margin-top: 8px; align-items: start; }
-.theme-col { display: flex; flex-direction: column; align-items: center; gap: 16px; }
-.theme-tag { font-size: 11px; font-weight: 600; letter-spacing: 1.3px; text-transform: uppercase; padding: 6px 18px; border-radius: 100px; }
+.theme-show { display: flex; justify-content: center; gap: clamp(16px, 3vw, 36px); margin-top: 8px; align-items: flex-start; }
+.theme-col { display: flex; flex-direction: column; align-items: center; gap: 16px; flex: 0 0 auto; }
+.theme-tag { font-size: 11px; font-weight: 600; letter-spacing: 1.3px; text-transform: uppercase; padding: 6px 18px; border-radius: 0; }
 .theme-tag.light { color: var(--vp); background: var(--pale); }
 .theme-tag.dark { color: #fff; background: var(--season); }
-.theme-shot { width: 100%; max-width: 300px; border-radius: 22px; display: block; box-shadow: 0 22px 56px rgba(74,46,134,0.16); transition: transform 0.45s; }
+.theme-shot { width: 220px; max-width: 220px; border-radius: 12px; display: block; box-shadow: 0 22px 56px rgba(74,46,134,0.16); transition: transform 0.45s; }
 .theme-shot:hover { transform: translateY(-8px); }
+.icons-sheet { display: block; width: 30%; border-radius: 0; margin-top: 32px; box-shadow: none; }
 .feature-callout { margin-top: 40px; background: var(--pale); border-radius: 20px; padding: clamp(24px, 4vw, 36px); border: 1px solid var(--line); }
-.feature-callout .fc-title { font-family: 'Fraunces', serif; font-size: 19px; font-weight: 500; margin-bottom: 10px; }
+.feature-callout .fc-title { font-family: 'Archivo', sans-serif; font-size: 19px; font-weight: 500; margin-bottom: 10px; }
 .feature-callout .fc-desc { font-size: 14px; color: var(--muted); line-height: 1.8; font-weight: 300; max-width: 680px; }
 .feature-callout .fc-desc strong { color: var(--ink); font-weight: 500; }
 @media(max-width: 1000px){ .ver-grid { grid-template-columns: 1fr; max-width: 420px; margin-left:auto; margin-right:auto; } }
@@ -281,7 +346,7 @@ section { padding: clamp(64px, 9vw, 120px) clamp(20px, 5vw, 64px); }
 /* ===== CONTACT ===== */
 #contact { background: linear-gradient(180deg, var(--pale) 0%, var(--bg) 100%); }
 .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; max-width: 960px; }
-.contact-desc { color: var(--muted); font-size: 16px; line-height: 1.85; font-weight: 300; margin-top: 20px; }
+.contact-desc { color: var(--muted); font-size: 17px; line-height: 1.85; font-weight: 300; margin-top: 20px; }
 .contact-links { display: flex; flex-direction: column; gap: 12px; padding-top: 6px; }
 .clink { display: flex; align-items: center; gap: 16px; text-decoration: none; color: var(--ink); padding: 18px 22px; background: var(--card); border-radius: 16px; border: 1px solid var(--line); transition: all 0.25s; }
 .clink:hover { border-color: var(--dp); background: var(--dp); color: #fff; transform: translateX(4px); }
@@ -295,7 +360,7 @@ section { padding: clamp(64px, 9vw, 120px) clamp(20px, 5vw, 64px); }
 .clink-arrow { color: var(--faint); font-size: 15px; transition: color 0.25s; }
 
 footer { padding: 32px clamp(20px, 5vw, 64px); border-top: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
-.fl { font-family: 'Fraunces', serif; font-size: 16px; color: var(--dp); font-weight: 600; }
+.fl { font-family: 'Archivo', sans-serif; font-size: 16px; color: var(--dp); font-weight: 600; }
 .fc { font-size: 12px; color: var(--faint); }
 
 /* ===== SCROLL REVEAL ===== */
@@ -306,7 +371,7 @@ footer { padding: 32px clamp(20px, 5vw, 64px); border-top: 1px solid var(--line)
 @media(max-width: 1000px){
   .hero { grid-template-columns: 1fr; padding-top: 120px; gap: 48px; }
   .hero-visual { order: -1; }
-  .gallery.g3, .events-grid { grid-template-columns: 1fr 1fr; }
+  .gallery.g3 { grid-template-columns: 1fr 1fr; }
   .gitem.raise { margin-top: 0; }
   .contact-grid { grid-template-columns: 1fr; gap: 40px; }
 }
@@ -316,7 +381,9 @@ footer { padding: 32px clamp(20px, 5vw, 64px); border-top: 1px solid var(--line)
   .ba { grid-template-columns: 1fr; gap: 28px; }
   .ba-arrow { display: none; }
   .ba-col { max-width: 320px; }
-  .gallery.g3, .events-grid, .gallery.g2 { grid-template-columns: 1fr; max-width: 340px; margin-left:auto; margin-right:auto; }
+  .gallery.g3, .gallery.g2 { grid-template-columns: 1fr; max-width: 340px; margin-left:auto; margin-right:auto; }
+  .ev-card { grid-template-columns: 1fr; }
+  .ev-shots { justify-items: center; }
   .proj-card { grid-template-columns: auto 1fr; padding: 24px; gap: 18px; }
   .proj-arrow { display: none; }
   footer { flex-direction: column; text-align: center; }
@@ -343,7 +410,7 @@ footer { padding: 32px clamp(20px, 5vw, 64px); border-top: 1px solid var(--line)
 <header class="hero">
   <div class="hero-bg-glow"></div>
   <div class="hero-inner">
-    <div class="hero-eyebrow"><span class="dot"></span> Mobile Game · Product Design</div>
+    <div class="hero-eyebrow"><span class="dot"></span> UI · UX Design</div>
     <h1>I'm a <em>multidisciplinary</em> artist &amp; designer.</h1>
     <p class="hero-bio">I'm Ekin — I work across UI/UX, visual design, and product thinking for mobile games. My background in <strong>architecture</strong> taught me how people move through space; today I bring that same thinking to screens, turning busy interfaces into experiences that feel <strong>clear, polished, and alive</strong>.</p>
     <div class="hero-actions">
@@ -414,183 +481,153 @@ footer { padding: 32px clamp(20px, 5vw, 64px); border-top: 1px solid var(--line)
       </div>
     </div>
 
-    <!-- PHASE: PROFILE -->
+    <!-- PHASE: POPUPS -->
     <div class="phase reveal">
       <div class="phase-num">02</div>
       <div class="phase-label">
-        <span class="phase-name">Profile &amp; avatars</span>
-      </div>
-      <p class="phase-desc">Avatars and name editing sit together in a single sheet, redrawn to match the new component language.</p>
-      <div class="gallery g2" style="max-width:340px;margin-left:0;">
-        <div class="gitem">
-          <img src="img/userprofile.png" alt="Edit profile" class="shot" loading="lazy">
-        </div>
-      </div>
-    </div>
-
-    <!-- PHASE: POPUPS -->
-    <div class="phase reveal">
-      <div class="phase-label">
-      <div class="phase-num">03</div>
-      <div class="phase-label">
         <span class="phase-name">Popups</span>
       </div>
-      <p class="phase-desc">Every dialog was rebuilt on one consistent popup language — the same structure and components throughout, then specialised per purpose. A few popups the game didn't have before were added here too, like shop card offers and event dialogs. The base stays calm; only the necessary details change per context.</p>
-      <div class="ba">
-        <div class="ba-col">
+      <p class="phase-desc">The original popup was polished rather than replaced — its spirit kept, its roughness smoothed. New popup types the game needed were designed to feel like natural extensions of the same language: recognisably related to the original, but distinct enough to carry their own purpose.</p>
+      <div class="popup-layout">
+        <div class="popup-before">
           <span class="ba-tag before">Before</span>
           <img src="img/popup_old.png" alt="Popup — original" class="shot" loading="lazy">
           <p class="ba-caption">Heavy white card, tight spacing, no system behind it.</p>
         </div>
-        <div class="ba-arrow">→</div>
-        <div class="ba-col">
+        <div class="popup-arrow-lg">→</div>
+        <div class="popup-after">
           <span class="ba-tag after">After</span>
-          <img src="img/popup_new.png" alt="Popup — redesign" class="shot" loading="lazy">
-          <p class="ba-caption">Softer container, clear hierarchy, part of a reusable system.</p>
-        </div>
-      </div>
-      <div class="gallery g3" style="margin-top:48px">
-        <div class="gitem">
-          <img src="img/popup_sub.png" alt="VIP subscription" class="shot" loading="lazy">
-          <div class="ginfo"><div class="gtag" style="color:var(--shop)">Monetization</div><div class="gname">VIP Club</div><div class="gdesc">Subscription offer with a clear weekly / monthly comparison and a single confident CTA.</div></div>
-        </div>
-        <div class="gitem raise">
-          <img src="img/popup_flash.png" alt="Flash offer" class="shot" loading="lazy">
-          <div class="ginfo"><div class="gtag" style="color:var(--combo)">New popup</div><div class="gname">Flash Offer</div><div class="gdesc">Time-pressured bundle with a bold timer chip — a popup type that didn't exist before.</div></div>
-        </div>
-        <div class="gitem">
-          <img src="img/popup_sub_new.png" alt="VIP variant" class="shot" loading="lazy">
-          <div class="ginfo"><div class="gtag" style="color:var(--shop)">Variant</div><div class="gname">VIP — rounded variant</div><div class="gdesc">Same system, softer framing — showing how the popup language flexes per context.</div></div>
+          <div class="popup-after-grid">
+            <div class="popup-img">
+              <img src="img/popup_new.png" alt="Popup — redesign" class="shot" loading="lazy">
+              <p class="ba-caption">Base popup — softer container, clear hierarchy.</p>
+            </div>
+            <div class="popup-img">
+              <img src="img/popup_sub.png" alt="VIP subscription" class="shot" loading="lazy">
+              <p class="ba-caption">VIP Club — weekly / monthly comparison.</p>
+            </div>
+            <div class="popup-img">
+              <img src="img/popup_flash.png" alt="Flash offer" class="shot" loading="lazy">
+              <p class="ba-caption">Flash Offer — time-pressured bundle, bold timer.</p>
+            </div>
+            <div class="popup-img">
+              <img src="img/season_offer.png" alt="Season offer" class="shot" loading="lazy">
+              <p class="ba-caption">Season offer — colour-matched to the live event.</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- PHASE: LEVEL END -->
-    <div class="phase reveal">
-      <div class="phase-label">
-      <div class="phase-num">04</div>
-      <div class="phase-label">
-        <span class="phase-name">Level end</span>
-      </div>
-      <p class="phase-desc">The win screen was redesigned around a new like and share option. The completed scene becomes something players can react to and pass on, so finishing a level opens out instead of ending flat.</p>
-      <div class="ba">
-        <div class="ba-col">
-          <span class="ba-tag before">Before</span>
-          <img src="img/levelend_old.png" alt="Level end — original" class="shot" loading="lazy">
-          <p class="ba-caption">Result shown, but no way to react or share.</p>
+    <!-- PHASE: LEVEL END + SEASON (side by side) -->
+    <div class="phase-pair">
+      <div class="phase reveal">
+        <div class="phase-num">03</div>
+        <div class="phase-label">
+          <span class="phase-name">Level end</span>
         </div>
-        <div class="ba-arrow">→</div>
-        <div class="ba-col">
-          <span class="ba-tag after">After</span>
-          <img src="img/levelend_new.png" alt="Level end — redesign" class="shot" loading="lazy">
-          <p class="ba-caption">Clean congratulations card with built-in like / dislike / share.</p>
+        <p class="phase-desc">The win screen was redesigned around a new like and share option. The completed scene becomes something players can react to and pass on, so finishing a level opens out instead of ending flat.</p>
+        <div class="ba ba-step">
+          <div class="ba-col step-before">
+            <span class="ba-tag before">Before</span>
+            <img src="img/levelend_old.png" alt="Level end — original" class="shot" loading="lazy">
+            <p class="ba-caption">Result shown, but no way to react or share.</p>
+          </div>
+          <div class="ba-col step-after">
+            <span class="ba-tag after">After</span>
+            <img src="img/levelend_new.png" alt="Level end — redesign" class="shot" loading="lazy">
+            <p class="ba-caption">Clean congratulations card with built-in like / dislike / share.</p>
+          </div>
+        </div>
+      </div>
+      <div class="phase reveal">
+        <div class="phase-num">04</div>
+        <div class="phase-label">
+          <span class="phase-name">Season</span>
+        </div>
+        <p class="phase-desc">A themed season system with collectible stickers. The onboarding is paced like a story — tappable, visual slides — and collected stickers fill a sticker book built to match the game's existing art. Players move a season scene forward by completing levels.</p>
+        <div class="staircase-row">
+          <div class="staircase-col">
+            <img src="img/season_tut1.png" alt="Season tutorial" class="tall-shot" loading="lazy">
+          </div>
+          <div class="staircase-col">
+            <img src="img/season_sticker.png" alt="Sticker book" class="tall-shot" loading="lazy">
+          </div>
+          <div class="staircase-col">
+            <img src="img/season_main.png" alt="Season main" class="tall-shot" loading="lazy">
+          </div>
         </div>
       </div>
     </div>
 
     <!-- PHASE: EVENTS -->
     <div class="phase reveal">
-      <div class="phase-label">
       <div class="phase-num">05</div>
       <div class="phase-label">
         <span class="phase-name">Events</span>
       </div>
       <p class="phase-desc">A set of live events, each given its own colour so it reads at a glance — Combo Craze in gold, Streak Rise in orange, Victory Race in purple. The popup structure stays shared underneath; only the personality changes. Each has an entry screen and a results screen.</p>
-      <div class="events-grid">
-        <div class="ev-card">
+      <div class="ev-meta-row">
+        <div class="ev-meta">
           <div class="ev-band" style="background:var(--combo)"></div>
-          <div class="ev-shots">
-            <img src="img/event_combo_enter.png" alt="Combo Craze enter" class="shot" loading="lazy">
-            <img src="img/event_combo_end.png" alt="Combo Craze results" class="shot" loading="lazy">
-          </div>
-          <div class="ev-info">
-            <span class="ev-dot" style="background:var(--combo)"></span><span class="ev-name">Combo Craze</span>
-            <div class="ev-sub">Enter · Leaderboard</div>
-            <div class="ev-desc">Chain your finds for rising points. Gold identity, competitive podium finish.</div>
-          </div>
+          <div class="ev-name">Combo Craze</div>
+          <div class="ev-sub">Enter · Leaderboard</div>
+          <div class="ev-desc">Chain your finds for rising points. Gold identity, competitive podium finish.</div>
         </div>
-        <div class="ev-card">
+        <div class="ev-meta">
           <div class="ev-band" style="background:var(--streak)"></div>
-          <div class="ev-shots">
-            <img src="img/event_streak_enter.png" alt="Streak Rise enter" class="shot" loading="lazy">
-            <img src="img/event_streak_end.png" alt="Streak Rise results" class="shot" loading="lazy">
-          </div>
-          <div class="ev-info">
-            <span class="ev-dot" style="background:var(--streak)"></span><span class="ev-name">Streak Rise</span>
-            <div class="ev-sub">Enter · Progress</div>
-            <div class="ev-desc">Build momentum without breaking your streak. Warm flame palette throughout.</div>
-          </div>
+          <div class="ev-name">Streak Rise</div>
+          <div class="ev-sub">Enter · Progress</div>
+          <div class="ev-desc">Build momentum without breaking your streak. Warm flame palette throughout.</div>
         </div>
-        <div class="ev-card">
+        <div class="ev-meta">
           <div class="ev-band" style="background:var(--victory)"></div>
-          <div class="ev-shots">
-            <img src="img/event_victory_enter.png" alt="Victory Race enter" class="shot" loading="lazy">
-            <img src="img/event_victory_end.png" alt="Victory Race results" class="shot" loading="lazy">
-          </div>
-          <div class="ev-info">
-            <span class="ev-dot" style="background:var(--victory)"></span><span class="ev-name">Victory Race</span>
-            <div class="ev-sub">Enter · Stages</div>
-            <div class="ev-desc">Beat others across staged rounds. Royal purple signals the premium, competitive tier.</div>
-          </div>
+          <div class="ev-name">Victory Race</div>
+          <div class="ev-sub">Enter · Stages</div>
+          <div class="ev-desc">Beat others across staged rounds. Royal purple signals the premium, competitive tier.</div>
         </div>
       </div>
-    </div>
-
-    <!-- PHASE: SEASON (dark feature) -->
-    <div class="phase reveal">
-      <div class="season-feature">
-        <div class="phase-label">
-        <div class="phase-num">06</div>
-        <div class="phase-label">
-          <span class="phase-name">Season</span>
+      <div class="ev-gallery">
+        <div class="ev-gcol">
+          <img src="img/event_combo_enter.png" alt="Combo Craze enter" class="shot" loading="lazy">
+          <img src="img/event_combo_end.png" alt="Combo Craze results" class="shot" loading="lazy">
         </div>
-        <p class="phase-desc">A themed season system with collectible stickers. The onboarding is paced like a story — tappable, visual slides — and collected stickers fill a sticker book built to match the game's existing art. Players move a season scene forward by completing levels.</p>
-        <div class="gallery g3">
-          <div class="gitem">
-            <img src="img/season_tut1.png" alt="Season tutorial 1" class="tall-shot" loading="lazy">
-            <div class="ginfo"><div class="gtag">Onboarding</div><div class="gname">Story-style tutorial</div><div class="gdesc">Step-based, full-bleed slides with a progress bar up top — exactly like a social story.</div></div>
-          </div>
-          <div class="gitem raise">
-            <img src="img/season_sticker.png" alt="Sticker book" class="tall-shot" loading="lazy">
-            <div class="ginfo"><div class="gtag">Collection</div><div class="gname">Sticker book</div><div class="gdesc">A tactile booklet concept for collected stickers, themed per season (Father's Day shown).</div></div>
-          </div>
-          <div class="gitem">
-            <img src="img/season_main.png" alt="Season main" class="tall-shot" loading="lazy">
-            <div class="ginfo"><div class="gtag">Hub</div><div class="gname">Season scene</div><div class="gdesc">The season home with collection / scene tabs and a clear progress goal.</div></div>
-          </div>
+        <div class="ev-gcol">
+          <img src="img/event_streak_enter.png" alt="Streak Rise enter" class="shot" loading="lazy">
+          <img src="img/event_streak_end.png" alt="Streak Rise results" class="shot" loading="lazy">
+        </div>
+        <div class="ev-gcol">
+          <img src="img/event_victory_enter.png" alt="Victory Race enter" class="shot" loading="lazy">
+          <img src="img/event_victory_end.png" alt="Victory Race results" class="shot" loading="lazy">
         </div>
       </div>
     </div>
 
     <!-- PHASE: SHOP -->
-    <div class="phase reveal">
-      <div class="phase-label">
-      <div class="phase-num">07</div>
-      <div class="phase-label">
-        <span class="phase-name">Shop</span>
-      </div>
-      <p class="phase-desc">The shop moved from a plain list to the most colourful screen in the game. Against the calm, mostly monochrome rest of the app, it's meant to stand out — with time-limited offers, daily rewards, and seasonal bundles.</p>
-      <div class="ba">
-        <div class="ba-col">
-          <span class="ba-tag before">Before</span>
-          <img src="img/shop_old.png" alt="Shop — original" class="shot" loading="lazy">
-          <p class="ba-caption">Functional list, flat tone, nothing drawing the eye.</p>
+    <div class="shop-feature reveal">
+      <div class="shop-layout">
+        <div class="shop-left">
+          <div class="phase-num">06</div>
+          <div class="phase-label">
+            <span class="phase-name">Shop</span>
+          </div>
+          <p class="phase-desc">The shop moved from a plain list to the most colourful screen in the game. Against the calm, mostly monochrome rest of the app, it's meant to stand out — with time-limited offers, daily rewards, and seasonal bundles.</p>
+          <div class="shop-row">
+            <div class="shop-col">
+              <span class="ba-tag before">Before</span>
+              <img src="img/shop_old.png" alt="Shop — original" class="shot" loading="lazy">
+              <p class="ba-caption">Functional list, flat tone.</p>
+            </div>
+            <span class="ba-arrow">›</span>
+            <div class="shop-col">
+              <span class="ba-tag after">After</span>
+              <img src="img/shop_new.png" alt="Shop — redesign" class="shot" loading="lazy">
+              <p class="ba-caption">Vivid offers, clear time pressure.</p>
+            </div>
+          </div>
         </div>
-        <div class="ba-arrow">→</div>
-        <div class="ba-col">
-          <span class="ba-tag after">After</span>
-          <img src="img/shop_new.png" alt="Shop — redesign" class="shot" loading="lazy">
-          <p class="ba-caption">Vivid offers, daily avatars, clear time pressure and value.</p>
-        </div>
-      </div>
-      <div class="tall-wrap" style="margin-top:48px">
-        <div class="tall-col">
-          <img src="img/shop_full.png" alt="Full shop scroll" class="tall-shot" loading="lazy">
-          <p class="ba-caption">The full shop, top to bottom — offers, avatars, essentials, and the VIP tier.</p>
-        </div>
-        <div class="tall-col">
-          <img src="img/season_offer.png" alt="Season offer popup" class="tall-shot" loading="lazy">
-          <p class="ba-caption">Season-tied offer popup, colour-matched to the live event.</p>
+        <div class="shop-right">
+          <img src="img/shop_full.png" alt="Full shop scroll" loading="lazy">
         </div>
       </div>
     </div>
@@ -615,58 +652,33 @@ footer { padding: 32px clamp(20px, 5vw, 64px); border-top: 1px solid var(--line)
   <div class="sec-inner">
 
     <!-- PHASE: MENU VERSIONS -->
-    <div class="phase reveal">
-      <div class="phase-label">
-        <div class="phase-num">01</div>
+    <div class="jig-menu-feature reveal">
+      <div class="phase-num">01</div>
       <div class="phase-label">
         <span class="phase-name">Main menu — three versions</span>
       </div>
-      <p class="phase-desc">The home screen sets the tone of a puzzle game — a calm, one-at-a-time ritual, or a library to browse and collect. To compare the feel of each, I designed three navigation versions side by side.</p>
-      <div class="ver-grid">
-        <div class="ver-card">
-          <div class="ver-shot-wrap"><img src="img/j_linear.png" alt="Linear flow" class="ver-shot" loading="lazy"></div>
-          <div class="ver-info">
-            <div class="ver-no">Version 01</div>
-            <div class="ver-name">Linear flow</div>
-            <div class="ver-desc">The simplest path: just the current level's image, centered, with one Play button. No choice paralysis — you open the app and continue. Quiet and focused.</div>
+      <p class="jig-intro">Three different takes on the home screen. The <strong>linear view</strong> is the simplest: one image, one Play button — calm and focused, with a live progress state once you're mid-puzzle. The <strong>collection view</strong> groups puzzles into themed sets for players who like to browse and complete. The <strong>mixed view</strong> combines both — collection bands and standalone images sharing a single feed.</p>
+      <div class="jig-ver-gallery">
+        <div class="jig-vg-col jig-vg-col--linear">
+          <div class="jig-vg-label">01 · Linear view</div>
+          <div class="jig-vg-pair">
+            <img src="img/j_linear.png" alt="Linear — fresh start" class="shot" loading="lazy">
+            <img src="img/j_linear_progress.png" alt="Linear — in progress" class="shot" loading="lazy">
           </div>
         </div>
-        <div class="ver-card">
-          <div class="ver-shot-wrap"><img src="img/j_collection.png" alt="Collection view" class="ver-shot" loading="lazy"></div>
-          <div class="ver-info">
-            <div class="ver-no">Version 02</div>
-            <div class="ver-name">Collection view</div>
-            <div class="ver-desc">Puzzles are bought and played as themed collections — Special Days, animals, cars. Built around discovery and a sense of "completing the set."</div>
-          </div>
+        <div class="jig-vg-col jig-vg-col--collection">
+          <div class="jig-vg-label">02 · Collection view</div>
+          <img src="img/j_collection.png" alt="Collection view" class="shot" loading="lazy">
         </div>
-        <div class="ver-card">
-          <div class="ver-shot-wrap"><img src="img/j_mixed.png" alt="Mixed view" class="ver-shot" loading="lazy"></div>
-          <div class="ver-info">
-            <div class="ver-no">Version 03</div>
-            <div class="ver-name">Mixed view</div>
-            <div class="ver-desc">A hybrid: collection bands and single standalone puzzles share one feed. The richest option — browse sets and one-off images side by side.</div>
-          </div>
-        </div>
-      </div>
-      <div class="feature-callout">
-        <div class="fc-title">The linear flow, in motion</div>
-        <div class="fc-desc">The same minimal home doubles as a progress view: once you're inside a puzzle, it shows a <strong>live preview with a completion percentage</strong>, so the single image on the menu carries real state instead of being purely decorative.</div>
-        <div class="theme-show" style="margin-top:28px; grid-template-columns:1fr 1fr; max-width:620px;">
-          <div class="theme-col">
-            <span class="theme-tag light">Fresh start</span>
-            <img src="img/j_linear.png" alt="Linear start" class="theme-shot" loading="lazy">
-          </div>
-          <div class="theme-col">
-            <span class="theme-tag light" style="color:var(--streak);background:#FCEEE4">In progress · 75%</span>
-            <img src="img/j_linear_progress.png" alt="Linear in progress" class="theme-shot" loading="lazy">
-          </div>
+        <div class="jig-vg-col jig-vg-col--mixed">
+          <div class="jig-vg-label">03 · Mixed view</div>
+          <img src="img/j_mixed.png" alt="Mixed view" class="shot" loading="lazy">
         </div>
       </div>
     </div>
 
     <!-- PHASE: GAMEPLAY THEMES -->
     <div class="phase reveal">
-      <div class="phase-label">
         <div class="phase-num">02</div>
       <div class="phase-label">
         <span class="phase-name">Gameplay — light &amp; dark</span>
@@ -682,10 +694,16 @@ footer { padding: 32px clamp(20px, 5vw, 64px); border-top: 1px solid var(--line)
           <img src="img/j_gameplay_dark.png" alt="Gameplay dark" class="theme-shot" loading="lazy">
         </div>
       </div>
-      <div class="feature-callout">
-        <div class="fc-title">Custom gameplay tools</div>
-        <div class="fc-desc">Beyond theming, I designed a set of <strong>gameplay-specific icons</strong> for the bottom bar — controls unique to a jigsaw game, like <strong>area selection</strong> and <strong>colour sorting</strong>, alongside edge-piece filters and a shuffle. Each had to read instantly at small sizes and work in both themes.</div>
+    </div>
+
+    <!-- PHASE: ICONS -->
+    <div class="phase reveal">
+      <div class="phase-num">03</div>
+      <div class="phase-label">
+        <span class="phase-name">Icons</span>
       </div>
+      <p class="phase-desc">A set of gameplay-specific icons for the bottom bar — controls unique to a jigsaw game, like area selection and colour sorting, alongside edge-piece filters and a shuffle. Each icon was designed to read instantly at small sizes and works across both light and dark themes.</p>
+      <img src="img/jigsawicons.png" alt="Jigsaw gameplay icons" class="icons-sheet" loading="lazy">
     </div>
 
   </div>
