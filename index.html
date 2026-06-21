@@ -3,413 +3,688 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ekin Demircan — UI/UX Designer</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Geist:wght@300;400;500&display=swap" rel="stylesheet">
+<title>Ekin Demircan — Product & UI/UX Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
-  --bg: #FFFFFF;
-  --ink: #1A1520;
-  --muted: #8B7EA0;
-  --lp: #AF91DF;
-  --dp: #564376;
-  --pale: #F4F0FA;
-  --pale2: #EDE6F7;
-  --border: rgba(86,67,118,0.1);
+  --bg: #FBFAFF;
+  --ink: #1C1626;
+  --muted: #6E6385;
+  --faint: #9C92B3;
+  --lp: #9B6DD4;
+  --vp: #6F4BB8;
+  --dp: #4A2E86;
+  --pale: #F3EEFB;
+  --pale2: #E9E0F8;
+  --line: rgba(74,46,134,0.10);
+  --card: #FFFFFF;
+  /* event accent colors */
+  --combo: #F2B233;
+  --streak: #F2772E;
+  --victory: #8E4FC4;
+  --shop: #E5499A;
+  --season: #2A2350;
+  --focus: #E8A33D;
 }
 html { scroll-behavior: smooth; }
-body { font-family: 'Geist', sans-serif; background: var(--bg); color: var(--ink); font-size: 15px; line-height: 1.6; overflow-x: hidden; }
+body {
+  font-family: 'Outfit', sans-serif; background: var(--bg); color: var(--ink);
+  font-size: 15px; line-height: 1.65; overflow-x: hidden; -webkit-font-smoothing: antialiased;
+}
+::selection { background: var(--lp); color: #fff; }
 
-/* NAV */
+/* ===== NAV ===== */
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   display: flex; align-items: center; justify-content: space-between;
-  padding: 22px 64px;
-  background: rgba(255,255,255,0.92); backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--border);
+  padding: 20px clamp(20px, 5vw, 64px);
+  background: rgba(251,250,255,0.82); backdrop-filter: blur(18px) saturate(140%);
+  border-bottom: 1px solid var(--line);
 }
-.nav-left { display: flex; align-items: baseline; gap: 10px; }
-.nav-logo { font-family: 'DM Serif Display', serif; font-size: 17px; color: var(--dp); }
-.nav-role { font-size: 12px; color: var(--muted); font-weight: 300; letter-spacing: 0.3px; }
-.nav-links { display: flex; gap: 36px; align-items: center; }
-.nav-links a { text-decoration: none; color: var(--muted); font-size: 12px; letter-spacing: 0.8px; text-transform: uppercase; transition: color 0.2s; }
+.nav-left { display: flex; align-items: baseline; gap: 11px; }
+.nav-logo { font-family: 'Fraunces', serif; font-size: 19px; font-weight: 600; color: var(--dp); letter-spacing: -0.3px; }
+.nav-role { font-size: 12px; color: var(--faint); font-weight: 400; }
+.nav-links { display: flex; gap: 32px; align-items: center; }
+.nav-links a { text-decoration: none; color: var(--muted); font-size: 12px; letter-spacing: 0.8px; text-transform: uppercase; font-weight: 500; transition: color 0.2s; }
 .nav-links a:hover { color: var(--dp); }
-.nav-cta { background: var(--dp) !important; color: #fff !important; padding: 9px 22px; border-radius: 100px; }
-.nav-cta:hover { background: var(--lp) !important; }
+.nav-cta { background: var(--dp) !important; color: #fff !important; padding: 10px 22px; border-radius: 100px; letter-spacing: 0.5px !important; transition: all 0.25s !important; }
+.nav-cta:hover { background: var(--lp) !important; transform: translateY(-1px); }
 
-/* HERO */
-#about {
-  min-height: 100vh;
-  display: grid; grid-template-columns: 1fr 1fr;
-  align-items: center; padding: 140px 64px 100px; gap: 80px;
-  max-width: 1300px; margin: 0 auto;
+/* ===== HERO ===== */
+.hero {
+  position: relative; min-height: 100vh; display: grid;
+  grid-template-columns: 1.15fr 0.85fr; align-items: center;
+  gap: 64px; padding: 150px clamp(20px, 5vw, 64px) 90px;
+  max-width: 1320px; margin: 0 auto; overflow: hidden;
 }
-.hero-photo-wrap { display: flex; justify-content: center; align-items: center; }
-.hero-photo {
-  width: 300px; height: 300px;
-  border-radius: 50%;
-  object-fit: cover; object-position: center top;
-  box-shadow: 0 24px 60px rgba(86,67,118,0.15), 0 6px 20px rgba(0,0,0,0.08);
-  display: block;
-  filter: grayscale(100%);
+.hero-bg-glow {
+  position: absolute; top: -10%; right: -5%; width: 620px; height: 620px;
+  background: radial-gradient(circle, rgba(155,109,212,0.16), transparent 65%);
+  pointer-events: none; z-index: 0;
 }
+.hero-inner { position: relative; z-index: 2; }
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 9px;
+  font-size: 12px; font-weight: 500; letter-spacing: 1.2px; text-transform: uppercase;
+  color: #fff; background: var(--lp); padding: 8px 18px; border-radius: 100px;
+  margin-bottom: 26px;
+}
+.hero-eyebrow .dot { width: 6px; height: 6px; border-radius: 50%; background: #fff; animation: pulse 2.2s ease-in-out infinite; }
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(0.7)} }
 .hero h1 {
-  font-family: 'DM Serif Display', serif;
-  font-size: clamp(38px, 4.2vw, 60px);
-  line-height: 1.1; letter-spacing: -1px;
-  font-weight: 400; margin-bottom: 20px; color: var(--ink);
+  font-family: 'Fraunces', serif; font-weight: 500;
+  font-size: clamp(40px, 5.4vw, 76px); line-height: 1.04; letter-spacing: -1.5px;
+  margin-bottom: 24px; color: var(--ink);
 }
-.hero-bio { color: var(--muted); font-size: 15px; line-height: 1.85; margin-bottom: 36px; font-weight: 300; }
-.hero-bio p { margin-bottom: 14px; }
-.hero-bio p:last-child { margin-bottom: 0; }
+.hero h1 em { font-style: italic; color: var(--vp); }
+.hero-bio { color: var(--muted); font-size: 16px; line-height: 1.85; margin-bottom: 36px; font-weight: 300; max-width: 520px; }
 .hero-bio strong { color: var(--ink); font-weight: 500; }
-.hero-actions { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
-.btn-solid { background: var(--dp); color: #fff; padding: 13px 28px; border-radius: 100px; font-size: 13px; font-weight: 500; text-decoration: none; transition: all 0.25s; display: inline-block; }
-.btn-solid:hover { background: var(--lp); transform: translateY(-2px); }
-.btn-outline { border: 1px solid var(--border); color: var(--muted); padding: 13px 28px; border-radius: 100px; font-size: 13px; text-decoration: none; transition: all 0.2s; }
-.btn-outline:hover { border-color: var(--dp); color: var(--dp); }
+.hero-actions { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.btn-solid { background: var(--dp); color: #fff; padding: 14px 30px; border-radius: 100px; font-size: 14px; font-weight: 500; text-decoration: none; transition: all 0.25s; display: inline-block; box-shadow: 0 8px 24px rgba(74,46,134,0.25); }
+.btn-solid:hover { background: var(--lp); transform: translateY(-2px); box-shadow: 0 12px 32px rgba(74,46,134,0.32); }
+.btn-ghost { color: var(--muted); padding: 14px 26px; border-radius: 100px; font-size: 14px; text-decoration: none; border: 1px solid var(--line); transition: all 0.2s; }
+.btn-ghost:hover { border-color: var(--vp); color: var(--vp); }
 
-/* SECTIONS */
-section { padding: 100px 64px; }
+.hero-visual { position: relative; z-index: 2; display: flex; justify-content: center; align-items: center; }
+.hero-photo-frame { position: relative; }
+.hero-photo {
+  width: clamp(240px, 30vw, 330px); aspect-ratio: 1; border-radius: 50%;
+  object-fit: cover; object-position: center top; display: block;
+  box-shadow: 0 30px 70px rgba(74,46,134,0.22), 0 8px 24px rgba(0,0,0,0.06);
+}
+.hero-badge {
+  position: absolute; background: var(--card); border-radius: 16px;
+  padding: 13px 18px; box-shadow: 0 16px 40px rgba(74,46,134,0.16); border: 1px solid var(--line);
+  display: flex; flex-direction: column; gap: 1px;
+}
+.hero-badge.b1 { top: 22px; left: -34px; animation: float1 5s ease-in-out infinite; }
+.hero-badge.b2 { bottom: 30px; right: -30px; animation: float2 6s ease-in-out infinite; }
+@keyframes float1 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+@keyframes float2 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(10px)} }
+.hero-badge .num { font-family: 'Outfit', sans-serif; font-size: 16px; font-weight: 600; color: var(--vp); line-height: 1.1; }
+.hero-badge .lbl { font-size: 10px; color: var(--faint); text-transform: uppercase; letter-spacing: 0.7px; }
+
+/* ===== SECTION SHELL ===== */
+section { padding: clamp(64px, 9vw, 120px) clamp(20px, 5vw, 64px); }
 .sec-inner { max-width: 1280px; margin: 0 auto; }
-.eyebrow { font-size: 11px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: var(--lp); margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
-.eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--lp); }
-.sec-title { font-family: 'DM Serif Display', serif; font-weight: 400; font-size: clamp(30px, 3.5vw, 48px); line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 16px; }
-.sec-intro { color: var(--muted); font-size: 16px; line-height: 1.85; max-width: 760px; font-weight: 300; margin-bottom: 72px; }
+.eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 1.6px; text-transform: uppercase; color: var(--lp); margin-bottom: 16px; display: flex; align-items: center; gap: 11px; }
+.eyebrow::before { content: ''; width: 28px; height: 1.5px; background: var(--lp); }
+.sec-title { font-family: 'Fraunces', serif; font-weight: 500; font-size: clamp(32px, 4.2vw, 56px); line-height: 1.06; letter-spacing: -1px; margin-bottom: 18px; }
+.sec-intro { color: var(--muted); font-size: 16px; line-height: 1.85; max-width: 720px; font-weight: 300; }
 .sec-intro strong { color: var(--ink); font-weight: 500; }
 
-/* WORK */
-#work { background: var(--pale); }
-
-/* FEATURED ROWS */
-.feat-row {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 64px; align-items: center;
-  padding: 56px 0;
-  border-top: 1px solid var(--border);
+/* ===== WORK INDEX ===== */
+#projects { background: linear-gradient(180deg, var(--bg) 0%, var(--pale) 100%); }
+.proj-list { margin-top: 64px; display: flex; flex-direction: column; gap: 20px; }
+.proj-card {
+  display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 28px;
+  text-decoration: none; color: inherit; background: var(--card);
+  border: 1px solid var(--line); border-radius: 24px; padding: 32px 36px;
+  transition: all 0.3s cubic-bezier(.25,.46,.45,.94);
 }
-.feat-row:last-of-type { border-bottom: 1px solid var(--border); }
-.feat-row.flip { direction: rtl; }
-.feat-row.flip > * { direction: ltr; }
-.feat-tag { font-size: 10px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--lp); margin-bottom: 10px; }
-.feat-title { font-family: 'DM Serif Display', serif; font-size: clamp(22px, 2.5vw, 32px); font-weight: 400; line-height: 1.2; letter-spacing: -0.3px; margin-bottom: 14px; }
-.feat-desc { font-size: 14px; color: var(--muted); line-height: 1.8; font-weight: 300; }
-.feat-img-wrap { display: flex; justify-content: center; align-items: center; }
-.feat-img-pair { gap: 20px; align-items: flex-start; }
-.feat-img-low { margin-top: 48px; }
+.proj-card:hover { transform: translateY(-4px); box-shadow: 0 24px 56px rgba(74,46,134,0.14); border-color: rgba(155,109,212,0.4); }
+.proj-num { font-family: 'Fraunces', serif; font-size: 40px; font-weight: 500; color: var(--pale2); line-height: 1; transition: color 0.3s; }
+.proj-card:hover .proj-num { color: var(--lp); }
+.proj-body .ptitle { font-family: 'Fraunces', serif; font-size: clamp(22px, 2.6vw, 30px); font-weight: 500; letter-spacing: -0.4px; margin-bottom: 7px; }
+.proj-body .pmeta { font-size: 13px; color: var(--muted); font-weight: 300; }
+.proj-tags { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
+.ptag { font-size: 11px; color: var(--vp); background: var(--pale); padding: 4px 12px; border-radius: 100px; font-weight: 500; }
+.proj-arrow { font-size: 22px; color: var(--faint); transition: all 0.3s; }
+.proj-card:hover .proj-arrow { color: var(--vp); transform: translateX(5px); }
 
+/* ===== CASE STUDY ===== */
+.case { border-top: 1px solid var(--line); }
+.case-head { max-width: 1280px; margin: 0 auto; }
+.case-kicker { display: flex; align-items: center; gap: 14px; margin-bottom: 22px; }
+.case-index { font-family: 'Fraunces', serif; font-size: 15px; color: var(--lp); font-weight: 600; }
+.case-index::after { content: ''; display: inline-block; width: 40px; height: 1.5px; background: var(--line); margin-left: 14px; vertical-align: middle; }
+.case-meta-row { display: flex; gap: 32px; flex-wrap: wrap; margin-top: 32px; padding-top: 28px; border-top: 1px solid var(--line); }
+.cmeta { display: flex; flex-direction: column; gap: 3px; }
+.cmeta .k { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--faint); font-weight: 500; }
+.cmeta .v { font-size: 14px; color: var(--ink); font-weight: 400; }
 
-
-.feat-img {
-  width: 46%; max-width: 180px;
-  border-radius: 20px; display: block;
-  box-shadow: 0 20px 56px rgba(86,67,118,0.16), 0 4px 16px rgba(0,0,0,0.08);
-  transition: transform 0.4s cubic-bezier(.25,.46,.45,.94), box-shadow 0.4s;
-  mix-blend-mode: multiply;
+/* phase block within a case */
+.phase { margin-top: clamp(56px, 8vw, 96px); }
+.phase-label {
+  display: flex; align-items: center; gap: 14px; margin-bottom: 14px;
 }
-.feat-img:hover { transform: translateY(-10px) scale(1.03); box-shadow: 0 36px 72px rgba(86,67,118,0.2), 0 8px 24px rgba(0,0,0,0.1); }
-
-.og-img {
-  border-radius: 20px;
-  display: block;
-  width: 100%;
-  box-shadow: 0 16px 48px rgba(86,67,118,0.13), 0 4px 14px rgba(0,0,0,0.07);
-  transition: transform 0.4s cubic-bezier(.25,.46,.45,.94), box-shadow 0.4s;
-  mix-blend-mode: multiply;
+.phase-chip {
+  font-size: 11px; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase;
+  padding: 6px 14px; border-radius: 100px; color: #fff; white-space: nowrap;
 }
-.og-img:hover { transform: translateY(-8px) scale(1.02); box-shadow: 0 28px 60px rgba(86,67,118,0.18), 0 8px 20px rgba(0,0,0,0.1); }
+.phase-name { font-family: 'Fraunces', serif; font-size: clamp(24px, 3vw, 36px); font-weight: 500; letter-spacing: -0.5px; }
+.phase-desc { color: var(--muted); font-size: 15px; line-height: 1.85; max-width: 740px; font-weight: 300; margin-bottom: 40px; }
+.phase-desc strong { color: var(--ink); font-weight: 500; }
 
-.lb-img {
-  width: 100%;
-  max-width: 320px;
-  border-radius: 20px;
-  display: block;
-  box-shadow: 0 20px 56px rgba(86,67,118,0.15), 0 4px 16px rgba(0,0,0,0.08);
-  transition: transform 0.4s cubic-bezier(.25,.46,.45,.94), box-shadow 0.4s;
-  mix-blend-mode: multiply;
+/* before/after pair */
+.ba {
+  display: grid; grid-template-columns: 1fr auto 1fr; gap: clamp(16px, 3vw, 40px);
+  align-items: start; justify-items: center;
 }
-.lb-img:hover { transform: translateY(-8px) scale(1.02); box-shadow: 0 36px 72px rgba(86,67,118,0.2), 0 8px 20px rgba(0,0,0,0.1); }
-
-/* GRID SECTIONS */
-.cat-section { margin-top: 80px; }
-.cat-label {
-  font-size: 11px; font-weight: 600; letter-spacing: 1.5px;
-  text-transform: uppercase; color: var(--dp);
-  margin-bottom: 28px; display: flex; align-items: center; gap: 12px;
+.ba-col { display: flex; flex-direction: column; align-items: center; gap: 14px; width: 100%; max-width: 270px; }
+.ba-tag { font-size: 10px; font-weight: 600; letter-spacing: 1.4px; text-transform: uppercase; padding: 5px 15px; border-radius: 100px; }
+.ba-tag.before { color: var(--muted); background: var(--pale2); }
+.ba-tag.after { color: #fff; background: var(--dp); }
+.shot {
+  width: 100%; border-radius: 22px; display: block;
+  box-shadow: 0 22px 60px rgba(74,46,134,0.16), 0 5px 16px rgba(0,0,0,0.05);
+  transition: transform 0.45s cubic-bezier(.25,.46,.45,.94), box-shadow 0.45s;
+  background: #fff;
 }
-.cat-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
-.cat-desc { color: var(--muted); font-size: 14px; line-height: 1.8; max-width: 720px; margin-bottom: 48px; font-weight: 300; }
+.shot:hover { transform: translateY(-10px) scale(1.02); box-shadow: 0 38px 80px rgba(74,46,134,0.22), 0 10px 28px rgba(0,0,0,0.08); }
+.ba-arrow { align-self: center; padding-top: 60px; color: var(--lp); font-size: 26px; flex-shrink: 0; }
 
-/* OFFSET GRID */
-.offset-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
+/* minimal phase numbering (no chip) */
+.phase-num { font-family: 'Fraunces', serif; font-size: 14px; font-weight: 600; color: var(--lp); margin-bottom: 8px; letter-spacing: 0.5px; }
+
+/* old-vs-two-new layout */
+.evo {
+  display: grid; grid-template-columns: 1fr auto 1.6fr; gap: clamp(20px, 3.5vw, 48px);
   align-items: start;
 }
-.og-item { display: flex; flex-direction: column; }
-.og-item.low { margin-top: 60px; }
-.og-info { padding: 16px 4px 0; }
-.og-tag { font-size: 10px; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase; color: var(--lp); margin-bottom: 4px; }
-.og-name { font-family: 'DM Serif Display', serif; font-size: 15px; font-weight: 400; line-height: 1.2; margin-bottom: 6px; }
-.og-desc { font-size: 12px; color: var(--muted); line-height: 1.65; font-weight: 300; }
-
-/* TWO GRID */
-.two-wrap { display: flex; justify-content: center; }
-.two-grid {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 32px; align-items: start;
-  max-width: 600px; width: 100%;
+.evo-old { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+.evo-arrow { align-self: center; padding-top: 80px; color: var(--lp); font-size: 26px; }
+.evo-new { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(14px, 2vw, 24px); }
+.evo-col { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+.evo-tag { font-size: 10px; font-weight: 600; letter-spacing: 1.4px; text-transform: uppercase; padding: 5px 15px; border-radius: 100px; }
+.evo-tag.old { color: var(--muted); background: var(--pale2); }
+.evo-tag.new { color: #fff; background: var(--dp); }
+.evo-tag.new.focus { background: var(--focus); }
+.evo-cap { font-size: 12px; color: var(--faint); font-weight: 300; text-align: center; line-height: 1.55; max-width: 230px; }
+@media(max-width: 900px){
+  .evo { grid-template-columns: 1fr; gap: 32px; }
+  .evo-arrow { display: none; }
+  .evo-old { max-width: 280px; margin: 0 auto; }
 }
-.two-grid .og-item.low { margin-top: 60px; }
+.ba-caption { font-size: 13px; color: var(--faint); font-weight: 300; text-align: center; max-width: 240px; line-height: 1.6; }
 
-/* LEADERBOARD */
-.lb-wrap { display: flex; justify-content: center; margin-top: 8px; }
-.lb-info { text-align: center; max-width: 480px; margin: 24px auto 0; }
-.lb-info .og-name { font-size: 20px; margin-bottom: 8px; }
-.lb-info .og-desc { font-size: 13px; }
+/* feature gallery grid (no before, just new screens) */
+.gallery { display: grid; gap: clamp(20px, 2.6vw, 32px); margin-top: 8px; }
+.gallery.g3 { grid-template-columns: repeat(3, 1fr); }
+.gallery.g2 { grid-template-columns: repeat(2, 1fr); max-width: 620px; margin-left: auto; margin-right: auto; }
+.gitem { display: flex; flex-direction: column; }
+.gitem.raise { margin-top: 44px; }
+.gitem .shot { max-width: 100%; }
+.gitem .ginfo { padding: 18px 4px 0; }
+.gitem .gtag { font-size: 10px; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 5px; }
+.gitem .gname { font-family: 'Fraunces', serif; font-size: 17px; font-weight: 500; line-height: 1.25; margin-bottom: 7px; }
+.gitem .gdesc { font-size: 13px; color: var(--muted); line-height: 1.7; font-weight: 300; }
 
-/* CONTACT */
-#contact { background: var(--pale); }
-.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; max-width: 900px; }
-.contact-desc { color: var(--muted); font-size: 15px; line-height: 1.8; font-weight: 300; margin-bottom: 40px; }
-.contact-links { display: flex; flex-direction: column; gap: 12px; margin-top: 8px; }
-.clink {
-  display: flex; align-items: center; gap: 14px;
-  text-decoration: none; color: var(--ink);
-  font-size: 15px; padding: 16px 20px;
-  background: #fff; border-radius: 14px;
-  border: 1px solid var(--border); transition: all 0.2s;
+/* event color-coded row */
+.events-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(16px, 2.4vw, 28px); margin-top: 8px; }
+.ev-card { background: var(--card); border: 1px solid var(--line); border-radius: 22px; overflow: hidden; transition: all 0.3s; }
+.ev-card:hover { transform: translateY(-6px); box-shadow: 0 24px 56px rgba(74,46,134,0.15); }
+.ev-band { height: 6px; }
+.ev-shots { display: flex; gap: 10px; padding: 18px 18px 0; }
+.ev-shots .shot { border-radius: 14px; box-shadow: 0 10px 26px rgba(74,46,134,0.12); }
+.ev-shots .shot:hover { transform: translateY(-5px) scale(1.02); }
+.ev-info { padding: 16px 20px 22px; }
+.ev-dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 8px; vertical-align: middle; }
+.ev-name { font-family: 'Fraunces', serif; font-size: 18px; font-weight: 500; display: inline; vertical-align: middle; }
+.ev-sub { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: var(--faint); margin: 8px 0 6px; font-weight: 500; }
+.ev-desc { font-size: 13px; color: var(--muted); line-height: 1.7; font-weight: 300; }
+
+/* full tall screen showcase */
+.tall-wrap { display: flex; justify-content: center; gap: clamp(20px, 3vw, 40px); margin-top: 8px; flex-wrap: wrap; align-items: flex-start; }
+.tall-col { display: flex; flex-direction: column; align-items: center; gap: 16px; max-width: 300px; }
+.tall-shot { width: 100%; border-radius: 22px; display: block; box-shadow: 0 22px 60px rgba(74,46,134,0.16); transition: transform 0.45s; background:#fff; }
+.tall-shot:hover { transform: translateY(-8px); }
+
+/* season feature - light gradient */
+.season-feature { background: linear-gradient(150deg, var(--pale) 0%, rgba(233,224,248,0.5) 50%, rgba(255,255,255,0.3) 100%); border: 1px solid var(--line); border-radius: 28px; padding: clamp(32px, 5vw, 56px); margin-top: 8px; }
+.season-feature .phase-num { color: var(--lp); }
+.season-feature .phase-name { color: var(--ink); }
+.season-feature .phase-desc { color: var(--muted); }
+.season-feature .gitem .gname { color: var(--ink); }
+.season-feature .gitem .gdesc { color: var(--muted); }
+.season-feature .gtag { color: var(--lp) !important; }
+
+/* JIGSAW placeholder project */
+.coming {
+  margin-top: 64px; border: 1.5px dashed rgba(155,109,212,0.4); border-radius: 28px;
+  padding: clamp(40px, 7vw, 80px); text-align: center; background: var(--pale);
 }
-.clink:hover { border-color: var(--dp); background: var(--dp); color: #fff; }
-.clink:hover .clink-icon { background: rgba(255,255,255,0.15); }
-.clink:hover .clink-label { color: rgba(255,255,255,0.65); }
-.clink:hover .clink-arrow { color: rgba(255,255,255,0.65); }
-.clink-icon { width: 36px; height: 36px; border-radius: 10px; background: var(--pale2); display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; transition: all 0.2s; }
+.coming .ctitle { font-family: 'Fraunces', serif; font-size: clamp(24px, 3.4vw, 38px); font-weight: 500; margin-bottom: 14px; letter-spacing: -0.5px; }
+.coming .cdesc { color: var(--muted); max-width: 540px; margin: 0 auto; font-weight: 300; font-size: 15px; line-height: 1.8; }
+.coming .cbadge { display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 1.4px; text-transform: uppercase; color: var(--vp); background: #fff; padding: 7px 18px; border-radius: 100px; margin-bottom: 22px; border: 1px solid var(--line); }
+
+/* JIGSAW version cards */
+.ver-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(18px, 2.6vw, 30px); margin-top: 8px; }
+.ver-card { background: var(--card); border: 1px solid var(--line); border-radius: 24px; overflow: hidden; transition: all 0.3s; display: flex; flex-direction: column; }
+.ver-card:hover { transform: translateY(-6px); box-shadow: 0 26px 58px rgba(74,46,134,0.15); }
+.ver-shot-wrap { padding: 22px 22px 0; }
+.ver-shot { width: 100%; border-radius: 16px; display: block; box-shadow: 0 14px 36px rgba(74,46,134,0.14); transition: transform 0.4s; background:#fff; }
+.ver-card:hover .ver-shot { transform: scale(1.02); }
+.ver-info { padding: 20px 24px 26px; }
+.ver-no { font-family: 'Fraunces', serif; font-size: 13px; color: var(--lp); font-weight: 600; margin-bottom: 6px; }
+.ver-name { font-family: 'Fraunces', serif; font-size: 20px; font-weight: 500; margin-bottom: 9px; letter-spacing: -0.3px; }
+.ver-desc { font-size: 13px; color: var(--muted); line-height: 1.7; font-weight: 300; }
+
+/* theme toggle showcase */
+.theme-show { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(16px, 3vw, 36px); margin-top: 8px; align-items: start; }
+.theme-col { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+.theme-tag { font-size: 11px; font-weight: 600; letter-spacing: 1.3px; text-transform: uppercase; padding: 6px 18px; border-radius: 100px; }
+.theme-tag.light { color: var(--vp); background: var(--pale); }
+.theme-tag.dark { color: #fff; background: var(--season); }
+.theme-shot { width: 100%; max-width: 300px; border-radius: 22px; display: block; box-shadow: 0 22px 56px rgba(74,46,134,0.16); transition: transform 0.45s; }
+.theme-shot:hover { transform: translateY(-8px); }
+.feature-callout { margin-top: 40px; background: var(--pale); border-radius: 20px; padding: clamp(24px, 4vw, 36px); border: 1px solid var(--line); }
+.feature-callout .fc-title { font-family: 'Fraunces', serif; font-size: 19px; font-weight: 500; margin-bottom: 10px; }
+.feature-callout .fc-desc { font-size: 14px; color: var(--muted); line-height: 1.8; font-weight: 300; max-width: 680px; }
+.feature-callout .fc-desc strong { color: var(--ink); font-weight: 500; }
+@media(max-width: 1000px){ .ver-grid { grid-template-columns: 1fr; max-width: 420px; margin-left:auto; margin-right:auto; } }
+@media(max-width: 720px){ .theme-show { grid-template-columns: 1fr; } }
+
+/* ===== CONTACT ===== */
+#contact { background: linear-gradient(180deg, var(--pale) 0%, var(--bg) 100%); }
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; max-width: 960px; }
+.contact-desc { color: var(--muted); font-size: 16px; line-height: 1.85; font-weight: 300; margin-top: 20px; }
+.contact-links { display: flex; flex-direction: column; gap: 12px; padding-top: 6px; }
+.clink { display: flex; align-items: center; gap: 16px; text-decoration: none; color: var(--ink); padding: 18px 22px; background: var(--card); border-radius: 16px; border: 1px solid var(--line); transition: all 0.25s; }
+.clink:hover { border-color: var(--dp); background: var(--dp); color: #fff; transform: translateX(4px); }
+.clink:hover .clink-label { color: rgba(255,255,255,0.6); }
+.clink:hover .clink-icon { background: rgba(255,255,255,0.16); }
+.clink:hover .clink-arrow { color: rgba(255,255,255,0.6); }
+.clink-icon { width: 40px; height: 40px; border-radius: 11px; background: var(--pale); display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; transition: all 0.25s; }
 .clink-text { flex: 1; }
-.clink-label { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.8px; font-weight: 500; display: block; margin-bottom: 2px; transition: color 0.2s; }
-.clink-val { font-size: 14px; }
-.clink-arrow { color: var(--muted); font-size: 14px; transition: color 0.2s; }
+.clink-label { font-size: 10px; color: var(--faint); text-transform: uppercase; letter-spacing: 0.9px; font-weight: 500; display: block; margin-bottom: 2px; transition: color 0.25s; }
+.clink-val { font-size: 15px; font-weight: 400; }
+.clink-arrow { color: var(--faint); font-size: 15px; transition: color 0.25s; }
 
-footer { padding: 28px 64px; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
-.fl { font-family: 'DM Serif Display', serif; font-size: 15px; color: var(--dp); }
-.fc { font-size: 12px; color: var(--muted); }
+footer { padding: 32px clamp(20px, 5vw, 64px); border-top: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+.fl { font-family: 'Fraunces', serif; font-size: 16px; color: var(--dp); font-weight: 600; }
+.fc { font-size: 12px; color: var(--faint); }
 
-/* ANIMATIONS */
-@keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
-#about > * { opacity:0; animation: fadeUp 0.7s ease forwards; }
-#about > *:nth-child(1) { animation-delay:0s; }
-#about > *:nth-child(2) { animation-delay:0.15s; }
+/* ===== SCROLL REVEAL ===== */
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s cubic-bezier(.25,.46,.45,.94); }
+.reveal.in { opacity: 1; transform: translateY(0); }
 
-/* RESPONSIVE */
-@media(max-width:1050px){
-  #about { grid-template-columns:1fr; padding:100px 24px 60px; gap:40px; }
-  .hero-photo { width:220px; height:220px; }
-  .hero-photo-wrap { order:-1; }
-  .feat-row { grid-template-columns:1fr; gap:28px; }
-  .feat-row.flip { direction:ltr; }
-  .offset-grid { grid-template-columns:repeat(2,1fr); }
-  .offset-grid .og-item.low { margin-top:0; }
-  .contact-grid { grid-template-columns:1fr; gap:40px; }
+/* ===== RESPONSIVE ===== */
+@media(max-width: 1000px){
+  .hero { grid-template-columns: 1fr; padding-top: 120px; gap: 48px; }
+  .hero-visual { order: -1; }
+  .gallery.g3, .events-grid { grid-template-columns: 1fr 1fr; }
+  .gitem.raise { margin-top: 0; }
+  .contact-grid { grid-template-columns: 1fr; gap: 40px; }
 }
-@media(max-width:768px){
-  nav { padding:18px 24px; }
-  .nav-role { display:none; }
-  .nav-links a:not(.nav-cta) { display:none; }
-  section { padding:64px 24px; }
-  .two-grid { max-width:100%; }
-  footer { flex-direction:column; gap:8px; text-align:center; padding:24px; }
-  .offset-grid .og-item,
-  .two-grid .og-item { border-bottom: 1px solid var(--border); padding-bottom: 32px; }
-  .offset-grid .og-item:last-child,
-  .two-grid .og-item:last-child { border-bottom: none; }
-  .og-item.low { margin-top: 0; }
+@media(max-width: 720px){
+  nav { padding: 16px 20px; }
+  .nav-role, .nav-links a:not(.nav-cta) { display: none; }
+  .ba { grid-template-columns: 1fr; gap: 28px; }
+  .ba-arrow { display: none; }
+  .ba-col { max-width: 320px; }
+  .gallery.g3, .events-grid, .gallery.g2 { grid-template-columns: 1fr; max-width: 340px; margin-left:auto; margin-right:auto; }
+  .proj-card { grid-template-columns: auto 1fr; padding: 24px; gap: 18px; }
+  .proj-arrow { display: none; }
+  footer { flex-direction: column; text-align: center; }
 }
-@media(max-width:480px){
-  .offset-grid { grid-template-columns:1fr; }
-  .offset-grid .og-item.low { margin-top:0; }
-  .two-grid { grid-template-columns:1fr; }
-  .two-grid .og-item.low { margin-top:0; }
+@media(prefers-reduced-motion: reduce){
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .reveal { opacity: 1; transform: none; }
 }
 </style>
 </head>
 <body>
-
 <!-- NAV -->
 <nav>
   <div class="nav-left">
     <div class="nav-logo">Ekin Demircan</div>
-    <div class="nav-role">UI/UX Designer</div>
   </div>
   <div class="nav-links">
-    <a href="#about">About</a>
-    <a href="#work">Work</a>
+    <a href="#projects">Work</a>
     <a href="#contact" class="nav-cta">Contact</a>
   </div>
 </nav>
 
-<!-- ABOUT / HERO -->
-<div id="about">
-  <div class="hero-left">
-    <h1>Hi, I'm Ekin!</h1>
-    <div class="hero-bio">
-      <p>I started my journey in <strong>architecture</strong>, where I learned how people move through spaces and how design can shape their experience. This made me curious about user behavior and how thoughtful design can guide people in a natural way.</p>
-      <p>Over time, I became especially interested in digital products and interactive experiences. Games first drew my attention because of how engaging and intuitive they can be, and that curiosity eventually led me to <strong>UX design</strong>.</p>
-      <p>Today, I design user experiences for mobile products. I enjoy creating interfaces that feel simple, clear, and enjoyable to use. My background helps me think about structure and flow while keeping the user's needs in mind. I like turning complex ideas into experiences that feel easy and natural for people.</p>
-    </div>
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-bg-glow"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow"><span class="dot"></span> Mobile Game · Product Design</div>
+    <h1>I'm a <em>multidisciplinary</em> artist &amp; designer.</h1>
+    <p class="hero-bio">I'm Ekin — I work across UI/UX, visual design, and product thinking for mobile games. My background in <strong>architecture</strong> taught me how people move through space; today I bring that same thinking to screens, turning busy interfaces into experiences that feel <strong>clear, polished, and alive</strong>.</p>
     <div class="hero-actions">
-      <a href="#work" class="btn-solid">See My Work</a>
-      <a href="#contact" class="btn-outline">Get in touch</a>
+      <a href="#projects" class="btn-solid">View my work</a>
+      <a href="#contact" class="btn-ghost">Get in touch</a>
     </div>
   </div>
-  <div class="hero-photo-wrap">
-    <img src="ekin.jpg" alt="Ekin Demircan" class="hero-photo">
+  <div class="hero-visual">
+    <div class="hero-photo-frame">
+      <img src="img/ekin.png" alt="Ekin Demircan" class="hero-photo">
+      <div class="hero-badge b1"><span class="num">Latest</span><span class="lbl">Mobile game work</span></div>
+      <div class="hero-badge b2"><span class="num">UI · UX</span><span class="lbl">Visual &amp; product design</span></div>
+    </div>
   </div>
-</div>
+</header>
 
-<!-- WORK -->
-<section id="work">
+<!-- PROJECTS INDEX -->
+<section id="projects" style="padding-bottom: 0;">
   <div class="sec-inner">
-    <div class="eyebrow">Selected Work</div>
-    <div class="sec-title">Mobile Game UI/UX Design</div>
-    <p class="sec-intro">
-      Below is a selection of UI screens from different mobile games I've worked on. Each project has its own visual language and player expectations — the goal across all of them is the same: interfaces that feel <strong>consistent, intuitive, and tailored to the game's identity</strong>.
-    </p>
+    <div class="eyebrow reveal">Selected Work</div>
+    <h2 class="sec-title reveal">Redesign and<br>new features.</h2>
+    <p class="sec-intro reveal">Two of the most recent games I've worked on. One was a redesign of an existing game, with new features added on top; the other was a brand-new game, designed from scratch.</p>
+  </div>
+</section>
 
-    <!-- 1. MAIN MENU -->
-    <div class="feat-row">
-      <div class="feat-text">
-        <div class="feat-tag">01 — Main Menu</div>
-        <div class="feat-title">Main Menu — Jigsaw Puzzle</div>
-        <div class="feat-desc">Two navigation flows explored for the main menu of a jigsaw puzzle game. Both designs stay true to the game's calm, focused aesthetic while making core actions immediately accessible.</div>
-      </div>
-      <div class="feat-img-wrap feat-img-pair">
-        <img src="jg_1.png" alt="Main Menu 01" class="feat-img">
-        <img src="jg_2.png" alt="Main Menu 02" class="feat-img">
-      </div>
+<!-- ============ PROJECT 01 : HIDDEN OBJECT ============ -->
+<section id="case-hidden" class="case">
+  <div class="case-head">
+    <div class="case-kicker reveal"><span class="case-index">Project 01</span></div>
+    <h2 class="sec-title reveal">Find — Hidden Object</h2>
+    <p class="sec-intro reveal">A full UI redesign of a live hidden-object game. The original interface worked but felt flat, so I rebuilt the visual language — <strong>every element redrawn, a real background added, and the whole thing polished</strong> while keeping it familiar to existing players. Alongside the refresh, I designed systems the game was missing: events, a season mode, and a richer shop.</p>
+    <div class="case-meta-row reveal">
+      <div class="cmeta"><span class="k">Role</span><span class="v">UI/UX Design</span></div>
+      <div class="cmeta"><span class="k">Type</span><span class="v">Redesign + new features</span></div>
+      <div class="cmeta"><span class="k">Platform</span><span class="v">Mobile (iOS / Android)</span></div>
+      <div class="cmeta"><span class="k">Focus</span><span class="v">Visual system, live-ops, monetization</span></div>
     </div>
+  </div>
 
-    <!-- 2. SHOP -->
-    <div class="feat-row flip">
-      <div class="feat-text">
-        <div class="feat-tag">02 — Shop</div>
-        <div class="feat-title">Shop & Subscription — Jigsaw Puzzle</div>
-        <div class="feat-desc">A calm, neutral shop design that stays consistent with the game's overall visual tone. The subscription screen intentionally breaks from that restraint — a richer, more royal purple signals exclusivity and makes the VIP Club feel like a premium tier apart from standard purchases.</div>
-      </div>
-      <div class="feat-img-wrap feat-img-pair">
-        <img src="shop_jigsaw.png" alt="Shop" class="feat-img">
-        <img src="subscription.png" alt="Subscription" class="feat-img">
-      </div>
-    </div>
+  <div class="sec-inner">
 
-    <!-- 3. ACHIEVEMENTS -->
-    <div class="feat-row">
-      <div class="feat-text">
-        <div class="feat-tag">03 — Achievements</div>
-        <div class="feat-title">Progress & Badge System</div>
-        <div class="feat-desc">A scrollable list layout that prioritises readability over decoration. Each achievement is easy to scan at a glance — progress bars, reward indicators, and badge tiers are all clearly visible. Claimable rewards use a high-contrast green CTA to stand out immediately.</div>
+    <!-- PHASE: HOME (old vs two new: normal + focus) -->
+    <div class="phase reveal">
+      <div class="phase-num">01</div>
+      <div class="phase-label">
+        <span class="phase-name">The main menu</span>
       </div>
-      <div class="feat-img-wrap">
-        <img src="achievements.png" alt="Achievements" class="feat-img">
-      </div>
-    </div>
-
-    <!-- 4. SETTINGS -->
-    <div class="feat-row flip">
-      <div class="feat-text">
-        <div class="feat-tag">04 — Settings</div>
-        <div class="feat-title">Preferences & Accessibility</div>
-        <div class="feat-desc">A monochrome, familiar interface format with no visual noise. Users can quickly scan and find what they need.</div>
-      </div>
-      <div class="feat-img-wrap">
-        <img src="settings.png" alt="Settings" class="feat-img">
-      </div>
-    </div>
-
-    <!-- POPUP SYSTEM -->
-    <div class="cat-section">
-      <div class="cat-label">Popup System</div>
-      <p class="cat-desc">
-        These four screens share the same base popup design language — consistent components, layout structure, and visual tone. Each adapts slightly for its function, but the underlying system ensures players always feel at home, no matter which popup they encounter.
-      </p>
-      <div class="offset-grid">
-
-        <div class="og-item">
-          <img src="end.png" alt="Fail Screen" class="og-img">
-          <div class="og-info">
-            <div class="og-tag">End State</div>
-            <div class="og-name">Event Fail Screen</div>
-            <div class="og-desc">Shown at the end of a failed event run. Displays at-risk milestone rewards with a rewarded ad recovery CTA and a restart fallback.</div>
-          </div>
+      <p class="phase-desc">The original home was a logo on an empty gradient. The redesign gives the game a place to live — a real background, the level progress brought up front, and events tucked into side buttons. It also branches into two states: the everyday menu, and a calmer <strong>Focus mode</strong> for the endless play that begins once the main levels are done.</p>
+      <div class="evo">
+        <div class="evo-old">
+          <span class="evo-tag old">Before</span>
+          <img src="img/home_old.png" alt="Home — original" class="shot" loading="lazy">
+          <p class="evo-cap">The original main menu.</p>
         </div>
-
-        <div class="og-item low">
-          <img src="events.png" alt="Event Popup" class="og-img">
-          <div class="og-info">
-            <div class="og-tag">Event</div>
-            <div class="og-name">Event Start Popup</div>
-            <div class="og-desc">Shown when a player enters an active event. Features a countdown timer, event icon, and a brief description before the action begins.</div>
+        <div class="evo-arrow">→</div>
+        <div class="evo-new">
+          <div class="evo-col">
+            <span class="evo-tag new">After · Main</span>
+            <img src="img/home_new.png" alt="Home — redesign" class="shot" loading="lazy">
+            <p class="evo-cap">The everyday menu — background, progress up top, events on the sides.</p>
           </div>
-        </div>
-
-        <div class="og-item">
-          <img src="popup.png" alt="No Ads Popup" class="og-img">
-          <div class="og-info">
-            <div class="og-tag">Offer</div>
-            <div class="og-name">No Ads Offer</div>
-            <div class="og-desc">A conversion-focused IAP popup with a bold visual, clear value proposition, and a single green CTA. Minimal friction, maximum clarity.</div>
-          </div>
-        </div>
-
-        <div class="og-item low">
-          <img src="userprofile.png" alt="Edit Profile" class="og-img">
-          <div class="og-info">
-            <div class="og-tag">Profile</div>
-            <div class="og-name">Edit Profile Popup</div>
-            <div class="og-desc">Username and avatar are editable from a single popup. Both actions in one place, reducing steps. Clear active state in the avatar grid.</div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- SPECIAL SCREENS -->
-    <div class="cat-section">
-      <div class="cat-label">Special Screens</div>
-      <p class="cat-desc">These screens draw from familiar mobile patterns to make features feel instantly intuitive.</p>
-      <div class="two-wrap">
-        <div class="two-grid">
-          <div class="og-item">
-            <img src="tut.png" alt="Tutorial" class="og-img">
-            <div class="og-info">
-              <div class="og-tag">Tutorial</div>
-              <div class="og-name">Streak Master Onboarding</div>
-              <div class="og-desc">Designed like an Instagram Story — step-based, visual-first. Introduces a new game mechanic with branded illustrations and a reward preview to motivate players before they begin.</div>
-            </div>
-          </div>
-          <div class="og-item low">
-            <img src="Like_Share.png" alt="Level Complete" class="og-img">
-            <div class="og-info">
-              <div class="og-tag">Level End</div>
-              <div class="og-name">Like & Share</div>
-              <div class="og-desc">At level completion, players see the finished hidden object scene with familiar social actions — like, dislike, and share. Borrowed from social media to feel natural and encourage organic sharing.</div>
-            </div>
+          <div class="evo-col">
+            <span class="evo-tag new focus">After · Focus</span>
+            <img src="img/home_focus.png" alt="Focus mode" class="shot" loading="lazy">
+            <p class="evo-cap">Focus mode — a quieter background for endless play after the main levels.</p>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- LEADERBOARD -->
-    <div class="cat-section">
-      <div class="cat-label">Leaderboard</div>
-      <p class="cat-desc">The event leaderboard serves three purposes at once: players can track their own ranking, see how they compare against others, and claim their event rewards — all from a single screen at event end.</p>
-      <div class="lb-wrap">
-        <img src="leaderboard.png" alt="Leaderboard" class="lb-img">
+    <!-- PHASE: PROFILE -->
+    <div class="phase reveal">
+      <div class="phase-num">02</div>
+      <div class="phase-label">
+        <span class="phase-name">Profile &amp; avatars</span>
       </div>
-      <div class="lb-info">
-        <div class="og-tag">Event End</div>
-        <div class="og-name">Event Leaderboard & Reward Screen</div>
-        <div class="og-desc">Podium layout for top 3 with a scrollable ranked list below. The player's own position is pinned at the bottom in green for immediate self-reference. Reward chests are shown per rank, making the stakes clear at a glance.</div>
+      <p class="phase-desc">Avatars and name editing sit together in a single sheet, redrawn to match the new component language.</p>
+      <div class="gallery g2" style="max-width:340px;margin-left:0;">
+        <div class="gitem">
+          <img src="img/userprofile.png" alt="Edit profile" class="shot" loading="lazy">
+        </div>
+      </div>
+    </div>
+
+    <!-- PHASE: POPUPS -->
+    <div class="phase reveal">
+      <div class="phase-label">
+      <div class="phase-num">03</div>
+      <div class="phase-label">
+        <span class="phase-name">Popups</span>
+      </div>
+      <p class="phase-desc">Every dialog was rebuilt on one consistent popup language — the same structure and components throughout, then specialised per purpose. A few popups the game didn't have before were added here too, like shop card offers and event dialogs. The base stays calm; only the necessary details change per context.</p>
+      <div class="ba">
+        <div class="ba-col">
+          <span class="ba-tag before">Before</span>
+          <img src="img/popup_old.png" alt="Popup — original" class="shot" loading="lazy">
+          <p class="ba-caption">Heavy white card, tight spacing, no system behind it.</p>
+        </div>
+        <div class="ba-arrow">→</div>
+        <div class="ba-col">
+          <span class="ba-tag after">After</span>
+          <img src="img/popup_new.png" alt="Popup — redesign" class="shot" loading="lazy">
+          <p class="ba-caption">Softer container, clear hierarchy, part of a reusable system.</p>
+        </div>
+      </div>
+      <div class="gallery g3" style="margin-top:48px">
+        <div class="gitem">
+          <img src="img/popup_sub.png" alt="VIP subscription" class="shot" loading="lazy">
+          <div class="ginfo"><div class="gtag" style="color:var(--shop)">Monetization</div><div class="gname">VIP Club</div><div class="gdesc">Subscription offer with a clear weekly / monthly comparison and a single confident CTA.</div></div>
+        </div>
+        <div class="gitem raise">
+          <img src="img/popup_flash.png" alt="Flash offer" class="shot" loading="lazy">
+          <div class="ginfo"><div class="gtag" style="color:var(--combo)">New popup</div><div class="gname">Flash Offer</div><div class="gdesc">Time-pressured bundle with a bold timer chip — a popup type that didn't exist before.</div></div>
+        </div>
+        <div class="gitem">
+          <img src="img/popup_sub_new.png" alt="VIP variant" class="shot" loading="lazy">
+          <div class="ginfo"><div class="gtag" style="color:var(--shop)">Variant</div><div class="gname">VIP — rounded variant</div><div class="gdesc">Same system, softer framing — showing how the popup language flexes per context.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PHASE: LEVEL END -->
+    <div class="phase reveal">
+      <div class="phase-label">
+      <div class="phase-num">04</div>
+      <div class="phase-label">
+        <span class="phase-name">Level end</span>
+      </div>
+      <p class="phase-desc">The win screen was redesigned around a new like and share option. The completed scene becomes something players can react to and pass on, so finishing a level opens out instead of ending flat.</p>
+      <div class="ba">
+        <div class="ba-col">
+          <span class="ba-tag before">Before</span>
+          <img src="img/levelend_old.png" alt="Level end — original" class="shot" loading="lazy">
+          <p class="ba-caption">Result shown, but no way to react or share.</p>
+        </div>
+        <div class="ba-arrow">→</div>
+        <div class="ba-col">
+          <span class="ba-tag after">After</span>
+          <img src="img/levelend_new.png" alt="Level end — redesign" class="shot" loading="lazy">
+          <p class="ba-caption">Clean congratulations card with built-in like / dislike / share.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PHASE: EVENTS -->
+    <div class="phase reveal">
+      <div class="phase-label">
+      <div class="phase-num">05</div>
+      <div class="phase-label">
+        <span class="phase-name">Events</span>
+      </div>
+      <p class="phase-desc">A set of live events, each given its own colour so it reads at a glance — Combo Craze in gold, Streak Rise in orange, Victory Race in purple. The popup structure stays shared underneath; only the personality changes. Each has an entry screen and a results screen.</p>
+      <div class="events-grid">
+        <div class="ev-card">
+          <div class="ev-band" style="background:var(--combo)"></div>
+          <div class="ev-shots">
+            <img src="img/event_combo_enter.png" alt="Combo Craze enter" class="shot" loading="lazy">
+            <img src="img/event_combo_end.png" alt="Combo Craze results" class="shot" loading="lazy">
+          </div>
+          <div class="ev-info">
+            <span class="ev-dot" style="background:var(--combo)"></span><span class="ev-name">Combo Craze</span>
+            <div class="ev-sub">Enter · Leaderboard</div>
+            <div class="ev-desc">Chain your finds for rising points. Gold identity, competitive podium finish.</div>
+          </div>
+        </div>
+        <div class="ev-card">
+          <div class="ev-band" style="background:var(--streak)"></div>
+          <div class="ev-shots">
+            <img src="img/event_streak_enter.png" alt="Streak Rise enter" class="shot" loading="lazy">
+            <img src="img/event_streak_end.png" alt="Streak Rise results" class="shot" loading="lazy">
+          </div>
+          <div class="ev-info">
+            <span class="ev-dot" style="background:var(--streak)"></span><span class="ev-name">Streak Rise</span>
+            <div class="ev-sub">Enter · Progress</div>
+            <div class="ev-desc">Build momentum without breaking your streak. Warm flame palette throughout.</div>
+          </div>
+        </div>
+        <div class="ev-card">
+          <div class="ev-band" style="background:var(--victory)"></div>
+          <div class="ev-shots">
+            <img src="img/event_victory_enter.png" alt="Victory Race enter" class="shot" loading="lazy">
+            <img src="img/event_victory_end.png" alt="Victory Race results" class="shot" loading="lazy">
+          </div>
+          <div class="ev-info">
+            <span class="ev-dot" style="background:var(--victory)"></span><span class="ev-name">Victory Race</span>
+            <div class="ev-sub">Enter · Stages</div>
+            <div class="ev-desc">Beat others across staged rounds. Royal purple signals the premium, competitive tier.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PHASE: SEASON (dark feature) -->
+    <div class="phase reveal">
+      <div class="season-feature">
+        <div class="phase-label">
+        <div class="phase-num">06</div>
+        <div class="phase-label">
+          <span class="phase-name">Season</span>
+        </div>
+        <p class="phase-desc">A themed season system with collectible stickers. The onboarding is paced like a story — tappable, visual slides — and collected stickers fill a sticker book built to match the game's existing art. Players move a season scene forward by completing levels.</p>
+        <div class="gallery g3">
+          <div class="gitem">
+            <img src="img/season_tut1.png" alt="Season tutorial 1" class="tall-shot" loading="lazy">
+            <div class="ginfo"><div class="gtag">Onboarding</div><div class="gname">Story-style tutorial</div><div class="gdesc">Step-based, full-bleed slides with a progress bar up top — exactly like a social story.</div></div>
+          </div>
+          <div class="gitem raise">
+            <img src="img/season_sticker.png" alt="Sticker book" class="tall-shot" loading="lazy">
+            <div class="ginfo"><div class="gtag">Collection</div><div class="gname">Sticker book</div><div class="gdesc">A tactile booklet concept for collected stickers, themed per season (Father's Day shown).</div></div>
+          </div>
+          <div class="gitem">
+            <img src="img/season_main.png" alt="Season main" class="tall-shot" loading="lazy">
+            <div class="ginfo"><div class="gtag">Hub</div><div class="gname">Season scene</div><div class="gdesc">The season home with collection / scene tabs and a clear progress goal.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PHASE: SHOP -->
+    <div class="phase reveal">
+      <div class="phase-label">
+      <div class="phase-num">07</div>
+      <div class="phase-label">
+        <span class="phase-name">Shop</span>
+      </div>
+      <p class="phase-desc">The shop moved from a plain list to the most colourful screen in the game. Against the calm, mostly monochrome rest of the app, it's meant to stand out — with time-limited offers, daily rewards, and seasonal bundles.</p>
+      <div class="ba">
+        <div class="ba-col">
+          <span class="ba-tag before">Before</span>
+          <img src="img/shop_old.png" alt="Shop — original" class="shot" loading="lazy">
+          <p class="ba-caption">Functional list, flat tone, nothing drawing the eye.</p>
+        </div>
+        <div class="ba-arrow">→</div>
+        <div class="ba-col">
+          <span class="ba-tag after">After</span>
+          <img src="img/shop_new.png" alt="Shop — redesign" class="shot" loading="lazy">
+          <p class="ba-caption">Vivid offers, daily avatars, clear time pressure and value.</p>
+        </div>
+      </div>
+      <div class="tall-wrap" style="margin-top:48px">
+        <div class="tall-col">
+          <img src="img/shop_full.png" alt="Full shop scroll" class="tall-shot" loading="lazy">
+          <p class="ba-caption">The full shop, top to bottom — offers, avatars, essentials, and the VIP tier.</p>
+        </div>
+        <div class="tall-col">
+          <img src="img/season_offer.png" alt="Season offer popup" class="tall-shot" loading="lazy">
+          <p class="ba-caption">Season-tied offer popup, colour-matched to the live event.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ CASE 02 : JIGSAW ============ -->
+<section id="case-jigsaw" class="case">
+  <div class="case-head">
+    <div class="case-kicker reveal"><span class="case-index">Project 02</span></div>
+    <h2 class="sec-title reveal">Jigsaw Puzzle</h2>
+    <p class="sec-intro reveal">A jigsaw puzzle game built around a <strong>simple, fluid UI</strong> that keeps the level artwork front and center. The goal was a calmer, more neutral look — so the palette steps back and lets the images lead. The real challenge was designing <strong>clear, legible icons</strong> for the game's new gameplay features.</p>
+    <div class="case-meta-row reveal">
+      <div class="cmeta"><span class="k">Role</span><span class="v">UI/UX Design</span></div>
+      <div class="cmeta"><span class="k">Type</span><span class="v">New project · mode exploration</span></div>
+      <div class="cmeta"><span class="k">Platform</span><span class="v">Mobile (iOS / Android)</span></div>
+      <div class="cmeta"><span class="k">Focus</span><span class="v">Simple UI, neutral palette, gameplay icons</span></div>
+    </div>
+  </div>
+
+  <div class="sec-inner">
+
+    <!-- PHASE: MENU VERSIONS -->
+    <div class="phase reveal">
+      <div class="phase-label">
+        <div class="phase-num">01</div>
+      <div class="phase-label">
+        <span class="phase-name">Main menu — three versions</span>
+      </div>
+      <p class="phase-desc">The home screen sets the tone of a puzzle game — a calm, one-at-a-time ritual, or a library to browse and collect. To compare the feel of each, I designed three navigation versions side by side.</p>
+      <div class="ver-grid">
+        <div class="ver-card">
+          <div class="ver-shot-wrap"><img src="img/j_linear.png" alt="Linear flow" class="ver-shot" loading="lazy"></div>
+          <div class="ver-info">
+            <div class="ver-no">Version 01</div>
+            <div class="ver-name">Linear flow</div>
+            <div class="ver-desc">The simplest path: just the current level's image, centered, with one Play button. No choice paralysis — you open the app and continue. Quiet and focused.</div>
+          </div>
+        </div>
+        <div class="ver-card">
+          <div class="ver-shot-wrap"><img src="img/j_collection.png" alt="Collection view" class="ver-shot" loading="lazy"></div>
+          <div class="ver-info">
+            <div class="ver-no">Version 02</div>
+            <div class="ver-name">Collection view</div>
+            <div class="ver-desc">Puzzles are bought and played as themed collections — Special Days, animals, cars. Built around discovery and a sense of "completing the set."</div>
+          </div>
+        </div>
+        <div class="ver-card">
+          <div class="ver-shot-wrap"><img src="img/j_mixed.png" alt="Mixed view" class="ver-shot" loading="lazy"></div>
+          <div class="ver-info">
+            <div class="ver-no">Version 03</div>
+            <div class="ver-name">Mixed view</div>
+            <div class="ver-desc">A hybrid: collection bands and single standalone puzzles share one feed. The richest option — browse sets and one-off images side by side.</div>
+          </div>
+        </div>
+      </div>
+      <div class="feature-callout">
+        <div class="fc-title">The linear flow, in motion</div>
+        <div class="fc-desc">The same minimal home doubles as a progress view: once you're inside a puzzle, it shows a <strong>live preview with a completion percentage</strong>, so the single image on the menu carries real state instead of being purely decorative.</div>
+        <div class="theme-show" style="margin-top:28px; grid-template-columns:1fr 1fr; max-width:620px;">
+          <div class="theme-col">
+            <span class="theme-tag light">Fresh start</span>
+            <img src="img/j_linear.png" alt="Linear start" class="theme-shot" loading="lazy">
+          </div>
+          <div class="theme-col">
+            <span class="theme-tag light" style="color:var(--streak);background:#FCEEE4">In progress · 75%</span>
+            <img src="img/j_linear_progress.png" alt="Linear in progress" class="theme-shot" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PHASE: GAMEPLAY THEMES -->
+    <div class="phase reveal">
+      <div class="phase-label">
+        <div class="phase-num">02</div>
+      <div class="phase-label">
+        <span class="phase-name">Gameplay — light &amp; dark</span>
+      </div>
+      <p class="phase-desc">The gameplay screen comes in light and dark themes, each tuned for its setting rather than just recoloured. The board, piece tray, and every control adapt while staying legible.</p>
+      <div class="theme-show">
+        <div class="theme-col">
+          <span class="theme-tag light">Light theme</span>
+          <img src="img/j_gameplay_light.png" alt="Gameplay light" class="theme-shot" loading="lazy">
+        </div>
+        <div class="theme-col">
+          <span class="theme-tag dark">Dark theme</span>
+          <img src="img/j_gameplay_dark.png" alt="Gameplay dark" class="theme-shot" loading="lazy">
+        </div>
+      </div>
+      <div class="feature-callout">
+        <div class="fc-title">Custom gameplay tools</div>
+        <div class="fc-desc">Beyond theming, I designed a set of <strong>gameplay-specific icons</strong> for the bottom bar — controls unique to a jigsaw game, like <strong>area selection</strong> and <strong>colour sorting</strong>, alongside edge-piece filters and a shuffle. Each had to read instantly at small sizes and work in both themes.</div>
       </div>
     </div>
 
@@ -420,31 +695,38 @@ footer { padding: 28px 64px; border-top: 1px solid var(--border); display: flex;
 <section id="contact">
   <div class="sec-inner">
     <div class="contact-grid">
-      <div class="contact-left">
-        <div class="eyebrow">Contact</div>
-        <div class="sec-title">Let's work<br>together.</div>
-        <p class="contact-desc">I'm open to new opportunities, collaborations, and conversations. Feel free to reach out via email or LinkedIn.</p>
+      <div>
+        <div class="eyebrow reveal">Contact</div>
+        <h2 class="sec-title reveal">Let's make<br>something good.</h2>
+        <p class="contact-desc reveal">I'm open to product &amp; UI/UX roles, collaborations, and good conversations. The fastest way to reach me is email or LinkedIn.</p>
       </div>
-      <div style="padding-top: 8px;">
-        <div class="contact-links">
-          <a href="/cdn-cgi/l/email-protection#c4a0a1a9adb6a7a5aaeaa1afadaa84a3a9a5ada8eaa7aba9" class="clink">
-            <div class="clink-icon">✉️</div>
-            <div class="clink-text">
-              <span class="clink-label">Email</span>
-              <span class="clink-val"><span class="__cf_email__" data-cfemail="d3b7b6bebaa1b0b2bdfdb6b8babd93b4beb2babffdb0bcbe">[email&#160;protected]</span></span>
-            </div>
-            <span class="clink-arrow">↗</span>
-          </a>
-          <a href="https://www.linkedin.com/in/ekin-demircan-0003a9188/" target="_blank" class="clink">
-            <div class="clink-icon">💼</div>
-            <div class="clink-text">
-              <span class="clink-label">LinkedIn</span>
-              <span class="clink-val">ekin-demircan</span>
-            </div>
-            <span class="clink-arrow">↗</span>
-          </a>
-        </div>
+      <div class="contact-links reveal">
+        <a href="mailto:demircan.ekin@gmail.com" class="clink">
+          <div class="clink-icon">✉</div>
+          <div class="clink-text"><span class="clink-label">Email</span><span class="clink-val">demircan.ekin@gmail.com</span></div>
+          <span class="clink-arrow">↗</span>
+        </a>
+        <a href="https://www.linkedin.com/in/ekin-demircan-0003a9188/" target="_blank" rel="noopener" class="clink">
+          <div class="clink-icon">in</div>
+          <div class="clink-text"><span class="clink-label">LinkedIn</span><span class="clink-val">ekin-demircan</span></div>
+          <span class="clink-arrow">↗</span>
+        </a>
       </div>
     </div>
   </div>
-</sec
+</section>
+
+<footer>
+  <div class="fl">Ekin Demircan</div>
+  <div class="fc">Product &amp; UI/UX Designer · Designed &amp; built by me · 2026</div>
+</footer>
+
+<script>
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>
