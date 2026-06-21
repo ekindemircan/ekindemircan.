@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=1000">
 <title>Ekin Demircan — Product & UI/UX Designer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -387,6 +387,57 @@ footer { padding: 32px clamp(20px, 5vw, 64px); border-top: 1px solid var(--line)
   .proj-card { grid-template-columns: auto 1fr; padding: 24px; gap: 18px; }
   .proj-arrow { display: none; }
   footer { flex-direction: column; text-align: center; }
+
+  /* phase-pair: yan yana → alt alta */
+  .phase-pair { grid-template-columns: 1fr; gap: clamp(40px, 8vw, 64px); }
+
+  /* ba-step (level end): yan yana → alt alta */
+  .ba-step { flex-direction: column; align-items: flex-start; }
+  .ba-step .ba-col.step-before,
+  .ba-step .ba-col.step-after { max-width: 220px; }
+
+  /* evo (main menu): ok gizle */
+  .evo-arrow { display: none; }
+
+  /* popup: alt alta, after görseller 2'li grid */
+  .popup-layout { flex-direction: column; gap: 24px; }
+  .popup-arrow-lg { display: none; }
+  .popup-after-grid { flex-wrap: wrap; }
+  .popup-after-grid .popup-img { flex: 0 0 calc(50% - 5px); }
+
+  /* events: meta 1 sütun, galeri 2'li, offset kaldır */
+  .ev-meta-row { grid-template-columns: 1fr; gap: 20px; }
+  .ev-gallery { flex-wrap: wrap; gap: 12px; }
+  .ev-gcol { flex: 0 0 calc(50% - 6px); }
+  .ev-gcol:nth-child(2),
+  .ev-gcol:nth-child(3) { margin-top: 0; }
+
+  /* season staircase: sarmalanabilir, offset kaldır */
+  .staircase-row { flex-wrap: wrap; justify-content: center; }
+  .staircase-col:nth-child(2),
+  .staircase-col:nth-child(3) { margin-top: 0; }
+
+  /* shop: tall görsel alta düş */
+  .shop-feature { border-radius: 14px; padding: clamp(20px, 5vw, 32px); }
+  .shop-layout { flex-direction: column; gap: 28px; }
+  .shop-right { flex: 0 0 auto; width: 200px; margin-top: 0; align-self: center; }
+  .shop-row { justify-content: center; }
+  .shop-row .shop-col:first-child { margin-right: clamp(16px, 3vw, 24px); }
+  .shop-row .ba-arrow { display: flex; }
+
+  /* jigsaw menu: padding küçült, staircase offset kaldır */
+  .jig-menu-feature { border-radius: 14px; padding: clamp(20px, 5vw, 32px); }
+  .jig-ver-gallery { flex-wrap: wrap; justify-content: center; gap: 28px; }
+  .jig-vg-col--collection,
+  .jig-vg-col--mixed { margin-top: 0; }
+  .jig-vg-pair .shot:last-child { margin-top: 0; }
+  .jig-vg-pair { flex-wrap: wrap; justify-content: center; }
+
+  /* gameplay: alt alta */
+  .theme-show { flex-direction: column; align-items: center; gap: 24px; }
+
+  /* icons */
+  .icons-sheet { width: 70%; }
 }
 @media(prefers-reduced-motion: reduce){
   *, *::before, *::after { animation: none !important; transition: none !important; }
